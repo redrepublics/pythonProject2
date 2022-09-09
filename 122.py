@@ -8,4 +8,7 @@ b = a+b
 print("b =", b)
 a = b-a
 print("а =", a)
+<<<<<<< HEAD
 #to and
+=======
+>>>>>>> origin/master
