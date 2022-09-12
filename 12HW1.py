@@ -1,36 +1,24 @@
-numbers_1 = '1 2 3 4 5 6 7'
-print(numbers_1)
-numbers_1_split = numbers_1.split()
-print(numbers_1.split())
+L = ["а", "б", "в", 1, 2, 3, 4]
+print (L[1:4])
+# ["б", "в", 1]
 
 
-colors = 'red green blue'
-colors_split = colors.split() # список цветов по отдельности
-print(colors.split())
-colors_joined = ' and '.join(colors_split) # объединение строк
-print(colors_joined)
-# red and green and blue
+L = ["а", "б", "в", 1, 2, 3, 4]
 
-numb= '1 2 3 4 5 6 7'
-print(numb)
-print(numb[0])
-print(numb[2])
-print(numb[4])
-print(numb[6])
-print(numb[8])
-print(numb[10])
-print(numb[12])
+print (L[::3])
+# ["а", 1, 4]
 
+L = ["а", "б", "в", 1, 2, 3, 4]
+print (L[3::-1])
+# [1, "в", "б", "а"]
 
+L = ["а", "б", "в", 1, 2, 3, 4]
+print (L[6:3:-1])
+# [4, 3, 2]
 
-#numbers = input("Введите числа через пробел:")
+string = input("Введите числа через пробел:")
+list_of_strings = string.split() # список строковых представлений чисел
+list_of_numbers = list(map(int, list_of_strings)) # список чисел
+print(sum(list_of_numbers[::3])) # sum() вычисляет сумму элементов списка
+#1 1 2 3 5 8 13 21 34 55
 
-#numbers_split = numbers.split()
-#numbers_lines = "\n".join(numbers_split)
-
-#print(numbers_lines)
-
-print()
-age = input("Введите возраст:")
-my_age = "Вам " + str(age) + " лет"
-print(my_age)
