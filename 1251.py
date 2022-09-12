@@ -1,10 +1,8 @@
-L = [1,1,2,3,2]
-b = set(L)
-b_list = list(b)
-print(b_list)
-# [1,2,3]!
-text = input("Введите текст:")
+a = input("Введите первую строку: ")
+b = input("Введите вторую строку: ")
 
-unique = list(set(text))
+a_set, b_set = set(a), set(b) # используем множественное присваивание
 
-print("Количество уникальных символов: ", len(unique))
+a_and_b = a_set.intersection(b_set)
+
+print(a_and_b)
