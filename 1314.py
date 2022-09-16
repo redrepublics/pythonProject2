@@ -11,9 +11,9 @@
 # все остальные годы — невисокосные.
 
 def is_leap_year(x):
-<<<<<<< HEAD
+
     return(x % 400 == 0) or (( x % 4 == 0) and ( x % 100 != 0))
-=======
+
     return(x % 400 == 0) or (( x % 4 == 0) and ( x % 100 != 0))
 
 a = 3
@@ -22,4 +22,4 @@ print (a>=1 and a>b)
 print (a>b or a<=b)
 print ((not(a>b)) or a!=b)
 print ((b!=4) or (not(a<=3)))
->>>>>>> 769ac50 (Merge remote-tracking branch 'origin/master')
+
