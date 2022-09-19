@@ -28,4 +28,4 @@ try:  # Добавляем конструкцию try-except для отлова
 except ValueError as except_print:
     print ("Ошибка ввода ",except_print)
 else:
-    print(f"Вы ввели правильное значение {odin_input}")#12
+    print(f"Вы ввели правильное значение {odin_input}")#1
