@@ -1,20 +1,25 @@
 import datetime
 now = datetime.datetime.now()
-year_stop = (now.year-1)
-print ("Сейчас мы расчитаем все високосные года, от вашего рождления до текущего года!")
+year_stop = now.year
+print ("Сейчас мы рассчитаем все високосные года, от вашего рождения до текущего года!")
 while True:
-    year_start = int(input("Введите год рождения.\n"))
-    if year_stop <= year_start:
+    try:
+        year_start = int(input("Введите год рождения:\n"))
+    except ValueError as except_print:
+        print("Вы ввели некорректное значение  ")#, except_print)
+        print("Пробуем снова.")
+        continue
+    if year_stop <= year_start or year_start == 0:
         print("Вы ввели текущий год, или смотрите в будущее.")
         print("Пробуем снова.")
         continue
     else:
         break
 for i in range(year_start, year_stop+1):
-    if i %400 ==0 or i %100 and i %4 !=0:
+    if (i % 4 == 0 and i % 100 != 0) or i % 400 == 0:
         print(i, "- високосный год")
-else:
-    print(i, "- не високосный год")
+    else:
+        print(i, "- не високосный год")
 
 
 
