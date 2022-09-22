@@ -1,4 +1,4 @@
-import datetime
+import datetime # импорт новой библиотеки
 now = datetime.datetime.now()
 year_stop = now.year
 print ("Сейчас мы рассчитаем все високосные года, от вашего рождения до текущего года!")
