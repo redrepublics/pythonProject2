@@ -1,9 +1,11 @@
 import math
+import gc
 #базовый список значаний, добавляем по надобности разработки, не забыв дополнить математику
 dict_func = ['+','-', ':', '*', '^']
 #start обработки ввода переменных
 #обработка на неправильный параметр, деление на ноль etc
 def run():
+    print("status on")
     while True:
         dict_func_res = input("Введите желаемое действие:\n Сложение  [+]\n Вычитание [-]\n Деление [:]\n Умножение [*]\n Возведение в степень [^]\n")
         if dict_func_res not in dict_func[:]:
@@ -95,6 +97,8 @@ while True:
         if nod != 'да':
             print("status off")
             i = 0
+            import gc
+            gc.collect()
             break
         else:
             run()
