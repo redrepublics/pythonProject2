@@ -1,5 +1,4 @@
 import math
-import gc
 #базовый список значаний, добавляем по надобности разработки, не забыв дополнить математику
 dict_func = ['+','-', ':', '*', '^']
 #start обработки ввода переменных
@@ -16,7 +15,7 @@ def run():
 
     while True:
         try:
-            a = int(input("Введите первое число:\n"))
+            a = float(input("Введите первое число:\n"))
         except ValueError as except_print:
             print("Вы ввели некорректное значение.", except_print)
             print("Пробуем снова.")
@@ -32,7 +31,7 @@ def run():
 
     while True:
         try:
-            b = int(input("Введите второе число:\n"))
+            b = float(input("Введите второе число:\n"))
         except ValueError as except_print:
             print("Вы ввели некорректное значение.", except_print)
             print("Пробуем снова.")
@@ -94,6 +93,7 @@ while True:
         run()
     elif i != 0:
         nod = input('Будем считать снова? \n Для продолжения введите "да", для завершения - любой символ.\n')
+        import gc
         if nod != 'да':
             print("status off")
             i = 0
@@ -101,6 +101,7 @@ while True:
             gc.collect()
             break
         else:
+            gc.collect()
             run()
     else:
         print("Что-то пошло не так")
