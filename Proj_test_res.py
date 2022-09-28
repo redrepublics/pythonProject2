@@ -1,11 +1,12 @@
 import math
-import gc
 #базовый список значаний, добавляем по надобности разработки, не забыв дополнить математику
 dict_func = ['+','-', ':', '*', '^']
+ver_1 = 0.2
 #start обработки ввода переменных
 #обработка на неправильный параметр, деление на ноль etc
 def run():
     print("status on")
+    print(f"v.{ver_1}")
     while True:
         dict_func_res = input("Введите желаемое действие:\n Сложение  [+]\n Вычитание [-]\n Деление [:]\n Умножение [*]\n Возведение в степень [^]\n")
         if dict_func_res not in dict_func[:]:
@@ -16,7 +17,7 @@ def run():
 
     while True:
         try:
-            a = int(input("Введите первое число:\n"))
+            a = float(input("Введите первое число:\n").replace(',', '.'))#меняем запятую на точку, раз уж решили выводить числа с плавающей точкой
         except ValueError as except_print:
             print("Вы ввели некорректное значение.", except_print)
             print("Пробуем снова.")
@@ -32,7 +33,7 @@ def run():
 
     while True:
         try:
-            b = int(input("Введите второе число:\n"))
+            b = float(input("Введите второе число\n").replace(',', '.'))
         except ValueError as except_print:
             print("Вы ввели некорректное значение.", except_print)
             print("Пробуем снова.")
@@ -93,14 +94,17 @@ while True:
         i += 1
         run()
     elif i != 0:
-        nod = input('Будем считать снова? \n Для продолжения введите "да", для завершения - любой символ.\n')
-        if nod != 'да':
+        nod = input('Будем считать снова? \n Для продолжения введите "д",\n для завершения - любой символ.\n')
+        import gc
+        nod = nod.lower()
+        if nod != 'д':
             print("status off")
             i = 0
             import gc
             gc.collect()
             break
         else:
+            gc.collect()
             run()
     else:
         print("Что-то пошло не так")
