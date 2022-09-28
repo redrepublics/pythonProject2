@@ -97,7 +97,7 @@ while True:
         nod = input('Будем считать снова? \n Для продолжения введите "д",\n для завершения - любой символ.\n')
         import gc
         nod = nod.lower()
-        if nod != 'д':
+        if nod != 'д' or 'l':
             print("status off")
             i = 0
             import gc
