@@ -80,12 +80,13 @@ def print_res (dict_func_res):
 #fin
 
 #вызов основной рабочей функции
-yes_start = ('да')
+
 print_res(dict_func_res)
 
-# while True:
-#     nod = input('Запустить калькулятор, или повторить запуск:\n "да" или любой символ чтобы остановить.\n')
-#     if nod in yes_start[0]:
-#         print_res(dict_func_res)
-#     else:
-#         break
+while True:
+    nod = input('Будем считать снова? \n "да" или любой символ чтобы остановить.\n')
+    if nod != 'да':
+        break
+    else:
+        print_res(dict_func_res)
+
