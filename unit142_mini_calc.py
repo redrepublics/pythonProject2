@@ -1,5 +1,6 @@
 import math
 sum_vis = ['-','+', '/', '*', 'корень', 'степень']
+
 while True:
     z = input("\033[31m Выберите действие:\n 0.Вычитание [-] \n 1.Cложение [+]\n 2.Деление [/]\n 3.Умножение [*]\n 4.Получение корня [корень]\n 5.Возведение в степень [степень]\n\033[0m")
     if z in sum_vis:
@@ -18,9 +19,13 @@ elif z in sum_vis[5]:
     b = int(input("Введите степень возведения\n"))
 else:
     print()
+
+
 z = str(z)
 a = int(a)
 b = int(b)
+
+
 def my_step (a,b):
     print(f"Получаем: {a} в степени {b} = ",a**b)
 def my_mnog (a,b):
@@ -39,9 +44,9 @@ if z in sum_vis[0]:
 elif z in sum_vis[1]:
     my_plus(a,b)
 elif z in sum_vis[2]:
-    my_del(a, b)
+    my_del(a,b)
 elif z in sum_vis[3]:
-    my_mnog(a, b)
+    my_mnog(a,b)
 elif z in sum_vis[4]:
     my_cor(a)
 elif z in sum_vis[5]:
