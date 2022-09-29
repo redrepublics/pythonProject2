@@ -43,5 +43,5 @@ while True:
     else:
         print("Что-то пошло не так.")
 
-# print (num_random)
+
 
