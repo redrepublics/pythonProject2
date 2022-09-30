@@ -29,10 +29,10 @@ while True:
     elif num_user != num_random and count_c < count_c_max:
         count_c += 1
         print(f"Не угадали.\nПопытка №{count_c}.")
-        if count_c == 3 and num_random <= 5:  # меньше или равно
+        if count_c == count_c_max and num_random <= 5:  # меньше или равно
             print("\033[37mGamemaster: Число может быть в первой части последовательности.\033[0m")
             continue
-        elif count_c == 3 and num_random >= 5:  # больше или равно
+        elif count_c == count_c_max and num_random >= 5:  # больше или равно
             print("\033[37mGamemaster: Число может быть во второй части последовательности.\033[0m")
             continue
         continue
