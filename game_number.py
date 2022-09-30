@@ -1,4 +1,4 @@
-#добавить список на осове рандома, вычислить число и дать его переменной для подсчета подсказки
+
 #задаем переменные и импортируем библиотеки
 import random
 from random import randint
@@ -7,11 +7,7 @@ from random import randint
 num_ranodom_min, num_ranodom_max = 1, 10
 count_c, count_c_max, =  1, 3
 num_random = randint(num_ranodom_min, num_ranodom_max)
-# def display():
-#     xs = []
-#     for i in range(9): # This is just to tell you how to create a list.
-#         xs.append(i)
-#     return xs
+num_random_ave = num_ranodom_max / 2
 
 
 #начало интерактива
@@ -35,10 +31,10 @@ while True:
     elif num_user != num_random and count_c < count_c_max:
         count_c += 1
         print(f"Не угадали.\nПопытка №{count_c}.")
-        if count_c == count_c_max and num_random <= 5:  # меньше или равно
+        if count_c == count_c_max and num_random <= num_random_ave:  # меньше или равно
             print("\033[37mGamemaster: Число может быть в первой части последовательности.\033[0m")
             continue
-        elif count_c == count_c_max and num_random >= 5:  # больше или равно
+        elif count_c == count_c_max and num_random >= num_random_ave:  # больше или равно
             print("\033[37mGamemaster: Число может быть во второй части последовательности.\033[0m")
             continue
         continue
