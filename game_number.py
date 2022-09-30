@@ -1,3 +1,4 @@
+#добавить список на осове рандома, вычислить число и дать его переменной для подсчета подсказки
 #задаем переменные и импортируем библиотеки
 import random
 from random import randint
@@ -6,6 +7,11 @@ from random import randint
 num_ranodom_min, num_ranodom_max = 1, 10
 count_c, count_c_max, =  1, 3
 num_random = randint(num_ranodom_min, num_ranodom_max)
+# def display():
+#     xs = []
+#     for i in range(9): # This is just to tell you how to create a list.
+#         xs.append(i)
+#     return xs
 
 
 #начало интерактива
