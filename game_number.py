@@ -5,16 +5,16 @@ from random import randint
 
 #переменные условия игры
 num_ranodom_min, num_ranodom_max = 1, 10
-count_c, count_c_max, =  1, 3
+count_c, count_c_max, =  num_ranodom_min, 3
 num_random = randint(num_ranodom_min, num_ranodom_max)
 num_random_ave = num_ranodom_max / 2
 
 
 #начало интерактива
-print(f"""Давайте поиграем в игру 'Убеги от горного тролля'.
+print(f"""\033[34mДавайте поиграем в игру 'Убеги от горного тролля'.
 На пути у Вас дверь с волшебным замком. Замок заколдован.
-Gamemaster подскзаывает: Назовите волбешное число от {num_ranodom_min} до {num_ranodom_max} и тогда вы спасетесь!
-У вас всего {count_c_max} попытки, иначе тролль догонит вас и съест.""")
+Gamemaster подскзаывает: Назовите волшебное число от {num_ranodom_min} до {num_ranodom_max} и тогда вы спасетесь!
+У вас всего {count_c_max} попытки, иначе тролль догонит вас и съест.\033[0m""")
 #print (num_random) #для тестов
 
 #цикл с основными условиями
@@ -26,16 +26,16 @@ while True:
         continue
     if (num_user not in range(num_ranodom_min, num_ranodom_max)) and count_c != count_c_max:
         count_c += 1
-        print(f"Ваше число не в диапазоне условий игры!\n Попытка №{count_c}")
+        print(f"Ваше волшебное число слишком большое!\n Попытка №{count_c}")
         continue
     elif num_user != num_random and count_c < count_c_max:
         count_c += 1
         print(f"Не угадали.\nПопытка №{count_c}.")
         if count_c == count_c_max and num_random <= num_random_ave:  # меньше или равно
-            print("\033[37mGamemaster: Число может быть в первой части последовательности.\033[0m")
+            print("\033[34mGamemaster: Число может быть в первой части последовательности.\033[0m")
             continue
         elif count_c == count_c_max and num_random >= num_random_ave:  # больше или равно
-            print("\033[37mGamemaster: Число может быть во второй части последовательности.\033[0m")
+            print("\033[34mGamemaster: Число может быть во второй части последовательности.\033[0m")
             continue
         continue
     elif num_user == num_random:
