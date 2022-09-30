@@ -1,4 +1,4 @@
-my_file = open('E:\python_read_file.txt','rt', encoding="utf-8")
+my_file = open(r'E:\python_read_file.txt','rt', encoding="utf-8")
 for line in my_file:
     print(line)
 my_file.close()
