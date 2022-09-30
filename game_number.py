@@ -2,7 +2,7 @@
 import random
 from random import randint
 
-num_random, count_c, count_c_max = randint(1, 10), 1, 3
+num_random, count_c, count_c_max, = randint(1, 10), 1, 3
 
 #начало интерактива
 print(f"""Давайте поиграем в игру 'Убеги от горного тролля'.
@@ -46,3 +46,5 @@ while True:
         break
     else:
         print("Что-то пошло не так.")
+
+
