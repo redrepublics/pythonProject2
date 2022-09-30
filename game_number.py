@@ -1,13 +1,14 @@
 #задаем переменные и импортируем библиотеки
 import random
 from random import randint
-num_random = randint(1,10)
-count_c = 1
+
+num_random, count_c, count_c_max = randint(1, 10), 1, 3
+
 #начало интерактива
-print('Давайте поиграем в игру "Убеги от горного тролля".')
-print('На пути у Вас дверь с волшебным замком. Замок заколдован.')
-print('Gamemaster подскзаывает: Назовите волбешное число от 1 до 10 и тогда вы спасетесь!')
-print('У вас всего 3 попытки, иначе тролль догонит вас и съест.')
+print(f"""Давайте поиграем в игру 'Убеги от горного тролля'.
+На пути у Вас дверь с волшебным замком. Замок заколдован.
+Gamemaster подскзаывает: Назовите волбешное число от 1 до 10 и тогда вы спасетесь!
+У вас всего {count_c_max} попытки, иначе тролль догонит вас и съест.""")
 #print (num_random) #для тестов
 
 #цикл с основными условиями
@@ -15,18 +16,21 @@ while True:
     try:
         num_user = int(input("Введите волшебное число: "))
     except ValueError as except_print:
-        print("В игре можно использовать только целые числа! Попытка не засчитана.")#, except_print
-        print(f"Попытка №{count_c}")
+        print(f"В игре можно использовать только целые числа! Попытка не засчитана.\n Попытка №{count_c}")
         continue
-    if (num_user > 10 or num_user < 1) and count_c != 3:
+    if (num_user > 10 or num_user < 1) and count_c != count_c_max:
         count_c += 1
-        print("Посмотрите подсказку Gamemaster-а. Вы напрасно потратили попытку. ")  # , except_print
-        print(f"Попытка №{count_c}")
+        print(f"В игре можно использовать только целые числа! Попытка не засчитана.\n Попытка №{count_c}")
         continue
-    elif num_user != num_random and count_c < 3:
+    elif num_user != num_random and count_c < count_c_max:
         count_c += 1
-        print("Не угадали.")
-        print(f"Попытка №{count_c}")
+        print(f"Не угадали.\nПопытка №{count_c}.")
+        if count_c == 3 and num_random <= 5:  # меньше или равно
+            print("\033[37mGamemaster: Число может быть в первой части последовательности.\033[0m")
+            continue
+        elif count_c == 3 and num_random >= 5:  # больше или равно
+            print("\033[37mGamemaster: Число может быть во второй части последовательности.\033[0m")
+            continue
         continue
     elif num_user == num_random:
         print("Вы угадали! Ура! Дверь распахнулась и вы убежали от тролля.")
@@ -37,11 +41,8 @@ while True:
         else:
             print("Вы угадали с третьей попытки.")
         break
-    elif count_c == 3:
+    elif count_c == count_c_max:
         print(f"Вы проиграли. Тролль догнал вас и ударил по голове кулаком. Волшебная цифра была {num_random}.")
         break
     else:
         print("Что-то пошло не так.")
-
-
-
