@@ -20,7 +20,7 @@ while True:
         continue
     if (num_user > 10 or num_user < 1) and count_c != count_c_max:
         count_c += 1
-        print(f"В игре можно использовать только целые числа! Попытка не засчитана.\n Попытка №{count_c}")
+        print(f"Ваше число не в диапазоне условий игры! Попытка не засчитана.\n Попытка №{count_c}")
         continue
     elif num_user != num_random and count_c < count_c_max:
         count_c += 1
