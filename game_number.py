@@ -2,16 +2,23 @@
 #задаем переменные и импортируем библиотеки
 import random
 from random import randint
+from datetime import datetime
+import time
 
 #переменные условия игры
 num_ranodom_min, num_ranodom_max = 1, 10
 count_c, count_c_max, =  num_ranodom_min, 3
 num_random = randint(num_ranodom_min, num_ranodom_max)
 num_random_ave = num_ranodom_max / 2
-username_game = input("Как вас зовут?")
+start_time = datetime.now()
+
+username_game = input("Давайте познакомимся. Как Вас зовут? ")
+if username_game == '':
+    username_game = 'Аноним'
 
 #начало интерактива
-print(f"""\033[34mДавайте поиграем в игру,'Убеги от горного тролля'.
+print(f"""\033[34m\nПриветствую вас {username_game}!
+Давайте поиграем в игру,'Убеги от горного тролля'.
 На пути у Вас дверь с волшебным замком. Замок заколдован.
 Gamemaster подскзаывает: {username_game}, назовите волшебное число от {num_ranodom_min} до {num_ranodom_max} и тогда вы спасетесь!
 У вас всего {count_c_max} попытки, иначе тролль догонит вас и съест.\033[0m""")
@@ -53,4 +60,6 @@ while True:
     else:
         print("Что-то пошло не так.")
 
-
+print(f"""\nНемного статистики {username_game}:
+Использованно колличтество ходов {count_c} из {count_c_max} возможных.
+Игровое время заняло {datetime.now() - start_time}""")
