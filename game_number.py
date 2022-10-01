@@ -1,4 +1,4 @@
-
+#возможно предусмотреть максимальное время игры
 #задаем переменные и импортируем библиотеки
 import random
 from random import randint
@@ -11,7 +11,7 @@ count_c, count_c_max, =  num_ranodom_min, 3
 num_random = randint(num_ranodom_min, num_ranodom_max)
 num_random_ave = num_ranodom_max / 2
 start_time = datetime.now()
-
+#даем id игрока по имени, для возможной интеграции куда-то
 username_game = input("Давайте познакомимся. Как Вас зовут? ")
 if not username_game:
     username_game = 'Аноним'
@@ -62,4 +62,4 @@ while True:
 
 print(f"""\nНемного статистики, {username_game}:
 Использовано количество ходов {count_c} из {count_c_max} возможных.
-Игровое время заняло {datetime.now() - start_time}""")
+Игровое время заняло {datetime.now() - start_time}.""")
