@@ -24,9 +24,9 @@ while True:
     except ValueError as except_print:
         print(f"В игре можно использовать только целые числа! Попытка не засчитана.\n Попытка №{count_c}")
         continue
-    if (num_user not in range(num_ranodom_min, num_ranodom_max)) and count_c != count_c_max:
+    if (num_user not in range(num_ranodom_min, num_ranodom_max+1)) and count_c != count_c_max:
         count_c += 1
-        print(f"Ваше волшебное число слишком большое!\n Попытка №{count_c}")
+        print(f"Ваше волшебное число не подходит к условиям игры!\n Попытка №{count_c}")
         continue
     elif num_user != num_random and count_c < count_c_max:
         count_c += 1
