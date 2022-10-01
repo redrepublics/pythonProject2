@@ -22,11 +22,11 @@ while True:
     try:
         num_user = int(input("Введите волшебное число: "))
     except ValueError as except_print:
-        print(f"В игре можно использовать только целые числа! Попытка не засчитана.\n Попытка №{count_c}")
+        print(f"В игре можно использовать только целые числа, без запятой или точки!\nПопытка не засчитана.\n Попытка №{count_c}")
         continue
     if (num_user not in range(num_ranodom_min, num_ranodom_max+1)) and count_c != count_c_max:
         count_c += 1
-        print(f"Ваше волшебное число не подходит к условиям игры!\n Попытка №{count_c}")
+        print(f"Ваше волшебное число не подходит к условиям игры!\nЧисла доллжны быть от {num_ranodom_min} до {num_ranodom_max}.\nПопытка №{count_c}")
         continue
     elif num_user != num_random and count_c < count_c_max:
         count_c += 1
@@ -42,7 +42,7 @@ while True:
         print("Вы угадали! Ура! Дверь распахнулась и вы убежали от тролля.")
         if count_c == num_ranodom_min:
             print(f"Ваше звание БОЛЬШОЙ МОЛОДЕЦ! Вы угадали с {count_c} попытки.")
-        elif count_c == num_ranodom_max - 1:
+        elif count_c == 2:
             print(f"Ваше звание МОЛОДЕЦ! Вы угадали со {count_c} попытки.")
         else:
             print(f"Вы угадали с {count_c} попытки.")
