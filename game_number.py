@@ -10,7 +10,6 @@ num_ranodom_min, num_ranodom_max = 1, 10
 count_c, count_c_max, =  num_ranodom_min, 3
 num_random = randint(num_ranodom_min, num_ranodom_max)
 num_random_ave = num_ranodom_max / 2
-start_time = datetime.now()
 #даем id игрока по имени, для возможной интеграции куда-то
 username_game = input("Давайте познакомимся. Как Вас зовут? ")
 if not username_game:
@@ -22,8 +21,9 @@ print(f"""\033[34m\nПриветствую вас {username_game}!
 На пути у Вас дверь с волшебным замком. Замок заколдован.
 Gamemaster подскзаывает: {username_game}, назовите волшебное число от {num_ranodom_min} до {num_ranodom_max} и тогда вы спасетесь!
 У вас всего {count_c_max} попытки, иначе тролль догонит вас и съест.\033[0m""")
-#print (num_random) #для тестов
+#print(num_random) #для тестов
 
+start_time = datetime.now()
 #цикл с основными условиями
 while True:
     try:
@@ -49,7 +49,7 @@ while True:
         print(f"\033[32m{username_game}, вы угадали! Ура! Дверь распахнулась и вы убежали от тролля.\033[0m")
         if count_c == num_ranodom_min:
             print(f"Ваше звание БОЛЬШОЙ МОЛОДЕЦ! Вы угадали с {count_c} попытки.")
-        elif count_c == 2:
+        elif count_c == num_ranodom_min + 1:
             print(f"Ваше звание МОЛОДЕЦ! Вы угадали со {count_c} попытки.")
         else:
             print(f"Вы угадали с {count_c} попытки.")
