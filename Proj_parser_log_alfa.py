@@ -4,6 +4,7 @@
 
 #тут импортируем все модули
 import os
+import sys
 import glob
 import time
 from datetime import datetime
@@ -11,6 +12,13 @@ from datetime import datetime
 #задаем уникальную переменную для файла вывода
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
+
+
+
+# for filename in os.listdir(os.path.dirname(os.path.abspath(__file__))):
+#   base_file, ext = os.path.splitext(filename)
+#   if ext == ".xml":
+#     os.rename(filename, base_file + ".txt")
 
 # with open(os.path.join('E:', 'test.txt'), 'rt', encoding="utf-8") as file:
 
