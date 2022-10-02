@@ -1,21 +1,27 @@
 import os
 import time
 from datetime import datetime
+from datetime import datetime
+now = datetime.now()
+current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 
 
-with open(os.path.join('E:', 'python_read_file.txt'), 'rt', encoding="utf-8") as file:
-    text_error = 'Error'
-    lines = file.readlines()
-    for line in text_error:
-        print("Мы нашли ошику")
-        my_result = open(os.path.join('E:', 'log.txt'), 'w+', encoding="utf-8")
-        my_result.write(line)
-
-
-# print(my_file.readlines())
-
-# my_file = open('E:\python_test1.txt','w', encoding="utf-8")
-# my_file.write('тестовый тест')
-# print('!!!!!!!!!!!', file=my_file)
-#
-# my_file.close('E:\python_test1.txt')
+with open('python_read_file.txt', 'rt', encoding="utf-8") as file:
+# with open(os.path.join('E:', 'python_read_file.txt'), 'rt', encoding="utf-8") as file:
+    error_per = file.readlines()
+    # print(error_per)
+    error_search = 'Error'
+    final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
+    if final:
+        os.mkdir("logs")
+        my_result = open('logs\log_test_final.txt', 'w', encoding="utf-8")
+        my_result.write(final)
+        print('Ошибки обнаружены и записаны.')
+        my_result.close()
+        file.close()
+        old_file = os.path.join("E:", "log_test_final.txt")
+        new_file = os.path.join("E:", f"aspo_error{current_time}.txt")
+        os.rename(old_file, new_file)
+    else:
+        print('Ошибок нет')
+        file.close()
