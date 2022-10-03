@@ -21,10 +21,9 @@ def folder_dir():
             continue
         else:
             oldbase = os.path.splitext(filename)
-            newname = infilename.replace('.txt', '.xml')
+            newname = infilename.replace('.xml', '.txt')
             output = os.rename(infilename, newname)
 
-folder_dir()
 
 def files_sum():
     # каталог текстовых файлов
@@ -53,8 +52,10 @@ def files_sum():
                     # после обработки дописываем в общий файл
                     fw.write(line)
 
+folder_dir()
+time.sleep(10)
 files_sum()
-
+time.sleep(10)
 try:
     with open(os.path.join(folder, 'test.txt'), 'rt',) as file:
         error_per = file.readlines()
