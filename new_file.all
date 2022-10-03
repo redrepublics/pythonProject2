@@ -1,0 +1,342 @@
+
+
+------------ E:aspo_error22_10_02_13_34_59.txt
+
+<LogEntry Time="2022-08-31 10:37:55" Type="Error" Level="1"><Sender ClassName="TVChatI"/><Message>Ошибка инициализации VChat 16</Message></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:00" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:03" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:06" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:09" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:12" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:15" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:18" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:21" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:24" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:28" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:31" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:34" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:37" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:40" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:43" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:46" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:49" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:52" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:55" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:58" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:01" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:04" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TForm"/><Error><ErrorMessage>Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName=""/><Error><ErrorMessage>Exception =
+
+</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TfmBigSQL"/><Error><ErrorMessage>Закрытие приложения.Ошибка: Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+
+------------ E:aspo_error22_10_02_13_37_36.txt
+
+<LogEntry Time="2022-08-31 10:37:55" Type="Error" Level="1"><Sender ClassName="TVChatI"/><Message>Ошибка инициализации VChat 16</Message></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:00" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:03" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:06" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:09" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:12" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:15" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:18" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:21" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:24" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:28" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:31" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:34" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:37" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:40" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:43" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:46" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:49" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:52" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:55" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:58" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:01" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:04" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TForm"/><Error><ErrorMessage>Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName=""/><Error><ErrorMessage>Exception =
+
+</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TfmBigSQL"/><Error><ErrorMessage>Закрытие приложения.Ошибка: Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+
+------------ E:aspo_error22_10_02_14_26_46.txt
+
+<LogEntry Time="2022-08-31 10:37:55" Type="Error" Level="1"><Sender ClassName="TVChatI"/><Message>Ошибка инициализации VChat 16</Message></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:00" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:03" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:06" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:09" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:12" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:15" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:18" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:21" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:24" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:28" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:31" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:34" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:37" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:40" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:43" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:46" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:49" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:52" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:55" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:58" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:01" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:04" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TForm"/><Error><ErrorMessage>Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName=""/><Error><ErrorMessage>Exception =
+
+</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TfmBigSQL"/><Error><ErrorMessage>Закрытие приложения.Ошибка: Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+
+------------ E:aspo_error22_10_02_15_23_00.txt
+
+<LogEntry Time="2022-08-31 10:37:55" Type="Error" Level="1"><Sender ClassName="TVChatI"/><Message>Ошибка инициализации VChat 16</Message></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:00" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:03" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:06" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:09" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:12" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:15" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:18" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:21" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:24" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:28" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:31" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:34" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:37" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:40" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:43" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:46" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:49" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:52" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:55" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:58" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:01" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:04" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TForm"/><Error><ErrorMessage>Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName=""/><Error><ErrorMessage>Exception =
+
+</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TfmBigSQL"/><Error><ErrorMessage>Закрытие приложения.Ошибка: Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+
+------------ E:aspo_error22_10_02_15_23_30.txt
+
+<LogEntry Time="2022-08-31 10:37:55" Type="Error" Level="1"><Sender ClassName="TVChatI"/><Message>Ошибка инициализации VChat 16</Message></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:00" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:03" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:06" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:09" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:12" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:15" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:18" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:21" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:24" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:28" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:31" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:34" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:37" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:40" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:43" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:46" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:49" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:52" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:55" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:58" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:01" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:04" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TForm"/><Error><ErrorMessage>Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName=""/><Error><ErrorMessage>Exception =
+
+</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TfmBigSQL"/><Error><ErrorMessage>Закрытие приложения.Ошибка: Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+
+------------ E:aspo_error22_10_02_18_34_55.txt
+
+<LogEntry Time="2022-08-31 10:37:55" Type="Error" Level="1"><Sender ClassName="TVChatI"/><Message>Ошибка инициализации VChat 16</Message></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:00" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:03" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:06" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:09" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:12" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:15" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:18" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:21" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:24" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:28" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:31" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:34" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:37" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:40" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:43" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:46" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:49" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:52" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:55" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:40:58" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:01" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:04" Type="Error" Level="1"><Sender ClassName="TfrTPRJY"/><Error><ErrorMessage></ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TForm"/><Error><ErrorMessage>Сервер недоступен</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName=""/><Error><ErrorMessage>Exception =
+
+</ErrorMessage></Error></LogEntry>
+
+<LogEntry Time="2022-08-31 10:41:08" Type="Error" Level="1"><Sender ClassName="TfmBigSQL"/><Error><ErrorMessage>Закрытие приложения.Ошибка: Сервер недоступен</ErrorMessage></Error></LogEntry>
