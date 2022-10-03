@@ -11,6 +11,7 @@ format_start = '.xml'
 format_finish = '.txt'
 name_data_file = 'test.txt'
 log_test_final = 'log_test_final.txt'
+test_xml = 'test.xml'
 
 def folder_dir():
     for filename in os.listdir(folder):
@@ -92,6 +93,6 @@ else:
         new_file = os.path.join(folder, f"aspo_error{current_time}.rtf")
         os.rename(old_file, new_file)
         folder_dir_return()
-        os.remove(os.path.join(folder, "test.xml"))
+        os.remove(os.path.join(folder, test_xml))
     else:
         print('Ошибок нет')
