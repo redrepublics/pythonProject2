@@ -24,6 +24,15 @@ def folder_dir():
             newname = infilename.replace('.xml', '.txt')
             output = os.rename(infilename, newname)
 
+def folder_dir_return():
+    for filename in os.listdir(folder):
+        infilename = os.path.join(folder,filename)
+        if not os.path.isfile(infilename):
+            continue
+        else:
+            oldbase = os.path.splitext(filename)
+            newname = infilename.replace('.txt', '.xml')
+            output = os.rename(infilename, newname)
 
 def files_sum():
     # каталог текстовых файлов
@@ -71,7 +80,8 @@ else:
         my_result.close()
         file.close()
         old_file = os.path.join(folder, "log_test_final.txt")
-        new_file = os.path.join(folder, f"aspo_error{current_time}.txt")
+        new_file = os.path.join(folder, f"aspo_error{current_time}.rtf")
         os.rename(old_file, new_file)
+        folder_dir_return()
     else:
         print('Ошибок нет')
