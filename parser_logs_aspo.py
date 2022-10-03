@@ -6,6 +6,7 @@ from datetime import datetime
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 folder = os.getcwd()
+ver = '1.2'
 
 def folder_dir():
     for filename in os.listdir(folder):
@@ -56,14 +57,19 @@ def files_sum():
 
 #блок старта парсера, с временной задержкой
 
-print('Парсек логов АСПО запущен.')
-print('Происходит конвертация данных...')
+print(f"""Парсер логов АСПО  версии {ver} запущен.
+Не выключайте парсер. По окончанию работ он выключиться самостоятельно 
+и выгрузит результирущий файл формата aspo_error(время создания файла).rtf
+в положив его в ту папку откуда был запущен.""")
+print('Этап конвертации данных запущен.')
 folder_dir()
 time.sleep(10)
-print('Формирование результирующего файла.')
+print("""Этап формирования блока для анализа запущен.
+Если в анализе участвует более 1000 файлов, это процесс
+может занять наибольшее время.""")
 files_sum()
 time.sleep(10)
-print('Анализ данных запущен.')
+print('Идет анализ данных.')
 try:
     with open(os.path.join(folder, 'test.txt'), 'rt',) as file:
         error_per = file.readlines()
