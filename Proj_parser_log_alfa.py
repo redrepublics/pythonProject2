@@ -13,12 +13,8 @@ from datetime import datetime
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 folder = os.getcwd()
+pattern = '*.txt'
 
-
-# for filename in os.listdir(os.path.dirname(os.path.abspath(__file__))):
-#   base_file, ext = os.path.splitext(filename)
-#   if ext == ".xml":
-#     os.rename(filename, base_file + ".txt")
 
 # with open(os.path.join('E:', 'test.txt'), 'rt', encoding="utf-8") as file:
 
@@ -30,6 +26,16 @@ def folder_dir():
         else:
             oldbase = os.path.splitext(filename)
             newname = infilename.replace('.xml', '.txt')
+            output = os.rename(infilename, newname)
+
+def folder_dir_revers():
+    for filename in os.listdir(folder):
+        infilename = os.path.join(folder, filename)
+        if not os.path.isfile(infilename):
+            continue
+        else:
+            oldbase = os.path.splitext(filename)
+            newname = infilename.replace('.txt', '.xml')
             output = os.rename(infilename, newname)
 
 
@@ -46,17 +52,41 @@ def pars_def():
         error_search = 'Error'
         final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
         if final:
-            my_result = open(os.path.join(folder, 'log_test_final.txt'), 'w', encoding="utf-8")
+            my_result = open(os.path.join(folder, 'new_file.txt'), 'w', encoding="utf-8")
             my_result.write(final)
             print('Ошибки обнаружены и записаны.')
             my_result.close()
             file.close()
-            old_file = os.path.join(folder, "log_test_final.txt")
+            old_file = os.path.join(folder, "new_file.txt")
             new_file = os.path.join(folder, f"aspo_error{current_time}.txt")
             os.rename(old_file, new_file)
         else:
             print('Ошибок нет')
             file.close()
 
+def folder_result():
+    glob_path = os.path.join(path, pattern)
+    list_files = glob.glob(glob_path)
+    # расширение нового файла установим как '.all'
+    new_file = 'new_file.txt'
+
+    # чтение и запись
+    if list_files:
+        for file_name in list_files:
+            # открываем файл из 'list_files' на чтение
+            # а новый общий файл 'new_file' на дозапись
+            with open(file_name, 'r') as fr, open(new_file, 'a') as fw:
+                # дописываем строку с названием файла
+                fw.write(f'\n\n------------ {file_name}\n\n')
+
+                # читаем данные построчно
+                for line in fr:
+                    # если нужно, то здесь обрабатываем каждую строку 'line'
+                    # после обработки дописываем в общий файл
+                    fw.write(line)
+
+
 folder_dir()
 pars_def()
+folder_result()
+folder_dir_revers()
