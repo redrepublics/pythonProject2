@@ -13,3 +13,5 @@ def folder_dir():
             newname = infilename.replace('.xml', '.txt')
             output = os.rename(infilename, newname)
 
+
+folder_dir()
