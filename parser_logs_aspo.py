@@ -68,7 +68,7 @@ else:
     error_search = 'Error' or 'error'
     final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
     if final:
-        my_result = open(os.path.join(folder, 'log_test_final.txt'), 'w', encoding="utf-8")
+        my_result = open(os.path.join(folder, 'log_test_final.txt'), 'w')#, encoding="utf-8")
         my_result.write(final)
         print('Ошибки обнаружены и записаны.')
         my_result.close()
@@ -77,5 +77,6 @@ else:
         new_file = os.path.join(folder, f"aspo_error{current_time}.rtf")
         os.rename(old_file, new_file)
         folder_dir_return()
+        os.remove(f"{folder}, {file}")
     else:
         print('Ошибок нет')
