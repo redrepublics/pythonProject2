@@ -77,6 +77,6 @@ else:
         new_file = os.path.join(folder, f"aspo_error{current_time}.rtf")
         os.rename(old_file, new_file)
         folder_dir_return()
-        os.remove(f"{folder}, {file}")
+        os.remove(os.path.join(folder, "test.xml"))
     else:
         print('Ошибок нет')
