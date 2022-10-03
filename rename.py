@@ -10,7 +10,7 @@ def folder_dir():
             continue
         else:
             oldbase = os.path.splitext(filename)
-            newname = infilename.replace('.xml', '.txt')
+            newname = infilename.replace('.txt', '.xml')
             output = os.rename(infilename, newname)
 
 
