@@ -43,7 +43,7 @@ def folder_dir_revers():
 #меткой указанной выше, не забыв закрыть рабочие файлы, дабы не допустить утечку памяти при работе
 def pars_def():
     try:
-        with open(os.path.join(folder, 'test.txt'), 'rt',) as file:
+        with open(os.path.join(folder, 'new_file.txt'), 'rt',) as file:
             error_per = file.readlines()
     except FileNotFoundError:
         print(f"Запрашиваемый файл не найден")
@@ -65,6 +65,7 @@ def pars_def():
             file.close()
 
 def folder_result():
+    path = folder
     glob_path = os.path.join(path, pattern)
     list_files = glob.glob(glob_path)
     # расширение нового файла установим как '.all'
