@@ -1,22 +1,15 @@
-#код нацелен на папку запуска скрипта (сделать потом именно так перед конвертацией механизма
-#посмотреть в py to exe, можно ли принтануть юзергайд
-#если папки log нет, она там создается. Если есть, действие по всей схеме не происходит. Проработать этот момент.
-
-import os
-import glob
-import time
-from datetime import datetime
+#ниверсальный кросплатформенный парсер текстовых файлов, ищет событие по Error
+#сливает несколько файлов из фоормата xml в txt, после получения результата возвращает все как было
+import os,glob,time
 from datetime import datetime
 
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 folder = os.getcwd()
 
-# with open(os.path.join('E:', 'test.txt'), 'rt', encoding="utf-8") as file:
-
 def folder_dir():
     for filename in os.listdir(folder):
-        infilename = os.path.join(folder,filename)
+        infilename = os.path.join(folder, filename)
         if not os.path.isfile(infilename):
             continue
         else:
@@ -26,7 +19,7 @@ def folder_dir():
 
 def folder_dir_return():
     for filename in os.listdir(folder):
-        infilename = os.path.join(folder,filename)
+        infilename = os.path.join(folder, filename)
         if not os.path.isfile(infilename):
             continue
         else:
@@ -61,6 +54,7 @@ def files_sum():
                     # после обработки дописываем в общий файл
                     fw.write(line)
 
+#блок старта парсера, с временной задержкой
 folder_dir()
 time.sleep(10)
 files_sum()
