@@ -1,20 +1,27 @@
-import os
-
+import glob, os
 folder = os.getcwd()
-root = folder
+# каталог текстовых файлов
+# измените на свой
 path = folder
-files = os.listdir(path)
-result = os.path.join(root, 'result.inf')  # Создать путь к окончательному текстовому файлу (result.txt)
+# паттерн поиска файлов по расширению
+pattern = '*.txt'
 
-with open(result, 'w', encoding='utf-8-sig') as r:
-    for i in range(1, 30):
-        print(i)
-        fname = str(i) + '.txt'
-        filename = os.path.join(path, fname)
-        with open(filename, 'r', encoding='utf-8-sig') as f:
-            for line in f:
-                if '《' not in line:  # Пропустите строку, содержащую номер заголовка "
-                    r.writelines(line)
-            r.write('\n')
+glob_path = os.path.join(path, pattern)
+list_files = glob.glob(glob_path)
+# расширение нового файла установим как '.all'
+new_file = 'new_file.txz'
 
+# чтение и запись
+if list_files:
+    for file_name in list_files:
+        # открываем файл из 'list_files' на чтение
+        # а новый общий файл 'new_file' на дозапись
+        with open(file_name, 'r') as fr, open(new_file, 'a') as fw:
+            # дописываем строку с названием файла
+            fw.write(f'\n\n------------ {file_name}\n\n')
 
+            # читаем данные построчно
+            for line in fr:
+                # если нужно, то здесь обрабатываем каждую строку 'line'
+                # после обработки дописываем в общий файл
+                fw.write(line)
