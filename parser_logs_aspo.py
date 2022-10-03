@@ -55,10 +55,15 @@ def files_sum():
                     fw.write(line)
 
 #блок старта парсера, с временной задержкой
+
+print('Парсек логов АСПО запущен.')
+print('Происходит конвертация данных...')
 folder_dir()
 time.sleep(10)
+print('Формирование результирующего файла.')
 files_sum()
 time.sleep(10)
+print('Анализ данных запущен.')
 try:
     with open(os.path.join(folder, 'test.txt'), 'rt',) as file:
         error_per = file.readlines()
