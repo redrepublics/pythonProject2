@@ -6,7 +6,11 @@ from datetime import datetime
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 folder = os.getcwd()
-ver = '1.2'
+ver = '1.3'
+format_start = '.xml'
+format_finish = '.txt'
+name_data_file = 'test.txt'
+log_test_final = 'log_test_final.txt'
 
 def folder_dir():
     for filename in os.listdir(folder):
@@ -15,7 +19,7 @@ def folder_dir():
             continue
         else:
             oldbase = os.path.splitext(filename)
-            newname = infilename.replace('.xml', '.txt')
+            newname = infilename.replace(format_start, format_finish)
             output = os.rename(infilename, newname)
 
 def folder_dir_return():
@@ -25,7 +29,7 @@ def folder_dir_return():
             continue
         else:
             oldbase = os.path.splitext(filename)
-            newname = infilename.replace('.txt', '.xml')
+            newname = infilename.replace(format_finish, format_start)
             output = os.rename(infilename, newname)
 
 def files_sum():
@@ -71,7 +75,7 @@ files_sum()
 time.sleep(10)
 print('Идет анализ данных.')
 try:
-    with open(os.path.join(folder, 'test.txt'), 'rt',) as file:
+    with open(os.path.join(folder, name_data_file), 'rt',) as file:
         error_per = file.readlines()
 except FileNotFoundError:
     print('Нет файла для работы')
@@ -79,12 +83,12 @@ else:
     error_search = 'Error' or 'error'
     final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
     if final:
-        my_result = open(os.path.join(folder, 'log_test_final.txt'), 'w')#, encoding="utf-8")
+        my_result = open(os.path.join(folder, log_test_final), 'w')#, encoding="utf-8")
         my_result.write(final)
         print('Ошибки обнаружены и записаны.')
         my_result.close()
         file.close()
-        old_file = os.path.join(folder, "log_test_final.txt")
+        old_file = os.path.join(folder, log_test_final)
         new_file = os.path.join(folder, f"aspo_error{current_time}.rtf")
         os.rename(old_file, new_file)
         folder_dir_return()
