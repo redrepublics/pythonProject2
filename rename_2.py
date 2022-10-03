@@ -9,7 +9,7 @@ pattern = '*.txt'
 glob_path = os.path.join(path, pattern)
 list_files = glob.glob(glob_path)
 # расширение нового файла установим как '.all'
-new_file = 'new_file.txz'
+new_file = 'test.txt'
 
 # чтение и запись
 if list_files:
