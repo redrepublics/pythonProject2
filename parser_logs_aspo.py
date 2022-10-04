@@ -6,13 +6,22 @@ from datetime import datetime
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 folder = os.getcwd()
-ver = '1.0.0.3 alfa'
+ver = '1.0.0.4 alfa'
 format_start = '.xml'
 format_finish = '.txt'
 format_rtf = '.rtf'
 name_data_file = 'test.txt'
 log_test_final = 'log_test_final.txt'
 test_xml = 'test.xml'
+my_dir = 'pars_result'
+
+def dir_cr():
+    check_folder = os.path.isdir(my_dir)
+    if not check_folder:
+        os.makedirs(my_dir)
+        print("Создана папка : ", my_dir)
+    else:
+        print(my_dir, "уже существует.")
 
 def folder_dir():
     for filename in os.listdir(folder):
@@ -77,6 +86,7 @@ print(f"""{ver}.
 Не выключайте парсер. По окончанию работ он выключиться самостоятельно 
 и выгрузит результирущий файл формата aspo_error(время создания файла).txt
 в положив его в ту папку откуда был запущен.""")
+dir_cr()
 print('Этап конвертации данных запущен.')
 folder_dir()
 time.sleep(10)
@@ -86,7 +96,7 @@ files_sum()
 time.sleep(10)
 print('Идет анализ данных.')
 try:
-    with open(os.path.join(folder, name_data_file), 'rt',) as file:
+    with open(os.path.join(folder, my_dir, name_data_file), 'rt',) as file:
         error_per = file.readlines()
 except FileNotFoundError:
     print('Нет файла для работы')
@@ -94,18 +104,16 @@ else:
     error_search = 'Error' or 'error'
     final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
     if final:
-        my_result = open(os.path.join(folder, log_test_final), 'w')#, encoding="utf-8")
+        my_result = open(os.path.join(folder, my_dir, log_test_final), 'w')#, encoding="utf-8")
         my_result.write(final)
         print('Ошибки обнаружены и записаны.')
         my_result.close()
         file.close()
-        # encodings_files = open(os.path.join(folder, log_test_final), 'w', encoding="Windows-1251")
-        # encodings_files.close()
-        old_file = os.path.join(folder, log_test_final)
-        new_file = os.path.join(folder, f"aspo_error{current_time}.rtf")
+        old_file = os.path.join(folder, my_dir, log_test_final)
+        new_file = os.path.join(folder, my_dir, f"aspo_error{current_time}.rtf")
         os.rename(old_file, new_file)
         folder_dir_return()
-        os.remove(os.path.join(folder, test_xml))
-        folder_dir_return_rtf()
+        os.remove(os.path.join(folder, my_dir, test_xml))
+
     else:
         print('Ошибок нет')
