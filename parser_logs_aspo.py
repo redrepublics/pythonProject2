@@ -9,6 +9,7 @@ folder = os.getcwd()
 ver = '1.0.0.3 alfa'
 format_start = '.xml'
 format_finish = '.txt'
+format_rtf = '.rtf'
 name_data_file = 'test.txt'
 log_test_final = 'log_test_final.txt'
 test_xml = 'test.xml'
@@ -31,6 +32,16 @@ def folder_dir_return():
         else:
             oldbase = os.path.splitext(filename)
             newname = infilename.replace(format_finish, format_start)
+            output = os.rename(infilename, newname)
+
+def folder_dir_return_rtf():
+    for filename in os.listdir(folder):
+        infilename = os.path.join(folder, filename)
+        if not os.path.isfile(infilename):
+            continue
+        else:
+            oldbase = os.path.splitext(filename)
+            newname = infilename.replace(format_rtf, format_finish)
             output = os.rename(infilename, newname)
 
 def files_sum():
@@ -94,9 +105,8 @@ else:
         old_file = os.path.join(folder, log_test_final)
         new_file = os.path.join(folder, f"aspo_error{current_time}.rtf")
         os.rename(old_file, new_file)
-        res_start = open(new_file, 'rt', encoding="Windows-1251")
-        res_start.close()
         folder_dir_return()
         os.remove(os.path.join(folder, test_xml))
+        folder_dir_return_rtf()
     else:
         print('Ошибок нет')
