@@ -113,7 +113,7 @@ else:
         old_file = os.path.join(folder,  log_test_final)
         new_file = os.path.join(folder, f"aspo_error{current_time}.txt")
         os.rename(old_file, new_file)
-        shutil.copy(os.path.join(folder, new_file), os.path.join(folder, my_dir))
+        shutil.move(os.path.join(folder, new_file), os.path.join(folder, my_dir))
         folder_dir_return()
         os.remove(os.path.join(folder, test_xml))
 
