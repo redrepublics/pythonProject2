@@ -1,6 +1,7 @@
 #ниверсальный кросплатформенный парсер текстовых файлов, ищет событие по Error
 #сливает несколько файлов из фоормата xml в txt, после получения результата возвращает все как было
-import os,glob,time
+import os, glob, time
+
 from datetime import datetime
 
 now = datetime.now()
@@ -12,6 +13,7 @@ format_finish = '.txt'
 name_data_file = 'test.txt'
 log_test_final = 'log_test_final.txt'
 test_xml = 'test.xml'
+
 
 def folder_dir():
     for filename in os.listdir(folder):
@@ -62,7 +64,8 @@ def files_sum():
 
 #блок старта парсера, с временной задержкой
 
-print(f"""Парсер логов АСПО  версии {ver} запущен.
+print(f"""ver: {ver} aspo
+Парсер запущен.
 Не выключайте парсер. По окончанию работ он выключиться самостоятельно 
 и выгрузит результирущий файл формата aspo_error(время создания файла).rtf
 в положив его в ту папку откуда был запущен.""")

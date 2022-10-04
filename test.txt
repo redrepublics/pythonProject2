@@ -115,3 +115,131 @@
 ------------ C:\Users\Zver\PycharmProjects\pythonProject3\1.0.txt
 
 1.0
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\1.0.txt
+
+1.0
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\test.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\1.0.txt
+
+1.0
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\new_file.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\new_file.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\new_file.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\new_file.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\1.0.txt
+
+1.0
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\test.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\1.0.txt
+
+1.0
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\new_file.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\new_file.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\new_file.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\new_file.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\OutFile.txt
+
+
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\1.0.txt
+
+1.0
+
+------------ C:\Users\Zver\PycharmProjects\pythonProject3\1.0.txt
+
+1.0
