@@ -2,6 +2,7 @@
 #сливает несколько файлов из фоормата xml в txt, после получения результата возвращает все как было
 import os,glob,time
 from datetime import datetime
+import shutil
 
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
@@ -96,7 +97,7 @@ files_sum()
 time.sleep(10)
 print('Идет анализ данных.')
 try:
-    with open(os.path.join(folder, my_dir, name_data_file), 'rt',) as file:
+    with open(os.path.join(folder, name_data_file), 'rt',) as file:
         error_per = file.readlines()
 except FileNotFoundError:
     print('Нет файла для работы')
@@ -104,16 +105,17 @@ else:
     error_search = 'Error' or 'error'
     final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
     if final:
-        my_result = open(os.path.join(folder, my_dir, log_test_final), 'w')#, encoding="utf-8")
+        my_result = open(os.path.join(folder, log_test_final), 'w')#, encoding="utf-8")
         my_result.write(final)
         print('Ошибки обнаружены и записаны.')
         my_result.close()
         file.close()
-        old_file = os.path.join(folder, my_dir, log_test_final)
-        new_file = os.path.join(folder, my_dir, f"aspo_error{current_time}.rtf")
+        old_file = os.path.join(folder,  log_test_final)
+        new_file = os.path.join(folder, f"aspo_error{current_time}.txt")
         os.rename(old_file, new_file)
+        shutil.copy(os.path.join(folder, new_file), os.path.join(folder, my_dir))
         folder_dir_return()
-        os.remove(os.path.join(folder, my_dir, test_xml))
+        os.remove(os.path.join(folder, test_xml))
 
     else:
         print('Ошибок нет')
