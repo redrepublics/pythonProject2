@@ -7,7 +7,7 @@ from datetime import datetime
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 folder = os.getcwd()
-ver = '1.3 alfa'
+ver = '1.0.0.3 alfa'
 format_start = '.xml'
 format_finish = '.txt'
 name_data_file = 'test.txt'
