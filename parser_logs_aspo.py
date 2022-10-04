@@ -84,7 +84,7 @@ else:
     error_search = 'Error' or 'error'
     final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
     if final:
-        my_result = open(os.path.join(folder, log_test_final), 'w')#, encoding="utf-8")
+        my_result = open(os.path.join(folder, log_test_final), 'w', encoding='Windows-1251')#, encoding="utf-8")
         my_result.write(final)
         print('Ошибки обнаружены и записаны.')
         my_result.close()
