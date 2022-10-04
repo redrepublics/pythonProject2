@@ -89,7 +89,7 @@ else:
         print('Ошибки обнаружены и записаны.')
         my_result.close()
         file.close()
-        encodings_files = open(os.path.join(folder, log_test_final), 'rt', encoding="Windows-1251")
+        encodings_files = open(os.path.join(folder, log_test_final), 'w', encoding="Windows-1251")
         encodings_files.close()
         old_file = os.path.join(folder, log_test_final)
         new_file = os.path.join(folder, f"aspo_error{current_time}.rtf")
