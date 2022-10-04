@@ -1,13 +1,13 @@
-#ниверсальный кросплатформенный парсер текстовых файлов, ищет событие по Error
-#сливает несколько файлов из фоормата xml в txt, после получения результата возвращает все как было
-import os,glob,time
+#импорт нужных для функционала библиотек
+import os, glob, time, shutil
 from datetime import datetime
-import shutil
 
+
+#блок глобальных переменных
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 folder = os.getcwd()
-ver = '1.0.0.4 alfa'
+ver = '1.0.0.5 alfa'
 format_start = '.xml'
 format_finish = '.txt'
 format_rtf = '.rtf'
@@ -16,14 +16,16 @@ log_test_final = 'log_test_final.txt'
 test_xml = 'test.xml'
 my_dir = 'pars_result'
 
+#поиск и создание результирующей папки
 def dir_cr():
     check_folder = os.path.isdir(my_dir)
     if not check_folder:
         os.makedirs(my_dir)
         print("Создана папка : ", my_dir)
     else:
-        print(my_dir, "уже существует.")
+        print("Папка", my_dir, "уже существует.")
 
+#переводим xml в txt
 def folder_dir():
     for filename in os.listdir(folder):
         infilename = os.path.join(folder, filename)
@@ -34,6 +36,7 @@ def folder_dir():
             newname = infilename.replace(format_start, format_finish)
             output = os.rename(infilename, newname)
 
+#переводим txt в xml
 def folder_dir_return():
     for filename in os.listdir(folder):
         infilename = os.path.join(folder, filename)
@@ -54,6 +57,7 @@ def folder_dir_return_rtf():
             newname = infilename.replace(format_rtf, format_finish)
             output = os.rename(infilename, newname)
 
+#формирование результирующего файла
 def files_sum():
     # каталог текстовых файлов
     # измените на свой
@@ -81,8 +85,7 @@ def files_sum():
                     # после обработки дописываем в общий файл
                     fw.write(line)
 
-#блок старта парсера, с временной задержкой
-
+#блок старта парсера
 print(f"""{ver}.
 Не выключайте парсер. По окончанию работ он выключится самостоятельно 
 и выгрузит результирущий файл формата aspo_error(время создания файла).txt
@@ -101,13 +104,13 @@ try:
         error_per = file.readlines()
 except FileNotFoundError:
     print('Нет файла для работы')
+    time.sleep(5)
 else:
     error_search = 'Error' or 'error'
     final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
     if final:
-        my_result = open(os.path.join(folder, log_test_final), 'w')#, encoding="utf-8")
+        my_result = open(os.path.join(folder, log_test_final), 'w')
         my_result.write(final)
-        print('Ошибки обнаружены и записаны.')
         my_result.close()
         file.close()
         old_file = os.path.join(folder,  log_test_final)
@@ -116,6 +119,10 @@ else:
         shutil.move(os.path.join(folder, new_file), os.path.join(folder, my_dir))
         folder_dir_return()
         os.remove(os.path.join(folder, test_xml))
+        print('Ошибки обнаружены и записаны.')
+        time.sleep(5)
 
     else:
-        print('Ошибок нет')
+        print('Ошибок не обнаружено.')
+        time.sleep(5)
+#окончание блока парсера
