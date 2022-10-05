@@ -11,8 +11,8 @@ import pyodbc
 driver_id = pyodbc.drivers()
 print(driver_id)
 drever_id_sql = driver_id[1]
-server= 'ZVERDVD-OKOC0U9\SQLEXPRESS'
-database = 'srw_688'
+server = 'localhost'
+database = 'SRW_688'
 
 def connect_sql():
     connectionString = ("Driver={"+drever_id_sql+"};" "Server="+server+";" "Database="+database+";" "Trusted_Connection=yes;")
