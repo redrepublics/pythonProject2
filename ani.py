@@ -7,7 +7,8 @@ drever_id_sql = driver_id[1]
 server= 'ZVERDVD-OKOC0U9\SQLEXPRESS'
 database = 'srw_688'
 
-connectionString = ("Driver={SQL Server Native Client 11.0};" "Server="+server+";" "Database="+database+";" "Trusted_Connection=yes;")
+
+connectionString = ("Driver={"+drever_id_sql+"};" "Server="+server+";" "Database="+database+";" "Trusted_Connection=yes;")
 connection = pyodbc.connect(connectionString, autocommit=True)
 dbCursor = connection.cursor()
 requestString = ('select top(10)*, LName from tUserDetails order by RecTime DESC')
