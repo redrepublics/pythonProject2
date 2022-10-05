@@ -1,16 +1,27 @@
-# import pyodbc
-#
-# driver_id_list = pyodbc.drivers()
-# driver_id = driver_id_list[3]
-# print(driver_id_list)
-# print(driver_id)
-from pymssql import connect
-server = r'ZVERDVD-OKOC0U9\SQLEXPRESS' # I've also tried MORGANT-PC\SQLEXPRESS and SQLEXPRESS2014
-username = '.\sa'
-password = 'daorliar'
-master_database_name = 'srw_688'
-port = 1433
-server_args = {'host': server, 'user': username, 'password': password,
-               'database': master_database_name, 'port': port} # I've tried having the first key be both host and server, because pymssql's docs are unclear on the difference.
-master_database = connect(**server_args)
+import pyodbc
+
+
+driver_id = pyodbc.drivers()
+print(driver_id)
+drever_id_sql = driver_id[1]
+server= 'ZVERDVD-OKOC0U9\SQLEXPRESS'
+database = 'srw_688'
+
+connectionString = ("Driver={SQL Server Native Client 11.0};" "Server="+server+";" "Database="+database+";" "Trusted_Connection=yes;")
+connection = pyodbc.connect(connectionString, autocommit=True)
+dbCursor = connection.cursor()
+requestString = ('select top(10)*, LName from tUserDetails order by RecTime DESC')
+dbCursor.execute(requestString)
+connection.commit()
+for respond_sql in dbCursor:
+    print(respond_sql)
+
+
+
+
+
+
+
+
+
 
