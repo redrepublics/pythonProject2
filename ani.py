@@ -11,6 +11,7 @@ import pyodbc
 driver_id = pyodbc.drivers()
 print(driver_id)
 drever_id_sql = driver_id[1]
+print(driver_id[1])
 server = 'localhost'
 database = 'SRW_688'
 

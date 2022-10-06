@@ -1,31 +1,25 @@
-# вариант утилиты для сверки данных
-# добавить инпуты переменных для подключения к нужной базе данных, а не дефолтной
-# попробовать вариант чтения скрипта из файла
-# путь из get == добавление необходимых импортов
-# найти возможность подгрузки параметров коннекта из файла на пк (сделать ini)
-
-
 import pyodbc
-import configparser  # импортируем библиотеку
+import configparser
 
-driver_id = pyodbc.drivers()
-drever_id_sql = driver_id[1]
 
-config = configparser.ConfigParser()  # создаём объекта парсера
-config.read("sql_tools.ini")  # читаем конфиг
-server_list = list()
-server_list.append(config["connect"]["Server"])  # обращаемся как к обычному словарю!
-database_conf = list()
-database_conf.append(config["connect"]["Database"])
+# блок sql_tools.ini
+ini_files = "sql_tools.ini"
+config = configparser.ConfigParser()
+config.read(ini_files)  # читаем конфиг
+driver_id_sql = list()
+server_id = list()
+database_id = list()
+driver_id_sql.append(config["default"]["Driver"])
+server_id.append(config["connect"]["Server"])
+database_id.append(config["connect"]["Database"])
+driver = driver_id_sql[0]
+server = server_id[0]
+database = database_id[0]
 
-server = server_list[0]
-database = database_conf[0]
 
-# server = 'localhost'
-# database = 'SRW_688'
 
 def connect_sql():
-    connectionString = ("Driver={"+drever_id_sql+"};" "Server="+server+";" "Database="+database+";" "Trusted_Connection=yes;")
+    connectionString = ("Driver={" + driver + "};" "Server=" + server + ";" "Database=" + database + ";" "Trusted_Connection=yes;")
     connection = pyodbc.connect(connectionString, autocommit=True)
     dbCursor = connection.cursor()
     requestString = ('select top(10)*, LName from tUserDetails order by RecTime DESC')
