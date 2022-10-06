@@ -1,3 +1,5 @@
+#добавить проверку наличия ini
+#добавить действие бэкапа базы
 import pyodbc
 import configparser
 
@@ -15,7 +17,6 @@ database_id.append(config["connect"]["Database"])
 driver = driver_id_sql[0]
 server = server_id[0]
 database = database_id[0]
-
 
 
 def connect_sql():
