@@ -6,13 +6,23 @@
 
 
 import pyodbc
-
+import configparser  # импортируем библиотеку
 
 driver_id = pyodbc.drivers()
-print(driver_id)
 drever_id_sql = driver_id[1]
-server = 'localhost'
-database = 'SRW_688'
+
+config = configparser.ConfigParser()  # создаём объекта парсера
+config.read("sql_tools.ini")  # читаем конфиг
+server_list = list()
+server_list.append(config["connect"]["Server"])  # обращаемся как к обычному словарю!
+database_conf = list()
+database_conf.append(config["connect"]["Database"])
+
+server = server_list[0]
+database = database_conf[0]
+
+# server = 'localhost'
+# database = 'SRW_688'
 
 def connect_sql():
     connectionString = ("Driver={"+drever_id_sql+"};" "Server="+server+";" "Database="+database+";" "Trusted_Connection=yes;")
