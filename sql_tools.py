@@ -1,5 +1,7 @@
 #добавить проверку наличия ini
 #добавить действие бэкапа базы
+#реализовать чтение запроса из файла *.sql
+#обрабатывать ошибки при неправильных параметрах в ini
 import pyodbc
 import configparser
 
@@ -23,6 +25,7 @@ def connect_sql():
     connectionString = ("Driver={" + driver + "};" "Server=" + server + ";" "Database=" + database + ";" "Trusted_Connection=yes;")
     connection = pyodbc.connect(connectionString, autocommit=True)
     dbCursor = connection.cursor()
+#началоблока запросов
     requestString = ('select top(10)*, LName from tUserDetails order by RecTime DESC')
     requestString2 = ('select @@VERSION')
 
