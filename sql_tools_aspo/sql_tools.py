@@ -7,12 +7,7 @@ import os
 import configparser
 from sql_tools_class import Request
 folder = os.getcwd()
-filesql = 'ver.sql'
-open(os.path.join(folder, name_data_file), 'rt',)
-
-Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
-Request2 = Request('select @@VERSION')
-Request3 = Request(open(os.path.join(folder, filesql, 'r')))
+file_ver = 'ver.sql'
 
 # блок sql_tools.ini
 ini_files = "sql_tools.ini"
@@ -33,14 +28,11 @@ def connect_sql():
     connectionString = ("Driver={" + driver + "};" "Server=" + server + ";" "Database=" + database + ";" "Trusted_Connection=yes;")
     connection = pyodbc.connect(connectionString, autocommit=True)
     dbCursor = connection.cursor()
-#началоблока запросов
-    # requestString = ('select top(10)*, LName from tUserDetails order by RecTime DESC')
-    # requestString2 = ('select @@VERSION')
 
     while True:
         global request_user
         try:
-            request_user = int(input("Запрос в tUserDetails............[1]\nУзнать версию сервера MS SQL.....[2]\n"))
+            request_user = int(input("Запрос в tUserDetails............[1]\nУзнать версию сервера MS SQL.....[2]\nУзнать версию базы АСПО..........[3]\n"))
         except ValueError or NameError:
             print('Я так не умею')
             break
@@ -56,8 +48,31 @@ def connect_sql():
             for respond_sql in dbCursor:
                 print(respond_sql)
             break
+#выполняем скрипт sql, предварительно читая его из файла
+        elif request_user == 3:
+            with open(file_ver, 'r', encoding='utf-8') as sql_file:
+                result_iterator = dbCursor.execute(sql_file.read())
+                for respond_sql in result_iterator:
+                    print(respond_sql)
+                    continue
+                break
+
+
+            # dbCursor.execute(Request3.Get_RequestString())
+            # connection.commit()
+            # for respond_sql in dbCursor:
+            #     print(respond_sql)
+            # break
         else:
             print('Что-то пошло не так.')
+
+
+
+
+#началоблока запросов
+Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
+Request2 = Request('select @@VERSION')
+# Request3 = Request()
 
 connect_sql()
 
