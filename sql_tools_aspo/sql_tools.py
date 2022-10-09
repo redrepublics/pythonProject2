@@ -3,11 +3,16 @@
 #реализовать чтение запроса из файла *.sql
 #обрабатывать ошибки при неправильных параметрах в ini
 import pyodbc
+import os
 import configparser
 from sql_tools_class import Request
+folder = os.getcwd()
+filesql = 'ver.sql'
+open(os.path.join(folder, name_data_file), 'rt',)
 
 Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
 Request2 = Request('select @@VERSION')
+Request3 = Request(open(os.path.join(folder, filesql, 'r')))
 
 # блок sql_tools.ini
 ini_files = "sql_tools.ini"
