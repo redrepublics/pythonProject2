@@ -16,13 +16,17 @@ config.read(ini_files)  # читаем конфиг
 driver_id_sql = list()
 server_id = list()
 database_id = list()
+rel_version_id = list()
 driver_id_sql.append(config["default"]["Driver"])
 server_id.append(config["connect"]["Server"])
 database_id.append(config["connect"]["Database"])
+rel_version_id.append(config["version"]["Version"])
 driver = driver_id_sql[0]
 server = server_id[0]
 database = database_id[0]
-rel_version = 'версия БД 3.1.1.8'
+rel_version = rel_version_id[0]
+
+
 
 
 def connect_sql():
@@ -54,31 +58,20 @@ def connect_sql():
             with open(file_ver, 'r', encoding='utf-8') as sql_file:
                 result_iterator = dbCursor.execute(sql_file.read())
                 for respond_sql in result_iterator:
-                    print(respond_sql)
+                    # print(respond_sql)
                     if rel_version in respond_sql:
                         print(f"У вас последняя {respond_sql}")
                     else:
-                        print(f"Версию можно обновить. Последняя {rel_version}. Ваша: {respond_sql}")
+                        print(f"Версию можно обновить.\nПоследняя {rel_version}.\nВаша: {respond_sql}")
                     continue
                 break
-
-
-            # dbCursor.execute(Request3.Get_RequestString())
-            # connection.commit()
-            # for respond_sql in dbCursor:
-            #     print(respond_sql)
-            # break
         else:
             print('Что-то пошло не так.')
-
-
 
 
 #началоблока запросов
 Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
 Request2 = Request('select @@VERSION')
-# Request3 = Request()
-
 connect_sql()
 
 
