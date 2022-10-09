@@ -62,7 +62,7 @@ def connect_sql():
                     if rel_version in respond_sql:
                         print(f"У вас последняя {respond_sql}")
                     else:
-                        print(f"Версию можно обновить.\nПоследняя {rel_version}.\nВаша: {respond_sql}")
+                        print(f"Версию можно обновить.\nПоследняя {rel_version}\nВаша: {respond_sql}")
                         # print("Делаем резервную копию базы данных")
                         # dbCursor.execute(Request3.Get_RequestString())
                         # connection.commit()
