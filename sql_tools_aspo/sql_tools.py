@@ -56,9 +56,9 @@ def connect_sql():
                 for respond_sql in result_iterator:
                     print(respond_sql)
                     if rel_version in respond_sql:
-                        print(f"У вас последняя версия {respond_sql}")
+                        print(f"У вас последняя {respond_sql}")
                     else:
-                        print(f"Версию можно обновить. Последняя версия {rel_version}. Ваша версия: {respond_sql}")
+                        print(f"Версию можно обновить. Последняя {rel_version}. Ваша: {respond_sql}")
                     continue
                 break
 
