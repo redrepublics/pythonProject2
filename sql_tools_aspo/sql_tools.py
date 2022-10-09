@@ -63,6 +63,15 @@ def connect_sql():
                         print(f"У вас последняя {respond_sql}")
                     else:
                         print(f"Версию можно обновить.\nПоследняя {rel_version}.\nВаша: {respond_sql}")
+                        # print("Делаем резервную копию базы данных")
+                        # dbCursor.execute(Request3.Get_RequestString())
+                        # connection.commit()
+                        # for respond_sql in dbCursor:
+                        #     if respond_sql is True:
+                        #         print(respond_sql)
+                        #     else:
+                        #         print("Сделать резервную копию нельзя.")
+                        #     continue
                     continue
                 break
         else:
@@ -72,6 +81,8 @@ def connect_sql():
 #началоблока запросов
 Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
 Request2 = Request('select @@VERSION')
+# Request3 = Request("BACKUP DATABASE [SRW_688] TO  DISK = N"'C:\SRW_688.bak'" WITH NOFORMAT, NOINIT")
+
 connect_sql()
 
 
