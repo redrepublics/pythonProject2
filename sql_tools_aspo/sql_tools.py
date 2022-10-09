@@ -4,7 +4,10 @@
 #обрабатывать ошибки при неправильных параметрах в ini
 import pyodbc
 import configparser
+from sql_tools_class import Request
 
+Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
+Request2 = Request('select @@VERSION')
 
 # блок sql_tools.ini
 ini_files = "sql_tools.ini"
@@ -26,8 +29,8 @@ def connect_sql():
     connection = pyodbc.connect(connectionString, autocommit=True)
     dbCursor = connection.cursor()
 #началоблока запросов
-    requestString = ('select top(10)*, LName from tUserDetails order by RecTime DESC')
-    requestString2 = ('select @@VERSION')
+    # requestString = ('select top(10)*, LName from tUserDetails order by RecTime DESC')
+    # requestString2 = ('select @@VERSION')
 
     while True:
         global request_user
@@ -37,13 +40,13 @@ def connect_sql():
             print('Я так не умею')
             break
         if request_user == 1:
-            dbCursor.execute(requestString)
+            dbCursor.execute(Request1.Get_RequestString())
             connection.commit()
             for respond_sql in dbCursor:
                 print(respond_sql)
             break
         elif request_user == 2:
-            dbCursor.execute(requestString2)
+            dbCursor.execute(Request2.Get_RequestString())
             connection.commit()
             for respond_sql in dbCursor:
                 print(respond_sql)
