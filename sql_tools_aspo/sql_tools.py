@@ -5,6 +5,7 @@
 import pyodbc
 import os
 import configparser
+import glob
 from sql_tools_class import Request
 #наполнение скриптами
 file_ver = 'ver.sql'
@@ -73,13 +74,11 @@ def connect_sql():
                         print("Делаем резервную копию базы данных")
                         dbCursor.execute(Request3.Get_RequestString())
                         connection.commit()
-                        for respond_sql in dbCursor:
-                             if respond_sql is True:
-                                 print(respond_sql)
-                             else:
-                                 print("Сделать резервную копию нельзя.")
-                             continue
-                    continue
+                        if os.path.exists(backup) is True:
+                            print("Резервная копия сделана.")
+                        else:
+                            print("Резервную копию сделать нельзя.")
+                    break
                 break
         else:
             print('Что-то пошло не так.')
