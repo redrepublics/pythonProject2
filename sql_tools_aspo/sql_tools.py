@@ -6,26 +6,33 @@ import pyodbc
 import os
 import configparser
 from sql_tools_class import Request
-folder = os.getcwd()
+#наполнение скриптами
 file_ver = 'ver.sql'
+
 
 # блок sql_tools.ini
 ini_files = "sql_tools.ini"
 config = configparser.ConfigParser()
 config.read(ini_files)  # читаем конфиг
+
 driver_id_sql = list()
 server_id = list()
 database_id = list()
 rel_version_id = list()
+folder_id = list()
+backup_id = list()
 driver_id_sql.append(config["default"]["Driver"])
 server_id.append(config["connect"]["Server"])
 database_id.append(config["connect"]["Database"])
 rel_version_id.append(config["version"]["Version"])
+folder_id.append(config["system"]["Folder"])
+backup_id.append(config["system"]["Backup"])
 driver = driver_id_sql[0]
 server = server_id[0]
 database = database_id[0]
 rel_version = rel_version_id[0]
-
+folder = folder_id[0]
+backup = backup_id[0]
 
 
 
@@ -63,15 +70,15 @@ def connect_sql():
                         print(f"У вас последняя {respond_sql}")
                     else:
                         print(f"Версию можно обновить.\nПоследняя {rel_version}\nВаша: {respond_sql}")
-                        # print("Делаем резервную копию базы данных")
-                        # dbCursor.execute(Request3.Get_RequestString())
-                        # connection.commit()
-                        # for respond_sql in dbCursor:
-                        #     if respond_sql is True:
-                        #         print(respond_sql)
-                        #     else:
-                        #         print("Сделать резервную копию нельзя.")
-                        #     continue
+                        print("Делаем резервную копию базы данных")
+                        dbCursor.execute(Request3.Get_RequestString())
+                        connection.commit()
+                        for respond_sql in dbCursor:
+                             if respond_sql is True:
+                                 print(respond_sql)
+                             else:
+                                 print("Сделать резервную копию нельзя.")
+                             continue
                     continue
                 break
         else:
@@ -81,7 +88,7 @@ def connect_sql():
 #началоблока запросов
 Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
 Request2 = Request('select @@VERSION')
-# Request3 = Request("BACKUP DATABASE [SRW_688] TO  DISK = N"'C:\SRW_688.bak'" WITH NOFORMAT, NOINIT")
+Request3 = Request(r"BACKUP DATABASE [" + database + "] TO  DISK = N'"+ folder +"" + backup +"'")
 
 connect_sql()
 
