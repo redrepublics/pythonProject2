@@ -74,10 +74,12 @@ def connect_sql():
                         print("Делаем резервную копию базы данных")
                         dbCursor.execute(Request3.Get_RequestString())
                         connection.commit()
-                        if os.path.exists(backup) is True:
+                        final_bk = os.path.exists(backup)
+                        if final_bk:
                             print("Резервная копия сделана.")
                         else:
                             print("Резервную копию сделать нельзя.")
+                        continue
                     break
                 break
         else:
