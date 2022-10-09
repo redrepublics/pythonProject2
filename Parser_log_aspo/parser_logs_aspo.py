@@ -11,7 +11,7 @@ ver = '1.0.0.5 alfa'
 format_start = '.xml'
 format_finish = '.txt'
 format_rtf = '.rtf'
-name_data_file = 'test.txt'
+name_data_file = '../test.txt'
 log_test_final = 'log_test_final.txt'
 test_xml = 'test.xml'
 my_dir = 'pars_result'
@@ -68,7 +68,7 @@ def files_sum():
     glob_path = os.path.join(path, pattern)
     list_files = glob.glob(glob_path)
     # расширение нового файла установим как '.txt'
-    new_file = 'test.txt'
+    new_file = '../test.txt'
 
     # чтение и запись
     if list_files:
