@@ -22,6 +22,7 @@ database_id.append(config["connect"]["Database"])
 driver = driver_id_sql[0]
 server = server_id[0]
 database = database_id[0]
+rel_version = 'версия БД 3.1.1.8'
 
 
 def connect_sql():
@@ -54,6 +55,10 @@ def connect_sql():
                 result_iterator = dbCursor.execute(sql_file.read())
                 for respond_sql in result_iterator:
                     print(respond_sql)
+                    if rel_version in respond_sql:
+                        print(f"У вас последняя версия {respond_sql}")
+                    else:
+                        print(f"Версию можно обновить. Последняя версия {rel_version}. Ваша версия: {respond_sql}")
                     continue
                 break
 
