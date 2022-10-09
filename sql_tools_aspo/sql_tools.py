@@ -5,6 +5,7 @@
 #проработка закрытия открытых файлов
 import pyodbc
 import os
+import os.path
 import configparser
 import glob
 from sql_tools_class import Request
@@ -46,10 +47,12 @@ def connect_sql():
     while True:
         global request_user
         try:
-            request_user = int(input("Запрос в tUserDetails............[1]\nУзнать версию сервера MS SQL.....[2]\nУзнать версию базы АСПО..........[3]\n"))
+            request_user = int(input("""Запрос в tUserDetails............[1]
+Узнать версию сервера MS SQL.....[2]
+Узнать версию базы АСПО..........[3]\n"""))
         except ValueError or NameError:
             print('Я так не умею')
-            break
+            continue
         if request_user == 1:
             dbCursor.execute(Request1.Get_RequestString())
             connection.commit()
@@ -67,31 +70,48 @@ def connect_sql():
             with open(file_ver, 'r', encoding='utf-8') as sql_file:
                 result_iterator = dbCursor.execute(sql_file.read())
                 for respond_sql in result_iterator:
-                    # print(respond_sql)
+                    print(respond_sql)
                     if rel_version in respond_sql:
                         print(f"У вас последняя {respond_sql}")
                     else:
-                        print(f"Версию можно обновить.\nПоследняя {rel_version}\nВаша: {respond_sql}")
+                        print(f"Версию можно обновить.\nПоследняя {rel_version} ► Ваша: {respond_sql}")
+                        print('█'*30)
                         print("Делаем резервную копию базы данных")
                         dbCursor.execute(Request3.Get_RequestString())
                         connection.commit()
-                        final_bk = os.path.exists(backup)
-                        if final_bk:
-                            print("Резервная копия сделана.")
+                        result_bk = check_backup()
+                        if result_bk is True:
+                            print("Запускаем обновление")
+                            break
                         else:
-                            print("Резервную копию сделать нельзя.")
-                        continue
+                            print("Обновление невозможно, сначала сделайте резервную копию")
+                            break
                     break
                 break
         else:
             print('Что-то пошло не так.')
+
+def check_backup():
+    path = (r"" + folder + "" + backup + "")
+    final_bk = os.path.exists(path)
+    if final_bk is True:
+        print("Резервная копия сделана.")
+    else:
+        print("Резервную копию сделать нельзя.")
+    return final_bk
+
+
+
+
+
+
 
 
 #началоблока запросов
 Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
 Request2 = Request('select @@VERSION')
 Request3 = Request(r"BACKUP DATABASE [" + database + "] TO  DISK = N'"+ folder +"" + backup +"'")
-
+# check_backup()
 connect_sql()
 
 
