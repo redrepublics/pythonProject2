@@ -1,11 +1,8 @@
 #дальнейший разбор и применение
+dict1, dict2, dict3 = 'IT', 'Бухгалтерия', 'Охрана'
 class Employee:
     """Базовый класс для всех сотрудников"""
     emp_count = 0
-    global dict1, dict2, dict3
-    dict1, dict2, dict3 = 'IT', 'Бухгалтерия', 'Охрана'
-
-
     def __init__(self, name, salary, dist, age):
         self.name = name
         self.salary = salary
