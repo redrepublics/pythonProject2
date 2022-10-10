@@ -9,6 +9,9 @@ import os.path
 import configparser
 import glob
 from sql_tools_class import Request
+from sql_tools_variable import Variable
+
+
 #наполнение скриптами
 file_ver = 'ver.sql'
 
