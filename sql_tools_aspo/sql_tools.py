@@ -102,7 +102,7 @@ def check_backup():
     path = os.path.join(folder, my_dir)
     final_bk = os.path.exists(path)
     if final_bk is True:
-        print(f"Резервная копия сделана.\nОжидаем результируюшего файла. Он будет скопирован в папку {my_dir} ")
+        print("Резервная копия сделана.") #Ожидаем результируюшего файла. Он будет скопирован в папку {my_dir} ")
     else:
         print("Резервную копию сделать нельзя.")
     return final_bk
