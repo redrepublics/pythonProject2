@@ -7,15 +7,18 @@ import pyodbc
 import os
 import os.path
 import configparser
-import glob
 from sql_tools_class import Request
+from pathlib import Path
+import shutil
 
+file_ver = 'ver.sql'
+my_dir = 'backup_folder'
+ini_files = "sql_tools.ini"
 
 # блок sql_tools.ini
-ini_files = "sql_tools.ini"
 config = configparser.ConfigParser()
 config.read(ini_files)  # читаем конфиг
-file_ver = 'ver.sql'
+
 driver_id_sql = list()
 server_id = list()
 database_id = list()
@@ -34,6 +37,7 @@ database = database_id[0]
 rel_version = rel_version_id[0]
 folder = folder_id[0]
 backup = backup_id[0]
+
 
 
 def connect_sql():
@@ -77,19 +81,24 @@ def connect_sql():
                         dbCursor.execute(Request3.Get_RequestString())
                         connection.commit()
                         result_bk = check_backup()
+
                         if result_bk is True:
+                            mk_dir_new()
+                            dbCursor.close()  #
+                            os.rename(os.path.join(folder, backup), os.path.join(folder, my_dir, backup))
                             print("Запускаем обновление")
                             break
                         else:
                             print("Обновление невозможно, сначала сделайте резервную копию")
                             break
+
                     break
                 break
         else:
             print('Что-то пошло не так.')
 
 def check_backup():
-    path = (r"" + folder + "" + backup + "")
+    path = os.path.join(folder, my_dir)
     final_bk = os.path.exists(path)
     if final_bk is True:
         print("Резервная копия сделана.")
@@ -98,7 +107,13 @@ def check_backup():
     return final_bk
 
 
-
+def mk_dir_new():
+    path = os.path.join(folder, my_dir)
+    if not os.path.isdir(path):
+        os.mkdir(os.path.join(folder, my_dir))
+        print("Папка создана")
+    else:
+        print("Такая папка уже есть")
 
 
 
@@ -107,8 +122,8 @@ def check_backup():
 #началоблока запросов
 Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
 Request2 = Request('select @@VERSION')
-Request3 = Request(r"BACKUP DATABASE [" + database + "] TO  DISK = N'"+ folder +"" + backup +"'")
-# check_backup()
+Request3 = Request(r"BACKUP DATABASE [" + database + "] TO  DISK = N'" + folder + "" + backup + "'")
+
 connect_sql()
 
 
