@@ -10,35 +10,45 @@ import configparser
 from sql_tools_class import Request
 from pathlib import Path
 import shutil
+import time
 
-file_ver = 'ver.sql'
-my_dir = 'backup_folder'
 ini_files = "sql_tools.ini"
-
+file_ver= 'ver.sql'
 # блок sql_tools.ini
 config = configparser.ConfigParser()
 config.read(ini_files)  # читаем конфиг
 
+#подготовка переменных
+# file_ver_id = list()
+timesleep_id = list()
+my_dir_id = list()
 driver_id_sql = list()
 server_id = list()
 database_id = list()
 rel_version_id = list()
 folder_id = list()
 backup_id = list()
+
+#запрос переменных
 driver_id_sql.append(config["default"]["Driver"])
 server_id.append(config["connect"]["Server"])
 database_id.append(config["connect"]["Database"])
 rel_version_id.append(config["version"]["Version"])
 folder_id.append(config["system"]["Folder"])
 backup_id.append(config["system"]["Backup"])
+my_dir_id.append(config["system"]["MyDir"])
+# file_ver_id.append(config["system"]["My_dir"])
+timesleep_id.append((config["default"]["TimeSleep"]))
+#получение переменных из ini
+# file_ver = file_ver_id[0]
 driver = driver_id_sql[0]
 server = server_id[0]
 database = database_id[0]
 rel_version = rel_version_id[0]
 folder = folder_id[0]
 backup = backup_id[0]
-
-
+my_dir = my_dir_id[0]
+timesleep = int(timesleep_id[0])
 
 def connect_sql():
     connectionString = ("Driver={" + driver + "};" "Server=" + server + ";" "Database=" + database + ";" "Trusted_Connection=yes;")
@@ -81,11 +91,12 @@ def connect_sql():
                         dbCursor.execute(Request3.Get_RequestString())
                         connection.commit()
                         connection.autocommit = True
-                        result_bk = check_backup()
+                        time.sleep(timesleep)
                         mk_dir_new()
                         dbCursor.close()
-                        shutil.copyfile(os.path.join(folder, backup), os.path.join(folder, my_dir, backup))
-
+                        print("Идет копирование бэкапа.")
+                        shutil.move(os.path.join(folder, backup), os.path.join(folder, my_dir, backup))
+                        result_bk = check_backup()
                         if result_bk is True:
                             print("Запускаем обновление")
                             break
@@ -122,7 +133,10 @@ def mk_dir_new():
 #началоблока запросов
 Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
 Request2 = Request('select @@VERSION')
+# bac = r"BACKUP DATABASE [" + database + "] TO  DISK = N'" + folder + "" + backup + ";'"
 Request3 = Request(r"BACKUP DATABASE [" + database + "] TO  DISK = N'" + folder + "" + backup + "'")
+
+
 connect_sql()
 
 
