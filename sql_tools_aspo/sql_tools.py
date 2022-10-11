@@ -13,16 +13,18 @@ import shutil
 import time
 
 ini_files = "sql_tools.ini"
-file_ver= 'ver.sql'
+file_ver = 'ver.sql'
 # блок sql_tools.ini
 config = configparser.ConfigParser()
 config.read(ini_files)  # читаем конфиг
 
 #подготовка переменных
 # file_ver_id = list()
+
+
 timesleep_id = list()
 my_dir_id = list()
-driver_id_sql = list()
+driver_id_sql = pyodbc.drivers()
 server_id = list()
 database_id = list()
 rel_version_id = list()
@@ -30,18 +32,16 @@ folder_id = list()
 backup_id = list()
 
 #запрос переменных
-driver_id_sql.append(config["default"]["Driver"])
 server_id.append(config["connect"]["Server"])
 database_id.append(config["connect"]["Database"])
 rel_version_id.append(config["version"]["Version"])
 folder_id.append(config["system"]["Folder"])
 backup_id.append(config["system"]["Backup"])
 my_dir_id.append(config["system"]["MyDir"])
-# file_ver_id.append(config["system"]["My_dir"])
 timesleep_id.append((config["default"]["TimeSleep"]))
 #получение переменных из ini
 # file_ver = file_ver_id[0]
-driver = driver_id_sql[0]
+driver = driver_id_sql[1]
 server = server_id[0]
 database = database_id[0]
 rel_version = rel_version_id[0]
