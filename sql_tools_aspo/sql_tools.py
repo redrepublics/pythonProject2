@@ -13,7 +13,7 @@ from sql_tools_variable import Variable
 
 
 #наполнение скриптами
-file_ver = 'ver.sql'
+
 
 
 # блок sql_tools.ini
@@ -43,7 +43,7 @@ backup = backup_id[0]
 
 
 def connect_sql():
-    connectionString = ("Driver={" + driver + "};" "Server=" + server + ";" "Database=" + database + ";" "Trusted_Connection=yes;")
+    connectionString = ("Driver={" + Variable.Driver_Variable() + "};" "Server=" + server + ";" "Database=" + database + ";" "Trusted_Connection=yes;")
     connection = pyodbc.connect(connectionString, autocommit=True)
     dbCursor = connection.cursor()
 
