@@ -80,12 +80,13 @@ def connect_sql():
                         print("Делаем резервную копию базы данных")
                         dbCursor.execute(Request3.Get_RequestString())
                         connection.commit()
+                        connection.autocommit = True
                         result_bk = check_backup()
+                        mk_dir_new()
+                        dbCursor.close()
+                        shutil.copyfile(os.path.join(folder, backup), os.path.join(folder, my_dir, backup))
 
                         if result_bk is True:
-                            mk_dir_new()
-                            dbCursor.close()  #
-                            os.rename(os.path.join(folder, backup), os.path.join(folder, my_dir, backup))
                             print("Запускаем обновление")
                             break
                         else:
@@ -101,7 +102,7 @@ def check_backup():
     path = os.path.join(folder, my_dir)
     final_bk = os.path.exists(path)
     if final_bk is True:
-        print("Резервная копия сделана.")
+        print(f"Резервная копия сделана.\nОжидаем результируюшего файла. Он будет скопирован в папку {my_dir} ")
     else:
         print("Резервную копию сделать нельзя.")
     return final_bk
@@ -112,8 +113,7 @@ def mk_dir_new():
     if not os.path.isdir(path):
         os.mkdir(os.path.join(folder, my_dir))
         print("Папка создана")
-    else:
-        print("Такая папка уже есть")
+
 
 
 
@@ -123,7 +123,6 @@ def mk_dir_new():
 Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
 Request2 = Request('select @@VERSION')
 Request3 = Request(r"BACKUP DATABASE [" + database + "] TO  DISK = N'" + folder + "" + backup + "'")
-
 connect_sql()
 
 
