@@ -21,8 +21,8 @@ class Variable:
         config.read(ini_files)
         driver_id_sql = list()
         driver_id_sql.append(config["default"]["Driver"])
-        driver = driver_id_sql[0]
-        return driver
+        self.driver = driver_id_sql[0]
+        return self.driver
 
 
 
@@ -44,7 +44,7 @@ database_id.append(config["connect"]["Database"])
 rel_version_id.append(config["version"]["Version"])
 folder_id.append(config["system"]["Folder"])
 backup_id.append(config["system"]["Backup"])
-driver = driver_id_sql[0]
+# driver = driver_id_sql[0]
 server = server_id[0]
 database = database_id[0]
 rel_version = rel_version_id[0]

@@ -9,18 +9,13 @@ import os.path
 import configparser
 import glob
 from sql_tools_class import Request
-from sql_tools_variable import Variable
-
-
-#наполнение скриптами
-
 
 
 # блок sql_tools.ini
 ini_files = "sql_tools.ini"
 config = configparser.ConfigParser()
 config.read(ini_files)  # читаем конфиг
-
+file_ver = 'ver.sql'
 driver_id_sql = list()
 server_id = list()
 database_id = list()
@@ -41,9 +36,8 @@ folder = folder_id[0]
 backup = backup_id[0]
 
 
-
 def connect_sql():
-    connectionString = ("Driver={" + Variable.Driver_Variable() + "};" "Server=" + server + ";" "Database=" + database + ";" "Trusted_Connection=yes;")
+    connectionString = ("Driver={" + driver + "};" "Server=" + server + ";" "Database=" + database + ";" "Trusted_Connection=yes;")
     connection = pyodbc.connect(connectionString, autocommit=True)
     dbCursor = connection.cursor()
 
