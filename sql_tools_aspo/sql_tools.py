@@ -93,7 +93,7 @@ def connect_sql():
                         connection.autocommit = True
                         time.sleep(timesleep)
                         mk_dir_new()
-                        dbCursor.close()
+                        dbCursor.close()#закрываем работу с запросм, после выполнения.
                         print("Идет копирование бэкапа.")
                         shutil.move(os.path.join(folder, backup), os.path.join(folder, my_dir, backup))
                         result_bk = check_backup()
