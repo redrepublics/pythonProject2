@@ -8,9 +8,9 @@ import os
 import os.path
 import configparser
 from sql_tools_class import Request
-from pathlib import Path
 import shutil
 import time
+
 
 ini_files = "sql_tools.ini"
 file_ver = 'ver.sql'
@@ -18,40 +18,55 @@ file_ver = 'ver.sql'
 config = configparser.ConfigParser()
 config.read(ini_files)  # читаем конфиг
 
-#подготовка переменных
-# file_ver_id = list()
+
+def GetDriver():
+    driver_id_sql = pyodbc.drivers()
+    driver = driver_id_sql[1]
+    return driver
+def GetServer():
+    server_id = list()
+    server_id.append(config["connect"]["Server"])
+    server = server_id[0]
+    return server
+def GetDataBase():
+    database_id = list()
+    database_id.append(config["connect"]["Database"])
+    database = database_id[0]
+    return database
+
+def GetTimeSleep():
+    timesleep_id = list()
+    timesleep_id.append((config["default"]["TimeSleep"]))
+    timesleep = int(timesleep_id[0])
+    return timesleep
+def GetMyDir():
+    my_dir_id = list()
+    my_dir_id.append(config["system"]["MyDir"])
+    my_dir = my_dir_id[0]
+    return my_dir
+
+def GetRV():
+    rel_version_id = list()
+    rel_version_id.append(config["version"]["Version"])
+    rel_version = rel_version_id[0]
+    return rel_version
+
+def GetFolder():
+    folder_id = list()
+    folder_id.append(config["system"]["Folder"])
+    folder = folder_id[0]
+    return folder
+
+def GetBackUp():
+    backup_id = list()
+    backup_id.append(config["system"]["Backup"])
+    backup = backup_id[0]
+    return backup
 
 
-timesleep_id = list()
-my_dir_id = list()
-driver_id_sql = pyodbc.drivers()
-server_id = list()
-database_id = list()
-rel_version_id = list()
-folder_id = list()
-backup_id = list()
-
-#запрос переменных
-server_id.append(config["connect"]["Server"])
-database_id.append(config["connect"]["Database"])
-rel_version_id.append(config["version"]["Version"])
-folder_id.append(config["system"]["Folder"])
-backup_id.append(config["system"]["Backup"])
-my_dir_id.append(config["system"]["MyDir"])
-timesleep_id.append((config["default"]["TimeSleep"]))
-#получение переменных из ini
-# file_ver = file_ver_id[0]
-driver = driver_id_sql[1]
-server = server_id[0]
-database = database_id[0]
-rel_version = rel_version_id[0]
-folder = folder_id[0]
-backup = backup_id[0]
-my_dir = my_dir_id[0]
-timesleep = int(timesleep_id[0])
 
 def connect_sql():
-    connectionString = ("Driver={" + driver + "};" "Server=" + server + ";" "Database=" + database + ";" "Trusted_Connection=yes;")
+    connectionString = ("Driver={" + GetDriver() + "};" "Server=" + GetServer() + ";" "Database=" + GetDataBase() + ";" "Trusted_Connection=yes;")
     connection = pyodbc.connect(connectionString, autocommit=True)
     dbCursor = connection.cursor()
 
@@ -82,23 +97,23 @@ def connect_sql():
                 result_iterator = dbCursor.execute(sql_file.read())
                 for respond_sql in result_iterator:
                     print(respond_sql)
-                    if rel_version in respond_sql:
+                    if GetRV() in respond_sql:
                         print(f"У вас последняя {respond_sql}")
                     else:
-                        print(f"Версию можно обновить.\nПоследняя {rel_version} ► Ваша: {respond_sql}")
+                        print(f"Версию можно обновить.\nПоследняя {GetRV()} ► Ваша: {respond_sql}")
                         print('█'*30)
                         print("Делаем резервную копию базы данных")
                         dbCursor.execute(Request3.Get_RequestString())
                         connection.commit()
                         connection.autocommit = True
-                        time.sleep(timesleep)
+                        time.sleep(GetTimeSleep())
                         mk_dir_new()
                         dbCursor.close()#закрываем работу с запросм, после выполнения.
                         print("Идет копирование бэкапа.")
-                        shutil.move(os.path.join(folder, backup), os.path.join(folder, my_dir, backup))
+                        shutil.move(os.path.join(GetFolder(), GetBackUp()), os.path.join(GetFolder(), GetMyDir(), GetBackUp()))
                         result_bk = check_backup()
                         if result_bk is True:
-                            print("Запускаем обновление")
+                            print("Запускаем обновление!")
                             break
                         else:
                             print("Обновление невозможно, сначала сделайте резервную копию")
@@ -110,7 +125,7 @@ def connect_sql():
             print('Что-то пошло не так.')
 
 def check_backup():
-    path = os.path.join(folder, my_dir)
+    path = os.path.join(GetFolder(), GetMyDir())
     final_bk = os.path.exists(path)
     if final_bk is True:
         print("Резервная копия сделана.") #Ожидаем результируюшего файла. Он будет скопирован в папку {my_dir} ")
@@ -120,9 +135,9 @@ def check_backup():
 
 
 def mk_dir_new():
-    path = os.path.join(folder, my_dir)
+    path = os.path.join(GetFolder(), GetMyDir())
     if not os.path.isdir(path):
-        os.mkdir(os.path.join(folder, my_dir))
+        os.mkdir(os.path.join(GetFolder(), GetMyDir()))
         print("Папка создана")
 
 
@@ -130,11 +145,10 @@ def mk_dir_new():
 
 
 
-#началоблока запросов
+#начало блока запросов
 Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DESC')
 Request2 = Request('select @@VERSION')
-# bac = r"BACKUP DATABASE [" + database + "] TO  DISK = N'" + folder + "" + backup + ";'"
-Request3 = Request(r"BACKUP DATABASE [" + database + "] TO  DISK = N'" + folder + "" + backup + "'")
+Request3 = Request(r"BACKUP DATABASE [" + GetDataBase() + "] TO  DISK = N'" + GetFolder() + "" + GetBackUp() + "'")
 
 
 connect_sql()
