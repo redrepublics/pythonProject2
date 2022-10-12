@@ -73,7 +73,7 @@ def connect_sql():
 Узнать версию сервера MS SQL.....[2]
 Узнать версию базы АСПО..........[3]
 Выход............................[4]\n"""))
-        except ValueError or NameError or not 'Enter':
+        except ValueError or NameError:
             print('Я так не умею.')
             continue
         if request_user is UsSelect()[0]:
@@ -115,8 +115,6 @@ def connect_sql():
                         result_bk = check_backup()
                         if result_bk is True:
                             print("► Запускаем обновление!")
-                            print("Для продолжения нажмите ""Enter"".")
-                            keyboard.wait("Enter")
                             break
                         else:
                             print("► Обновление невозможно, сначала сделайте резервную копию")
@@ -142,7 +140,6 @@ def mk_dir_new():
     if not os.path.isdir(path):
         os.mkdir(os.path.join(GetFolder(), GetMyDir()))
         print("► Папка создана")
-
 
 
 
