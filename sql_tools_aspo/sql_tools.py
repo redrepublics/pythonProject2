@@ -1,8 +1,9 @@
-#обрабатывать ошибки при неправильных параметрах в ini
-#проработка закрытия открытых файлов
+#
+# обрабатывать ошибки при неправильных параметрах в ini - реализовать
+#
 import pyodbc, os, os.path, shutil, time
-from sql_tools_class import Request
-from Driver_slass import GetDriver, UsSelect, GetServer, GetDataBase, GetTimeSleep, GetMyDir, GetRV, GetFolder, GetBackUp, check_backup, mk_dir_new
+from SqlToolsClass import Request
+from DriverClass import GetDriver, UsSelect, GetServer, GetDataBase, GetTimeSleep, GetMyDir, GetRV, GetFolder, GetBackUp, check_backup, mk_dir_new
 file_ver = 'ver.sql'
 
 def connect_sql():
