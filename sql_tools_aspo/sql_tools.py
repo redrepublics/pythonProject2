@@ -1,15 +1,7 @@
-#добавить проверку наличия ini
-#добавить действие бэкапа базы
-#реализовать чтение запроса из файла *.sql
 #обрабатывать ошибки при неправильных параметрах в ini
 #проработка закрытия открытых файлов
-import pyodbc
-import os
-import os.path
-import configparser
+import pyodbc, os, os.path, configparser, shutil, time
 from sql_tools_class import Request
-import shutil
-import time
 
 
 ini_files = "sql_tools.ini"
@@ -95,13 +87,13 @@ def connect_sql():
         elif request_user == 3:
             with open(file_ver, 'r', encoding='utf-8') as sql_file:
                 result_iterator = dbCursor.execute(sql_file.read())
+                sql_file.close()
                 for respond_sql in result_iterator:
-                    print(respond_sql)
                     if GetRV() in respond_sql:
                         print(f"У вас последняя {respond_sql}")
                     else:
                         print(f"Версию можно обновить.\nПоследняя {GetRV()} ► Ваша: {respond_sql}")
-                        print('█'*30)
+                        print('█'*35)
                         print("Делаем резервную копию базы данных")
                         dbCursor.execute(Request3.Get_RequestString())
                         connection.commit()
