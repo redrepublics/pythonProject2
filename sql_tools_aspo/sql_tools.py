@@ -26,15 +26,15 @@ def connect_sql():
             dbCursor.execute(Request1.Get_RequestString())
             connection.commit()
             for respond_sql in dbCursor:
-                print(f"{respond_sql}\n")
-
+                print(respond_sql)
+                print("")
             continue
         elif request_user is UsSelect()[1]:
             dbCursor.execute(Request2.Get_RequestString())
             connection.commit()
             for respond_sql in dbCursor:
-                print(f"{respond_sql}\n")
-
+                print(respond_sql)
+                print("")
             continue
         elif request_user is UsSelect()[3]:
             print("Работа завершена.")
@@ -56,7 +56,7 @@ def connect_sql():
                         time.sleep(GetTimeSleep())
                         mk_dir_new()
                         dbCursor.close()#закрываем работу с запросм, после выполнения.
-                        print("► Идет копирование вновь созданной резервной копии.")
+                        print('► Идет копирование вновь созданной резервной копии.')
                         shutil.move(os.path.join(GetFolder(), GetBackUp()), os.path.join(GetFolder(), GetMyDir(), GetBackUp()))
                         result_bk = check_backup()
                         if result_bk is True:
