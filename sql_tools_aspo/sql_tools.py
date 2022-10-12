@@ -73,7 +73,7 @@ def connect_sql():
 Узнать версию сервера MS SQL.....[2]
 Узнать версию базы АСПО..........[3]
 Выход............................[4]\n"""))
-        except ValueError or NameError:
+        except ValueError or NameError or not 'Enter':
             print('Я так не умею.')
             continue
         if request_user is UsSelect()[0]:
