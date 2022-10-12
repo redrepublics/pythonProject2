@@ -4,3 +4,4 @@ class Request:
 
     def Get_RequestString(self):
         return self.requestString
+
