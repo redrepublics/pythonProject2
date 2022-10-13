@@ -93,11 +93,11 @@ print(f"""{ver}.
 dir_cr()
 print('Этап конвертации данных запущен.')
 folder_dir()
-time.sleep(10)
+time.sleep(1)
 print("""Этап формирования блока для анализа запущен.
 Чем больше файлов для анализа, тем больше времени займет этот процесс.""")
 files_sum()
-time.sleep(10)
+time.sleep(1)
 print('Идет анализ данных.')
 try:
     with open(os.path.join(folder, name_data_file), 'rt',) as file:
