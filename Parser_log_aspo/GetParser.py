@@ -12,7 +12,6 @@ def dir_cr():
         os.makedirs(my_dir)
         return print("Создана папка : ", my_dir, flush=True)
 
-
 #переводим xml в txt
 def folder_dir():
     for filename in os.listdir(folder):
@@ -24,7 +23,6 @@ def folder_dir():
             newname = infilename.replace(format_start, format_finish)
             output = os.rename(infilename, newname)
 
-
 #переводим txt в xml
 def folder_dir_return():
     for filename in os.listdir(folder):
@@ -35,5 +33,3 @@ def folder_dir_return():
             oldbase = os.path.splitext(filename)
             newname = infilename.replace(format_finish, format_start)
             output = os.rename(infilename, newname)
-
-

@@ -92,5 +92,3 @@ else:
         folder_dir_return()
         print('Ошибок не обнаружено.', flush=True)
         time.sleep(ts)
-# окончание блока парсера
-
