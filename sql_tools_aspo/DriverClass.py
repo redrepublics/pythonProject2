@@ -4,6 +4,15 @@ ini_files = "sql_tools.ini"
 config = configparser.ConfigParser()
 config.read(ini_files)
 
+#логируем ошибки
+
+def FileError():
+    from datetime import datetime
+    now = datetime.now()
+    current_time = now.strftime("%y_%m_%d_%H_%M_%S")
+    err_report = "error_repot" + current_time + ".txt"
+    return err_report
+
 #меню по цифрам
 def UsSelect():
     num_min, num_max = 1, 5

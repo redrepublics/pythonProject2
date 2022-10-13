@@ -3,9 +3,11 @@
 #
 import pyodbc, os, os.path, shutil, time, sys
 from SqlToolsClass import Request
-from DriverClass import GetDriver, UsSelect, GetServer, GetDataBase, GetTimeSleep, GetMyDir, GetRV, GetFolder, GetBackUp, check_backup, mk_dir_new
+from DriverClass import GetDriver, UsSelect, GetServer, GetDataBase, GetTimeSleep, GetMyDir, GetRV, GetFolder, GetBackUp, check_backup, mk_dir_new, FileError
 from GetConnectSQL import GetConnectionString
 file_ver = 'ver.sql'
+
+
 
 def ConnectSql():
     try:
@@ -13,6 +15,9 @@ def ConnectSql():
     except pyodbc.OperationalError as err:
         err_report_one = 'Error: Ошибка подключения к SQL Server.'
         err_report_two = ('ms-sql Operation Error: {0}'.format(err))
+        with open(os.path.join(GetFolder(), FileError()), 'w+') as result:
+            result.write(r'' + err_report_one + '\n' + err_report_two + '')
+            result.close()
         print(f"Выполнение будет остановлено. {err_report_one},\n{err_report_two}")
         sys.exit(1)
 
@@ -27,8 +32,12 @@ def ConnectSql():
 Узнать версию сервера MS SQL.....[2]
 Узнать версию базы АСПО..........[3]
 Выход............................[4]\n"""))
-        except ValueError or NameError:
+        except ValueError or NameError as err:
             print('Я так не умею.')
+            err_report_all = ('Ошибка ввода пункта меню: {0}'.format(err))
+            with open(os.path.join(GetFolder(), FileError()), 'w+') as result:
+                result.write(r'' + err_report_all + '\n''')
+                result.close()
             continue
         if request_user is UsSelect()[0]:
             dbCursor.execute(Request1.Get_RequestString())
@@ -71,7 +80,11 @@ def ConnectSql():
                             print("► Запускаем обновление!")
                             break
                         else:
-                            print("► Обновление невозможно, сначала сделайте резервную копию")
+                            err_report_all = ('Ошибка выполнения. Нет резервной копии или она не создадась. Проверьте свои права в ОС.')
+                            with open(os.path.join(GetFolder(), FileError()), 'w+') as result:
+                                result.write(r'' + err_report_all + '\n''')
+                                result.close()
+                            print("► Обновление невозможно, сначала сделайте резервную копию.")
                             break
 
                     continue
