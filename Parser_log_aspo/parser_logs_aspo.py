@@ -11,7 +11,7 @@ ver = '1.0.0.6 alfa'
 format_start = '.xml'
 format_finish = '.txt'
 format_rtf = '.rtf'
-name_data_file = '../file_unit/test.txt'
+name_data_file = 'test.txt'
 log_test_final = 'log_test_final.txt'
 test_xml = 'test.xml'
 my_dir = 'pars_result'
@@ -68,7 +68,7 @@ def files_sum():
     glob_path = os.path.join(path, pattern)
     list_files = glob.glob(glob_path)
     # расширение нового файла установим как '.txt'
-    new_file = '../file_unit/test.txt'
+    new_file = 'test.txt'
 
     # чтение и запись
     if list_files:
@@ -106,11 +106,15 @@ except FileNotFoundError:
     print('Нет файла для работы')
     time.sleep(5)
 else:
-    error_search = 'Error' or 'error' or 'Exception'
-    final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
-    if final:
-        my_result = open(os.path.join(folder, log_test_final), 'w')
-        my_result.write(final)
+    error_search_one = 'Error'
+    error_search_two = 'Exception'
+    final_one = "\n".join(s for s in error_per if error_search_two.lower() in s.lower())
+    final_two = "\n".join(s for s in error_per if error_search_one.lower() in s.lower())
+
+    if final_one:
+        my_result = open(os.path.join(folder, log_test_final), 'w+')
+        my_result.write(final_one)
+        my_result.write(final_two)
         my_result.close()
         file.close()
         old_file = os.path.join(folder,  log_test_final)
@@ -121,8 +125,9 @@ else:
         os.remove(os.path.join(folder, test_xml))
         print('Ошибки обнаружены и записаны.')
         time.sleep(5)
-
     else:
+        os.remove(os.path.join(folder, name_data_file))
         print('Ошибок не обнаружено.')
         time.sleep(5)
-#окончание блока парсера
+# окончание блока парсера
+
