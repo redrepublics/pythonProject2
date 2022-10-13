@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<Log>
+<LogEntry Time="2022-09-14 15:31:51" Type="Error" Level="1"><Sender ClassName="TVChatI"/><Message>Ошибка инициализации VChat 16</Message></LogEntry>
+<LogEntry Time="2022-09-19 14:22:00" Type="Error" Level="1"><Sender ClassName="TfrTPRList"/><Error><ErrorMessage>Время ожидания запроса истекло</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-09-19 14:22:30" Type="Error" Level="1"><Sender ClassName="TfrTPRList"/><Error><ErrorMessage>spUpdate: Cannot perform this operation on a closed dataset</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-09-19 16:13:54" Type="Error" Level="1"><Sender ClassName="TfrTPRList"/><Error><ErrorMessage>Время ожидания запроса истекло</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-09-19 16:14:24" Type="Error" Level="1"><Sender ClassName="TfrTPRList"/><Error><ErrorMessage>Время ожидания запроса истекло</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-09-19 16:53:50" Type="Error" Level="1"><Sender ClassName="TfrTPRList"/><Error><ErrorMessage>Время ожидания запроса истекло</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-09-25 05:07:06" Type="Error" Level="1"><Sender ClassName="TfrTPRList"/><Error><ErrorMessage>spUpdate: Cannot perform this operation on a closed dataset</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-09-26 04:31:17" Type="Error" Level="1"><Sender ClassName="TfrTPRList"/><Error><ErrorMessage>spUpdate: Cannot perform this operation on a closed dataset</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-09-26 09:22:06" Type="Error" Level="1"><Sender ClassName="TfrTPRList"/><Error><ErrorMessage>spUpdate: Cannot perform this 
+operation on a closed dataset</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-09-26 09:22:06" Type="Test" Level="1"><Sender ClassName="TfrTPRList"/><Test><ErrorMessage>spUpdate: Cannot perform this operation on a closed dataset</TestMessage></Test></LogEntry>
