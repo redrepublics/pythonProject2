@@ -113,7 +113,7 @@ else:
     final_two = "\n".join(s for s in error_per if error_search_two.lower() in s.lower())
     final_three = "\n".join(s for s in error_per if error_search_three.lower() in s.lower())
 
-    if final_one or final_two or final_three:
+    if final_one or final_two:# or final_three:
         my_result = open(os.path.join(folder, log_test_final), 'w+')
         my_result.write(r''+final_one+'\n')
         my_result.write(r''+final_two+'\n')
