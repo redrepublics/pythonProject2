@@ -4,6 +4,7 @@ from datetime import datetime
 from parserDef import GetIni
 from GetParser import dir_cr, folder_dir, folder_dir_return
 ver = '1.0.0.7 alfa'
+ts = 3
 #блок глобальных переменных
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
@@ -39,22 +40,22 @@ def files_sum():
 print(f"""{ver}.
 Не выключайте парсер. По окончанию работ он выключится самостоятельно 
 и выгрузит результирущий файл формата aspo_error(время создания файла).txt
-в положив его в папку pars_result, в корне запуска..""")
+в положив его в папку pars_result, в корне запуска.""", flush=True)
 dir_cr()
 print('Этап конвертации данных запущен.')
 folder_dir()
-time.sleep(1)
+time.sleep(ts)
 print("""Этап формирования блока для анализа запущен.
-Чем больше файлов для анализа, тем больше времени займет этот процесс.""")
+Чем больше файлов для анализа, тем больше времени займет этот процесс.""", flush=True)
 files_sum()
-time.sleep(1)
-print('Идет анализ данных.')
+time.sleep(ts)
+print('Идет анализ данных.', flush=True)
 try:
     with open(os.path.join(folder, name_data_file), 'rt',) as file:
         error_per = file.readlines()
 except FileNotFoundError:
-    print('Нет файла для работы')
-    time.sleep(5)
+    print('Нет файла для работы', flush=True)
+    time.sleep(ts)
 else:
     error_search_one = 'Error'
     error_search_two = 'Exception'
@@ -85,12 +86,12 @@ else:
         shutil.move(os.path.join(folder, new_file), os.path.join(folder, my_dir))
         folder_dir_return()
         os.remove(os.path.join(folder, test_xml))
-        print('Ошибки обнаружены и записаны.')
-        time.sleep(5)
+        print('Ошибки обнаружены и записаны.', flush=True)
+        time.sleep(ts)
     else:
         os.remove(os.path.join(folder, name_data_file))
         folder_dir_return()
-        print('Ошибок не обнаружено.')
-        time.sleep(5)
+        print('Ошибок не обнаружено.', flush=True)
+        time.sleep(ts)
 # окончание блока парсера
 

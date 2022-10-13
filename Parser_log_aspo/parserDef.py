@@ -8,5 +8,4 @@ def GetIni():
     error_search_ini_id.append(config["params"]["Params"])
     result = error_search_ini_id[0]
     return result
-# print(type(GetIni()))
 

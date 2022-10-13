@@ -10,7 +10,7 @@ def dir_cr():
     check_folder = os.path.isdir(my_dir)
     if not check_folder:
         os.makedirs(my_dir)
-        return print("Создана папка : ", my_dir)
+        return print("Создана папка : ", my_dir, flush=True)
 
 
 #переводим xml в txt
