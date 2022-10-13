@@ -13,20 +13,14 @@ name_data_file = init_list[0]
 log_test_final = init_list[1]
 test_xml = init_list[2]
 my_dir = init_list[3]
+pattern = init_list[4]
 
 #формирование результирующего файла
 def files_sum():
-    # каталог текстовых файлов
-    # измените на свой
-    path = folder
-    # паттерн поиска файлов по расширению
-    pattern = init_list[4]
-
-    glob_path = os.path.join(path, pattern)
+    glob_path = os.path.join(folder, pattern)
     list_files = glob.glob(glob_path)
     # расширение нового файла установим как '.txt'
     new_file = name_data_file
-
     # чтение и запись
     if list_files:
         for file_name in list_files:
