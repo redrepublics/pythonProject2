@@ -1,4 +1,0 @@
-<LogEntry Time="2022-10-12 17:30:23" Type="Exception" Level="1"><Sender ClassName="TfrTPRList"/><Exception><ClassName>EOleException</ClassName><Message>Transaction (Process ID 57) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></Exception></LogEntry>
-
-<LogEntry Time="2022-10-13 10:24:59" Type="Exception" Level="1"><Sender ClassName="TfrTPRList"/><Exception><ClassName>EOleException</ClassName><Message>Transaction (Process ID 57) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></Exception></LogEntry>
-<LogEntry Time="2022-10-12 16:44:32" Type="Error" Level="1"><Sender ClassName="TVChatI"/><Message>Ошибка инициализации VChat 16</Message></LogEntry>
