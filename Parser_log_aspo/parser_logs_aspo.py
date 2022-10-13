@@ -7,7 +7,7 @@ from parserDef import GetIni
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 folder = os.getcwd()
-ver = '1.0.0.6 alfa'
+ver = '1.0.0.7 alfa'
 format_start = '.xml'
 format_finish = '.txt'
 format_rtf = '.rtf'
