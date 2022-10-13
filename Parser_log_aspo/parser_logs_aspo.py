@@ -1,7 +1,7 @@
 #импорт нужных для функционала библиотек
 import os, glob, time, shutil
 from datetime import datetime
-
+from parserDef import GetIni
 
 #блок глобальных переменных
 now = datetime.now()
@@ -108,13 +108,16 @@ except FileNotFoundError:
 else:
     error_search_one = 'Error'
     error_search_two = 'Exception'
+    error_search_three = GetIni()
     final_one = "\n".join(s for s in error_per if error_search_two.lower() in s.lower())
     final_two = "\n".join(s for s in error_per if error_search_one.lower() in s.lower())
+    final_three = "\n".join(s for s in error_per if error_search_three.lower() in s.lower())
 
     if final_one:
         my_result = open(os.path.join(folder, log_test_final), 'w+')
         my_result.write(final_one)
         my_result.write(final_two)
+        my_result.write(final_three)
         my_result.close()
         file.close()
         old_file = os.path.join(folder,  log_test_final)
