@@ -106,7 +106,7 @@ except FileNotFoundError:
     print('Нет файла для работы')
     time.sleep(5)
 else:
-    error_search = 'Error' or 'error'
+    error_search = 'Error' or 'error' or 'Exception'
     final = "\n".join(s for s in error_per if error_search.lower() in s.lower())
     if final:
         my_result = open(os.path.join(folder, log_test_final), 'w')
