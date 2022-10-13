@@ -1,15 +1,23 @@
 #
 # обрабатывать ошибки при неправильных параметрах в ini - реализовать
 #
-import pyodbc, os, os.path, shutil, time
+import pyodbc, os, os.path, shutil, time, sys
 from SqlToolsClass import Request
 from DriverClass import GetDriver, UsSelect, GetServer, GetDataBase, GetTimeSleep, GetMyDir, GetRV, GetFolder, GetBackUp, check_backup, mk_dir_new
+from GetConnectSQL import GetConnectionString
 file_ver = 'ver.sql'
 
-def connect_sql():
-    connectionString = ("Driver={" + GetDriver() + "};" "Server=" + GetServer() + ";" "Database=" + GetDataBase() + ";" "Trusted_Connection=yes;")
-    connection = pyodbc.connect(connectionString, autocommit=True)
-    dbCursor = connection.cursor()
+def ConnectSql():
+    try:
+        connection = pyodbc.connect(GetConnectionString(), autocommit=True)
+    except pyodbc.OperationalError as err:
+        err_report_one = 'Error: Ошибка подключения к SQL Server.'
+        err_report_two = ('ms-sql Operation Error: {0}'.format(err))
+        print(f"Выполнение будет остановлено. {err_report_one},\n{err_report_two}")
+        sys.exit(1)
+
+    else:
+        dbCursor = connection.cursor()
 
     while True:
         global request_user
@@ -77,7 +85,7 @@ Request1 = Request('select top(10)*, LName from tUserDetails order by RecTime DE
 Request2 = Request('select @@VERSION')
 Request3 = Request(r"BACKUP DATABASE [" + GetDataBase() + "] TO  DISK = N'" + GetFolder() + "" + GetBackUp() + "'")
 
-connect_sql()
+ConnectSql()
 
 
 
