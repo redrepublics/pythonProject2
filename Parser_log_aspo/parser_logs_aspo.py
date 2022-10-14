@@ -3,9 +3,11 @@ import os, glob, time, shutil
 from datetime import datetime
 from parserDef import GetIni
 from GetParser import dir_cr, folder_dir, folder_dir_return
-ver = '1.0.0.7 alfa'
-ts = 3
+
 #блок глобальных переменных
+ver = ['1', '0', '0', '8', 'Release candidate']
+# время сна по всему коду
+ts = 3
 now = datetime.now()
 current_time = now.strftime("%y_%m_%d_%H_%M_%S")
 folder = os.getcwd()
@@ -36,8 +38,9 @@ def files_sum():
                     # после обработки дописываем в общий файл
                     fw.write(line)
 #блок старта парсера
-print(f"""{ver}.
-Не выключайте парсер. По окончанию работ он выключится самостоятельно 
+print('.'.join(map(str,ver)))
+# print(ver, sep='.')
+print(f"""Не выключайте парсер. По окончанию работ он выключится самостоятельно 
 и выгрузит результирущий файл формата aspo_error(время создания файла).txt
 в положив его в папку pars_result, в корне запуска.""", flush=True)
 dir_cr()
