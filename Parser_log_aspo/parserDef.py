@@ -1,5 +1,5 @@
 import configparser
-#тут сделать класс для чтения из конфига
+
 def GetIni():
     ini_files = "pars.ini"
     config = configparser.ConfigParser()
