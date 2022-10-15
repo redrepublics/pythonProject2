@@ -16,14 +16,33 @@ key_lust.append(rsa.PrivateKey(8611358230186391020299884467627008805631867422184
 pubkey = key_lust[0]
 privkey = key_lust[1]
 if KeyParserAspo:
-    crypto = rsa.encrypt(KeyParserAspo, pubkey)
-    message = rsa.decrypt(crypto, privkey)
-    x, y = crypto, message
-    lust_cr = []
-    lust_cr.append(x)
-    lust_cr.append(y)
-    print(lust_cr[0])
-    print(lust_cr[1])
+    # crypto = rsa.encrypt(KeyParserAspo, pubkey)
+
+
+    with open(os.path.join(folder, 'validaspo.bin'), 'rb') as result:
+        content = result.read()
+        print(content)
+
+        # message = rsa.decrypt(, privkey)
+        # if message in KeyParserAspo:
+        #     print("Валидация пройдена")
+        # else:
+        #     print("Валидация провалена")
+        # # result.write(b"crypto")
+        # result.close()
+
+    # with open(os.path.join(folder, 'validaspo.bin'), 'wb+') as result:
+    #     result.write(b"crypto")
+    #     result.close()
+    #
+
+    # message = rsa.decrypt(crypto, privkey)
+    # x, y = crypto, message
+    # lust_cr = []
+    # lust_cr.append(x)
+    # lust_cr.append(y)
+    # print(lust_cr[0])
+    # print(lust_cr[1])
 
 
 
