@@ -47,5 +47,4 @@ def binary_search(array, element, left, right):
         return binary_search(array, element, middle + 1, right)
 
 
-
 print("Номер в списке", binary_search(array, element, 0, len(array)-1))
