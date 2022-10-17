@@ -1,6 +1,6 @@
 from GetSort import GetArray, GetElem
 array = GetArray()
-element_list = list(range(1, 1000))
+element = GetElem()
 
 def merge_sort(array):  # "разделяй"
     if len(array) < 2:  # если кусок массива равен 2,
@@ -32,7 +32,7 @@ def merge(left, right):
 
 print("Отсортированный по возрастанию список:", merge_sort(array))
 
-element = GetElem()
+
 
 def binary_search(array, element, left, right):
     if left > right:  # если левая граница превысила правую,
@@ -46,15 +46,6 @@ def binary_search(array, element, left, right):
     else:  # иначе в правой
         return binary_search(array, element, middle + 1, right)
 
-# def one_t_res():
-#     while True:
-#         if element not in merge_sort(array):
-#             # print("Введенного элемента нет в списке")
-#             break
-#         else:
-#             index = merge_sort(array).index(element)
-#             print('Индекс числа', element, 'в отсроритрованном списке =', index)
-#             # print("Число стоит между", index - 1, "и", index + 1)
-#         break
 
-print("Ваше число в неотсортированном списке №", binary_search(array, element, 0, len(array)-1))
+
+print("Номер в списке", binary_search(array, element, 0, len(array)-1))
