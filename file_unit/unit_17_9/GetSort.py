@@ -8,14 +8,19 @@ def GetArray():
         except ValueError:
             print("Введено не число. Попробуем снова.")
             continue
-        elemet_pars.append(array)
-        elemet_pars_res = elemet_pars[0]
-        result = all(x in element_list for x in elemet_pars_res)
-        if result is True:
-            return array
+        if array:
+            elemet_pars.append(array)
+            elemet_pars_res = elemet_pars[0]
+            result = all(x in element_list for x in elemet_pars_res)
+            if result is True:
+                return array
+            else:
+                print("Числа которые вы ввели, находятся вне диапазона, либо список слишком мал. Попробуем снова.")
+            break
         else:
-            print("Числа которые вы ввели, находятся вне диапазона, либо список слишком мал. Попробуем снова.")
+            print("Что-то пошло не так. Попробуем снова.")
             continue
+
 
 
 def GetElem():

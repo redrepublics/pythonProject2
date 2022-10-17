@@ -1,6 +1,6 @@
 from GetSort import GetArray, GetElem
 array = GetArray()
-element = GetElem()
+
 
 def merge_sort(array):  # "разделяй"
     if len(array) < 2:  # если кусок массива равен 2,
@@ -29,7 +29,7 @@ def merge(left, right):
         j += 1
     return result
 
-
+element = GetElem()
 print("Отсортированный по возрастанию список:", merge_sort(array))
 
 
