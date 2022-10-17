@@ -31,7 +31,7 @@ def GetElem():
             print("Введено не число. Попробуем снова.")
             continue
         if element not in range(element_list[0], element_list[-1]):
-            print("Число которые вы ввели, находятся вне диапазона. ")
+            print("Число которые вы ввели, находится вне диапазона. ")
             break
         else:
             return element
