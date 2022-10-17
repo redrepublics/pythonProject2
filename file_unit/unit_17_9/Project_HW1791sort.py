@@ -33,17 +33,15 @@ def merge(left, right):
 print("Отсортированный по возрастанию список:", merge_sort(array))
 
 
-
 def binary_search(array, element, left, right):
-    if left > right:  # если левая граница превысила правую,
-        return False  # значит элемент отсутствует
-    middle = (right + left) // 2  # находимо середину
-    if array[middle] == element:  # если элемент в середине,
-        return middle  # возвращаем этот индекс
-    elif element < array[middle]:  # если элемент меньше элемента в середине
-        # рекурсивно ищем в левой половине
+    if left > right:
+        return print("Такого параметра в списке нет.")
+    middle = (right + left) // 2
+    if array[middle] == element:
+        return middle
+    elif element < array[middle]:
         return binary_search(array, element, left, middle - 1)
-    else:  # иначе в правой
+    else:
         return binary_search(array, element, middle + 1, right)
 
 
