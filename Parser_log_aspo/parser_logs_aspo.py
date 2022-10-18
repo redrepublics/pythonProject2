@@ -1,8 +1,9 @@
 #импорт нужных для функционала библиотек
 import os, glob, time, shutil
 from datetime import datetime
-from parserDef import GetIni
+from parserDef import GetIni, DepthIni
 from GetParser import dir_cr, folder_dir, folder_dir_return
+from parserRSA import ResCRSA
 
 #блок глобальных переменных
 ver = ['1', '0', '0', '8', 'Release candidate']
@@ -17,6 +18,7 @@ log_test_final = init_list[1]
 test_xml = init_list[2]
 my_dir = init_list[3]
 pattern = init_list[4]
+ErrParser_err = f'ErrParser{current_time}.err'
 
 #формирование результирующего файла
 def files_sum():
@@ -29,7 +31,7 @@ def files_sum():
         for file_name in list_files:
             # открываем файл из 'list_files' на чтение
             # а новый общий файл 'new_file' на дозапись
-            with open(file_name, 'r') as fr, open(new_file, 'a') as fw:
+            with open(file_name, 'r', encoding='utf-8') as fr, open(new_file, 'a', encoding='utf-8') as fw:
                 # делаем разделение
                 fw.write(f'\n\n---Блок принадлежит {file_name}\n\n')
                 # читаем данные построчно
@@ -38,6 +40,8 @@ def files_sum():
                     # после обработки дописываем в общий файл
                     fw.write(line)
 #блок старта парсера
+
+ResCRSA()
 print('.'.join(map(str, ver)))
 print(f"""Не выключайте парсер. По окончанию работ он выключится самостоятельно 
 и выгрузит результирущий файл формата aspo_error(время создания файла).txt
@@ -52,10 +56,14 @@ files_sum()
 time.sleep(ts)
 print('Идет анализ данных.', flush=True)
 try:
-    with open(os.path.join(folder, name_data_file), 'rt',) as file:
+    with open(os.path.join(folder, name_data_file), 'rt', encoding='utf-8') as file:
         error_per = file.readlines()
 except FileNotFoundError:
-    print('Нет файла для работы', flush=True)
+    err_report = 'Нет файла для работы.'
+    with open(os.path.join(folder, ErrParser_err), 'w+', encoding='utf-8') as rf:
+        rf.write(r'' + err_report + '')
+        rf.close()
+        print(err_report, flush=True)
     time.sleep(ts)
 else:
     error_search_one = 'Error'
@@ -66,9 +74,9 @@ else:
     final_three = "\n".join(s for s in error_per if error_search_three.lower() in s.lower())
 
     if final_one or final_two or final_three:
-        my_result = open(os.path.join(folder, log_test_final), 'w+')
+        my_result = open(os.path.join(folder, log_test_final), 'w+', encoding='utf-8')
         if final_one:
-            my_result.write(r''+final_one+'\n')
+            my_result.write(r''+final_one+'\n',)
         else:
             pass
         if final_two:
@@ -92,5 +100,9 @@ else:
     else:
         os.remove(os.path.join(folder, name_data_file))
         folder_dir_return()
-        print('Ошибок не обнаружено.', flush=True)
+        err_report ='Ошибок не обнаружено.'
+        with open(os.path.join(folder, ErrParser_err), 'w+', encoding='utf-8') as rf:
+            rf.write(r'' + err_report + '')
+            rf.close()
+            print(err_report, flush=True)
         time.sleep(ts)
