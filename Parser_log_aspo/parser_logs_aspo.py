@@ -1,11 +1,14 @@
-#импорт нужных для функционала библиотек
-import os, glob, time, shutil
+import glob
+import os
+import shutil
+import time
 from datetime import datetime
-from parserDef import GetIni, DepthIni
+
 from GetParser import dir_cr, folder_dir, folder_dir_return
+from parserDef import GetIni, Depthini
 from parserRSA import ResCRSA
 
-#блок глобальных переменных
+# блок глобальных переменных
 ver = ['1', '0', '0', '8', 'Release candidate']
 # время сна по всему коду
 ts = 3
@@ -20,18 +23,18 @@ my_dir = init_list[3]
 pattern = init_list[4]
 ErrParser_err = f'ErrParser{current_time}.err'
 
-#формирование результирующего файла
+
+# формирование результирующего файла
 def files_sum():
     glob_path = os.path.join(folder, pattern)
     list_files = glob.glob(glob_path)
     # расширение нового файла установим как '.txt'
-    new_file = name_data_file
+    n_file = name_data_file
     # чтение и запись
     if list_files:
         for file_name in list_files:
-            # открываем файл из 'list_files' на чтение
-            # а новый общий файл 'new_file' на дозапись
-            with open(file_name, 'r', encoding='utf-8') as fr, open(new_file, 'a', encoding='utf-8') as fw:
+            # открываем файл из 'list_files' на чтение, а новый общий файл 'new_file' на дозапись
+            with open(file_name, 'r', encoding='utf-8') as fr, open(n_file, 'a', encoding='utf-8') as fw:
                 # делаем разделение
                 fw.write(f'\n\n---Блок принадлежит {file_name}\n\n')
                 # читаем данные построчно
@@ -39,7 +42,9 @@ def files_sum():
                     # если нужно, то здесь обрабатываем каждую строку 'line'
                     # после обработки дописываем в общий файл
                     fw.write(line)
-#блок старта парсера
+
+
+# блок старта парсера
 
 ResCRSA()
 print('.'.join(map(str, ver)))
@@ -73,23 +78,23 @@ else:
     final_two = "\n".join(s for s in error_per if error_search_two.lower() in s.lower())
     final_three = "\n".join(s for s in error_per if error_search_three.lower() in s.lower())
 
-    #0 все, 1 Eror , 2 Exception, 3 ini
+    # 0 все, 1 Eror , 2 Exception, 3 ini
 
     if final_one or final_two or final_three:
         my_result = open(os.path.join(folder, log_test_final), 'w+', encoding='utf-8')
-        if DepthIni() == 0:
-            my_result.write(r''+final_one+'\n')
+        if Depthini() == 0:
+            my_result.write(r'' + final_one + '\n')
         else:
             pass
-        if DepthIni() == 1:
+        if Depthini() == 1:
             my_result.write(r'' + final_two + '\n')
         else:
             pass
-        if DepthIni() == 2:
+        if Depthini() == 2:
             my_result.write(r'' + final_three + '\n')
         else:
             pass
-        if DepthIni() == 3:
+        if Depthini() == 3:
             my_result.write(r'' + final_one + '\n')
             my_result.write(r'' + final_two + '\n')
             my_result.write(r'' + final_three + '\n')
@@ -98,7 +103,7 @@ else:
 
         my_result.close()
         file.close()
-        old_file = os.path.join(folder,  log_test_final)
+        old_file = os.path.join(folder, log_test_final)
         new_file = os.path.join(folder, f"aspo_error{current_time}.txt")
         os.rename(old_file, new_file)
         shutil.move(os.path.join(folder, new_file), os.path.join(folder, my_dir))
@@ -109,7 +114,7 @@ else:
     else:
         os.remove(os.path.join(folder, name_data_file))
         folder_dir_return()
-        err_report ='Ошибок не обнаружено.'
+        err_report = 'Ошибок не обнаружено.'
         with open(os.path.join(folder, ErrParser_err), 'w+', encoding='utf-8') as rf:
             rf.write(r'' + err_report + '')
             rf.close()
