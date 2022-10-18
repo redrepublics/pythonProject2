@@ -5,14 +5,14 @@ config = configparser.ConfigParser()
 config.read(ini_files)
 
 
-def depthini():
-    depthini_id = list()
-    depthini_id.append(config["params"]["Depth"])
-    result = depthini_id[0]
+def dept_ini():
+    dept_ini_id = list()
+    dept_ini_id.append(config["params"]["Depth"])
+    result = dept_ini_id[0]
     return int(result)
 
 
-def paramsini():
+def params_ini():
     error_search_ini_id = list()
     error_search_ini_id.append(config["params"]["Params"])
     result = error_search_ini_id[0]

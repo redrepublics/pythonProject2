@@ -15,7 +15,7 @@ key_lust = [PublicKey(
     1785289596312655367087515911037248709005907848470604850728679524809511495531410086323245025094710056967296658966006870838551894074625906357076875122535305,
     4976621894468449988039155076339535136070221736664167314792320432105946835123890807,
     1730362163892333445841066415765865910608387667078479960761628212597781573)]
-pubkey, privkey = key_lust[0], key_lust[1]
+pubkey, prov_key = key_lust[0], key_lust[1]
 validaspo_bin = 'validaspo.bin'
 ErrParser_err = f'ErrParser{current_time}.err'
 
@@ -39,7 +39,7 @@ def cripto_rsa():
 
             with open(os.path.join(folder, validaspo_bin), 'rb') as result:
                 content = result.read()
-                message = decrypt(content, privkey)
+                message = decrypt(content, prov_key)
                 result.close()
                 if message == KeyParserAspo:
                     print("Валидация пройдена.", flush=True)

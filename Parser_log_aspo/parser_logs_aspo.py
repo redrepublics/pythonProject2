@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 
 from GetParser import dir_cr, folder_dir, folder_dir_return
-from parserDef import paramsini, depthini
+from parserDef import params_ini, dept_ini
 from parserRSA import resc_rsa
 
 # блок глобальных переменных
@@ -33,7 +33,7 @@ def files_sum():
     # чтение и запись
     if list_files:
         for file_name in list_files:
-            # открываем файл из 'list_files' на чтение, а новый общий файл 'new_file' на дозапись
+            # открываем файл из 'list_files' на чтение, а новый общий файл 'new_file' на ReWrite
             with open(file_name, 'r', encoding='utf-8') as fr, open(n_file, 'a', encoding='utf-8') as fw:
                 # делаем разделение
                 fw.write(f'\n\n---Блок принадлежит {file_name}\n\n')
@@ -44,12 +44,12 @@ def files_sum():
                     fw.write(line)
 
 
-# блок старта парсера
+# блок старта parser
 
 resc_rsa()
 print('.'.join(map(str, ver)))
-print(f"""Не выключайте парсер. По окончанию работ он выключится самостоятельно 
-и выгрузит результирущий файл формата aspo_error(время создания файла).txt
+print(f"""Не выключайте программу. По окончанию работ он выключится самостоятельно 
+и выгрузит файл формата aspo_error(время создания файла).txt
 в положив его в папку pars_result, в корне запуска.""", flush=True)
 dir_cr()
 print('Этап конвертации данных запущен.')
@@ -73,28 +73,28 @@ except FileNotFoundError:
 else:
     error_search_one = 'Error'
     error_search_two = 'Exception'
-    error_search_three = paramsini()
+    error_search_three = params_ini()
     final_one = "\n".join(s for s in error_per if error_search_one.lower() in s.lower())
     final_two = "\n".join(s for s in error_per if error_search_two.lower() in s.lower())
     final_three = "\n".join(s for s in error_per if error_search_three.lower() in s.lower())
 
-    # 0 все, 1 Eror , 2 Exception, 3 ini
+    # 0 все, 1 Error , 2 Exception, 3 ini
 
     if final_one or final_two or final_three:
         my_result = open(os.path.join(folder, log_test_final), 'w+', encoding='utf-8')
-        if depthini() == 0:
+        if dept_ini() == 0:
             my_result.write(r'' + final_one + '\n')
         else:
             pass
-        if depthini() == 1:
+        if dept_ini() == 1:
             my_result.write(r'' + final_two + '\n')
         else:
             pass
-        if depthini() == 2:
+        if dept_ini() == 2:
             my_result.write(r'' + final_three + '\n')
         else:
             pass
-        if depthini() == 3:
+        if dept_ini() == 3:
             my_result.write(r'' + final_one + '\n')
             my_result.write(r'' + final_two + '\n')
             my_result.write(r'' + final_three + '\n')
