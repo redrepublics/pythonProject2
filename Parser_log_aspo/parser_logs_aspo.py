@@ -41,7 +41,7 @@ def files_sum():
                     fw.write(line)
 #блок старта парсера
 
-# ResCRSA()
+ResCRSA()
 print('.'.join(map(str, ver)))
 print(f"""Не выключайте парсер. По окончанию работ он выключится самостоятельно 
 и выгрузит результирущий файл формата aspo_error(время создания файла).txt
@@ -72,18 +72,19 @@ else:
     final_one = "\n".join(s for s in error_per if error_search_one.lower() in s.lower())
     final_two = "\n".join(s for s in error_per if error_search_two.lower() in s.lower())
     final_three = "\n".join(s for s in error_per if error_search_three.lower() in s.lower())
+    my_result = open(os.path.join(folder, log_test_final), 'w+', encoding='utf-8')
     #0 все, 1 Eror , 2 Exception, 3 ini
+
     if final_one or final_two or final_three:
-        my_result = open(os.path.join(folder, log_test_final), 'w+', encoding='utf-8')
-        if DepthIni() == 0:
+        if str(DepthIni()) in '0':
             my_result.write(r''+final_one+'\n',)
             my_result.write(r'' + final_two + '\n')
             my_result.write(r'' + final_three + '\n')
-        elif DepthIni() == 1:
+        elif str(DepthIni()) in '1':
             my_result.write(r''+final_one+'\n')
-        elif DepthIni() == 2:
+        elif str(DepthIni()) in '2':
             my_result.write(r''+final_two+'\n')
-        elif DepthIni() == 3:
+        elif str(DepthIni()) in '3':
             my_result.write(r'' + final_three + '\n')
         else:
             pass
