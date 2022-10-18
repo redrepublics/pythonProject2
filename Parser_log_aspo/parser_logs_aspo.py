@@ -5,8 +5,8 @@ import time
 from datetime import datetime
 
 from GetParser import dir_cr, folder_dir, folder_dir_return
-from parserDef import GetIni, Depthini
-from parserRSA import ResCRSA
+from parserDef import paramsini, depthini
+from parserRSA import resc_rsa
 
 # блок глобальных переменных
 ver = ['1', '0', '0', '8', 'Release candidate']
@@ -46,7 +46,7 @@ def files_sum():
 
 # блок старта парсера
 
-ResCRSA()
+resc_rsa()
 print('.'.join(map(str, ver)))
 print(f"""Не выключайте парсер. По окончанию работ он выключится самостоятельно 
 и выгрузит результирущий файл формата aspo_error(время создания файла).txt
@@ -73,7 +73,7 @@ except FileNotFoundError:
 else:
     error_search_one = 'Error'
     error_search_two = 'Exception'
-    error_search_three = GetIni()
+    error_search_three = paramsini()
     final_one = "\n".join(s for s in error_per if error_search_one.lower() in s.lower())
     final_two = "\n".join(s for s in error_per if error_search_two.lower() in s.lower())
     final_three = "\n".join(s for s in error_per if error_search_three.lower() in s.lower())
@@ -82,19 +82,19 @@ else:
 
     if final_one or final_two or final_three:
         my_result = open(os.path.join(folder, log_test_final), 'w+', encoding='utf-8')
-        if Depthini() == 0:
+        if depthini() == 0:
             my_result.write(r'' + final_one + '\n')
         else:
             pass
-        if Depthini() == 1:
+        if depthini() == 1:
             my_result.write(r'' + final_two + '\n')
         else:
             pass
-        if Depthini() == 2:
+        if depthini() == 2:
             my_result.write(r'' + final_three + '\n')
         else:
             pass
-        if Depthini() == 3:
+        if depthini() == 3:
             my_result.write(r'' + final_one + '\n')
             my_result.write(r'' + final_two + '\n')
             my_result.write(r'' + final_three + '\n')

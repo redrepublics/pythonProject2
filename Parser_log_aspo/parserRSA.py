@@ -19,7 +19,8 @@ pubkey, privkey = key_lust[0], key_lust[1]
 validaspo_bin = 'validaspo.bin'
 ErrParser_err = f'ErrParser{current_time}.err'
 
-def CriptoRSA():
+
+def cripto_rsa():
     if os.path.exists(os.path.join(folder, validaspo_bin)) is False:
         err_report_one = 'Error: Отсутствует валидационный файл. Работа прекращена.'
         with open(os.path.join(folder, ErrParser_err), 'w+', encoding='utf-8') as rf:
@@ -29,26 +30,29 @@ def CriptoRSA():
             sys.exit(1)
     else:
         if KeyParserAspo:
-    # блок создания нового файла по переменной KeyParserAspo
-    # crypto = rsa.encrypt(KeyParserAspo, pubkey)
-    #     with open(os.path.join(folder, 'validaspo.bin'), 'wb+') as result:
-    #         result.write(rsa.encrypt(KeyParserAspo, pubkey))
-    #         result.close()
+
+            # блок создания нового файла по переменной KeyParserAspo
+            # crypto = rsa.encrypt(KeyParserAspo, pubkey)
+            #     with open(os.path.join(folder, 'validaspo.bin'), 'wb+') as result:
+            #         result.write(rsa.encrypt(KeyParserAspo, pubkey))
+            #         result.close()
+
             with open(os.path.join(folder, validaspo_bin), 'rb') as result:
                 content = result.read()
                 message = decrypt(content, privkey)
                 result.close()
                 if message == KeyParserAspo:
                     print("Валидация пройдена.", flush=True)
-                    RSAReturn = True
+                    rsa_return = True
                 else:
                     print("Провал валидации.", flush=True)
-                    RSAReturn = False
-    return RSAReturn
+                    rsa_return = False
+    return rsa_return
 
-def ResCRSA():
+
+def resc_rsa():
     err_report_one = 'Error: Ошибка валидации'
-    if CriptoRSA() is False:
+    if cripto_rsa() is False:
         with open(os.path.join(folder, ErrParser_err), 'w+', encoding='utf-8') as rf:
             rf.write(r'' + err_report_one + '')
             rf.close()
