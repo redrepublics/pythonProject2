@@ -9,7 +9,7 @@ from parserDef import params_ini, dept_ini
 from parserRSA import resc_rsa
 
 # блок глобальных переменных
-ver = ['1', '0', '0', '8', 'Release candidate']
+ver = ['1', '0', '0', '9', 'Release candidate']
 # время сна по всему коду
 ts = 3
 now = datetime.now()
