@@ -1,8 +1,9 @@
 import telebot
 from datetime import datetime
+from telebot import types
 
-
-bot = telebot.TeleBot('5622855714:AAHvQH-zWE_gF-doRt2MRTvC5ntn-ysRRrs')
+token = '5622855714:AAHvQH-zWE_gF-doRt2MRTvC5ntn-ysRRrs'
+bot = telebot.TeleBot(token)
 message_list_start = ['Привет', 'привет']
 
 now = datetime.now()
@@ -11,28 +12,25 @@ current_time = now.strftime("%H:%M:%S")
 print(current_time)
 print(type(current_time))
 
-
-
-
-
-
+# curl "http://worldtimeapi.org/api/timezone/Europe/Moscow"
+# цифры иконки https://vkclub.su/ru/emojis/sets/numbers/
 # объявлем метод принятия текстового сообщения
 @bot.message_handler(content_types=['text', 'document', 'audio'])
 def get_text_messages(message):
     if message.text in message_list_start:
-        bot.send_message(message.from_user.id, "Привет, чем я могу тебе помочь?")
+        bot.send_message(message.from_user.id, "🤖 Привет! Чем я могу тебе помочь? /help")
     elif message.text == "/help":
-        bot.send_message(message.from_user.id, 'Напиши привет \n' 'Узнать точное время /time')
+        bot.send_message(message.from_user.id, '🤖\n1⃣ Напиши привет\n2⃣ Точное время /time')
     elif message.text == "/time":
-        with current_time as f:
-            bot.send_message(message.from_user.id, 'Точное время:', f)
+        bot.reply_to(message, "🤖 Время: " + str(datetime.now()))
     else:
-        bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
+        bot.send_message(message.from_user.id, "🤖 Для того чтобы узнать, что я умею напиши /help.")
 
 
 bot.polling(none_stop=True, interval=0)
 # имя бота bot_unit18_j
 # название бота Unit18_bot
+# QAP95_GEREBIOV
 
 # Done! Congratulations on your new bot. You will find it at t.me/Unit18_bot.
 # You can now add a description, about section and profile picture for your bot, see /help for a list of commands.
