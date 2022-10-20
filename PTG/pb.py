@@ -1,13 +1,18 @@
 import telebot
 from datetime import datetime
-from telebot import types
+import requests
 
 token = '5622855714:AAHvQH-zWE_gF-doRt2MRTvC5ntn-ysRRrs'
 bot = telebot.TeleBot(token)
 message_list_start = ['Привет', 'привет']
-
+#время
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
+
+#полная статистика
+BASE_URL = 'http://api.timezonedb.com/v2.1/list-time-zone'
+response = requests.get(f"{BASE_URL}")
+print(response.json())
 
 print(current_time)
 print(type(current_time))
