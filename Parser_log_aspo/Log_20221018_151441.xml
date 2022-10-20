@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<Log>
+<LogEntry Time="2022-10-18 15:15:19" Type="Error" Level="1"><Sender ClassName="TVChatI"/><Message>Ошибка инициализации VChat 16</Message></LogEntry>
+<LogEntry Time="2022-10-18 23:51:59" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: The context transaction which was active before entering user defined routine, trigger or aggregate "UF_STYiGetValueByEID" has been ended inside of it, which is not allowed. Change application logic to enforce strict transaction nesting</Message></LogEntry>
+<LogEntry Time="2022-10-18 23:52:01" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Ошибка при выполнении операции с БД</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 00:55:39" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 00:55:39" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 00:55:39" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 02:46:54" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 02:46:54" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 02:46:54" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 04:17:43" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 04:17:43" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 04:17:43" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 04:30:52" Type="Exception" Level="1"><Sender ClassName="TfrTPRList"/><Exception><ClassName>EOleException</ClassName><Message>The context transaction which was active before entering user defined routine, trigger or aggregate "UF_STYiGetValueByEID" has been ended inside of it, which is not allowed. Change application logic to enforce strict transaction nesting</Message></Exception></LogEntry>
+<LogEntry Time="2022-10-19 13:45:12" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 13:45:12" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 13:45:12" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 14:15:46" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 14:15:46" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 14:15:46" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 16:51:07" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: The context transaction which was active before entering user defined routine, trigger or aggregate "UF_STGetNyaValue" has been ended inside of it, which is not allowed. Change application logic to enforce strict transaction nesting</Message></LogEntry>
+<LogEntry Time="2022-10-19 16:51:07" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Ошибка при выполнении операции с БД</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 16:55:25" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 16:55:25" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 16:55:25" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 17:01:13" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: The context transaction which was active before entering user defined routine, trigger or aggregate "UF_STGetNyaValue" has been ended inside of it, which is not allowed. Change application logic to enforce strict transaction nesting</Message></LogEntry>
+<LogEntry Time="2022-10-19 17:01:13" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Ошибка при выполнении операции с БД</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 17:05:31" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 17:05:31" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 17:05:31" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 17:58:50" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 17:58:50" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 17:58:50" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 18:04:38" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: The context transaction which was active before entering user defined routine, trigger or aggregate "UF_STGetNyaValue" has been ended inside of it, which is not allowed. Change application logic to enforce strict transaction nesting</Message></LogEntry>
+<LogEntry Time="2022-10-19 18:04:38" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Ошибка при выполнении операции с БД</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 18:44:55" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 18:44:55" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 18:44:55" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 20:33:05" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: The context transaction which was active before entering user defined routine, trigger or aggregate "UF_STGetNyaValue" has been ended inside of it, which is not allowed. Change application logic to enforce strict transaction nesting</Message></LogEntry>
+<LogEntry Time="2022-10-19 20:33:05" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Ошибка при выполнении операции с БД</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 21:23:29" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: The context transaction which was active before entering user defined routine, trigger or aggregate "UF_STGetNyaValue" has been ended inside of it, which is not allowed. Change application logic to enforce strict transaction nesting</Message></LogEntry>
+<LogEntry Time="2022-10-19 21:23:29" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Ошибка при выполнении операции с БД</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 22:37:02" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-19 22:37:02" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 22:37:03" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-19 22:53:02" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: The context transaction which was active before entering user defined routine, trigger or aggregate "UF_STGetNyaValue" has been ended inside of it, which is not allowed. Change application logic to enforce strict transaction nesting</Message></LogEntry>
+<LogEntry Time="2022-10-19 22:53:02" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Ошибка при выполнении операции с БД</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 01:30:38" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-20 01:30:38" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 01:30:38" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 03:22:01" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-20 03:22:01" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 03:22:01" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 04:25:41" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-20 04:25:41" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 04:25:41" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 05:25:05" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: Transaction (Process ID 61) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction</Message></LogEntry>
+<LogEntry Time="2022-10-20 05:25:06" Type="Error" Level="1"><Sender ClassName="TfmDBAccess"/><Error><ErrorMessage>SP_CurrentExamsUtils: InternalOpenSPEx, exception in CheckAndRaiseDeadlock: Сервер перегружен.
+Не удалось выполнить запрос.</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 05:25:06" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Access violation at address 00404968 in module 'ST.exe'. Read of address FFFFFFFC</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 05:58:22" Type="Exception" Level="3"><Sender ClassName="TfmDBAccess"/><Message>Проведение обследования. Аабйкзчджжйжъулъмтющцрхупх Т.Т.. SP_CurrentExamsUtils: The context transaction which was active before entering user defined routine, trigger or aggregate "UF_STGetNyaValue" has been ended inside of it, which is not allowed. Change application logic to enforce strict transaction nesting</Message></LogEntry>
+<LogEntry Time="2022-10-20 05:58:22" Type="Error" Level="1"><Sender ClassName="Unknown"/><Error><ErrorMessage>Ошибка
+Ошибка при выполнении операции с БД</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 10:06:03" Type="Error" Level="1"><Sender ClassName="TFormType"/><Error><ErrorMessage>SP_fEditUserFileMed: (EDatabaseError) dFacsimile: Field 'HID' not found</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 10:06:15" Type="Error" Level="1"><Sender ClassName="TFormType"/><Error><ErrorMessage>SP_fEditUserFileMed: (EDatabaseError) dFacsimile: Field 'HID' not found</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 10:06:35" Type="Error" Level="1"><Sender ClassName="TButtonPanel"/><Error><ErrorMessage>OBJECT expected on line 2</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 10:06:35" Type="Error" Level="1"><Sender ClassName="TButtonPanel"/><Error><ErrorMessage>Exception =
+    ExceptAddr = 00433318 (ST: TParser.ErrorStr)
+    ClassName = EParserError
+    Addr = 1699744
+    Message = OBJECT expected on line 2
+    HelpContext = 0
+WinVersion =
+    Название ОС:                      Майкрософт Windows 10 Pro
+    Версия ОС:                        10.0.19041 Н/Д построение 19041
+    Тип системы:                      x64-based PC
+ApplicationVersion = АО "НПП Системные Технологии",   "Терминал КАПД"   вер. 3.1(3.1.1.888_test)
+DateTime = 20.10.2022 10:06:35
+MemoryStatus =
+    MemoryLoad=76%
+    TotalPhys=4600614912
+    AvailPhys=1096355840
+    TotalPageFile=8321576960
+    AvailPageFile=1466744832
+    TotalVirtual=2147352576
+    AvailVirtual=525713408
+    AvailExtendedVirtual=0
+    WorkingSetSize=217706496
+CallStack =
+    76F41FDC (ntdll: NtGetContextThread)
+    03A2FE10 (: )
+    008C036F (ST: TCallStack.CaptureStack)
+    00CB803F (ST: STRaiseException)
+    00433318 (ST: TParser.ErrorStr)
+    004332B4 (ST: TParser.ErrorFmt)
+    00433237 (ST: TParser.CheckTokenSymbol)
+    004342A8 (ST: ConvertObject)
+    00434415 (ST: ObjectTextToBinary)
+    00434525 (ST: ObjectTextToResource)
+    008F1AD0 (ST: TFormLoader.LoadFrame)
+    00E5EC30 (ST: DoAddForm)
+    00E5F523 (ST: TSelectorForms.AddForm)
+    00E5F8E8 (ST: TSelectorForms.FindByFormID)
+    00E5404E (ST: TCommandInterpreter.DoSelectedFormTypeChange)
+    00E54386 (ST: TCommandInterpreter.SetSelectedFormType)
+    00E552B8 (ST: TSelectFormTypeCommand.Execute)
+    00E54125 (ST: TCommandInterpreter.ExecPendingCommands)
+    00E542B1 (ST: TCommandInterpreter.OnCommandAdded)
+    00E54446 (ST: TCommandQueue.PushItem)
+    004450AE (ST: TOrderedList.Push)
+    00445233 (ST: TObjectQueue.Push)
+    00E5440B (ST: TCommandQueue.Push)
+    00E533B2 (ST: TCommandInterpreter.AddCommand)
+    00D99373 (ST: TfrButtonPanel.bpMainPanelButtonClick)
+    00D74B54 (ST: TfmBigSQL.frButtonPanelbpMainPanelButtonClick)
+    00CB8E1D (ST: TButtonPanel.Execute)
+    00CB8FE2 (ST: TButtonPanel.MouseUp)
+    004B06C2 (ST: TControl.DoMouseUp)
+    004B0749 (ST: TControl.WMLButtonUp)
+    004AFF8E (ST: TControl.WndProc)
+    004B3E53 (ST: TWinControl.WndProc)
+    004B3A23 (ST: TWinControl.MainWndProc)
+    00436ECE (ST: StdWndProc)
+    74FAD9DB (user32: AddClipboardFormatListener)
+    74FA46FA (user32: GetClassLongW)
+    74FA2A2A (user32: DispatchMessageW)
+    74F94E90 (user32: DispatchMessageA)
+    004D8B75 (ST: TApplication.ProcessMessage)
+    004D8BBC (ST: TApplication.HandleMessage)
+    004D8E57 (ST: TApplication.Run)
+    01018F7B (ST: ST)
+    74E9F989 (KERNEL32: BaseThreadInitThunk)
+    76F37084 (ntdll: RtlGetAppContainerNamedObjectPath)
+    76F37054 (ntdll: RtlGetAppContainerNamedObjectPath)
+</ErrorMessage></Error></LogEntry>
+<LogEntry Time="2022-10-20 10:06:38" Type="Warning" Level="3"><Sender ClassName="TfmBigSQL"/><Warning><Message>Требуется технологическая перезагрузка. Фатальная ошибка (см. выше)</Message></Warning></LogEntry>
+<LogEntry Time="2022-10-20 10:06:38" Type="Message" Level="3"><Sender ClassName="TfmBigSQL"/><Message><Message>Закрытие приложения.</Message></Message></LogEntry>
