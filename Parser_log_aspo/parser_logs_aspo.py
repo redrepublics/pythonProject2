@@ -9,7 +9,7 @@ from parserDef import params_ini, dept_ini
 from parserRSA import resc_rsa
 
 # блок глобальных переменных
-ver = ['1', '0', '0', '9', 'Release candidate']
+ver = ['1', '0', '0', '10']
 # время сна по всему коду
 ts = 3
 now = datetime.now()
@@ -34,7 +34,7 @@ def files_sum():
     if list_files:
         for file_name in list_files:
             # открываем файл из 'list_files' на чтение, а новый общий файл 'new_file' на ReWrite
-            with open(file_name, 'r', encoding='utf-8') as fr, open(n_file, 'a', encoding='utf-8') as fw:
+            with open(file_name, 'r') as fr, open(n_file, 'a') as fw:
                 # делаем разделение
                 fw.write(f'\n\n---Блок принадлежит {file_name}\n\n')
                 # читаем данные построчно
@@ -61,7 +61,7 @@ files_sum()
 time.sleep(ts)
 print('Идет анализ данных.', flush=True)
 try:
-    with open(os.path.join(folder, name_data_file), 'rt', encoding='utf-8') as file:
+    with open(os.path.join(folder, name_data_file), 'rt') as file:
         error_per = file.readlines()
 except FileNotFoundError:
     err_report = 'Нет файла для работы.'

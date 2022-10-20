@@ -8,6 +8,8 @@ message_list_start = ['Привет', 'привет']
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
 
+print(current_time)
+print(type(current_time))
 
 
 
