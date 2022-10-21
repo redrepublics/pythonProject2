@@ -4,24 +4,23 @@
 
 # Done! Congratulations on your new bot. You will find it at t.me/Unit18_bot.
 # You can now add a description, about section and profile picture for your bot, see /help for a list of commands.
-# By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.
+# By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for
+# it. Just make sure the bot is fully operational before you do this.
 #
 # Use this token to access the HTTP API:
 # 5622855714:AAHvQH-zWE_gF-doRt2MRTvC5ntn-ysRRrs
 # Keep your token secure and store it safely, it can be used by anyone to control your bot.
-#
+# token = b'5622855714:AAHvQH-zWE_gF-doRt2MRTvC5ntn-ysRRrs'
 # For a description of the Bot API, see this page: https://core.telegram.org/bots/api
 
 import telebot
 import os
 import codecs
 from datetime import datetime
-from rsa import PrivateKey, PublicKey, decrypt
-
-# token = b'5622855714:AAHvQH-zWE_gF-doRt2MRTvC5ntn-ysRRrs'
+from rsa import PrivateKey, decrypt
 
 message_list_start = ['Привет', 'привет']
-#время
+# time
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
 folder = os.getcwd()
@@ -36,18 +35,22 @@ prov_key = key_lust[0]
 valid_bin = 'Unit18_bot.bin'
 
 
-if key_lust[1]:
-    with open(os.path.join(folder, valid_bin), 'rb') as result:
-        content = result.read()
-        keytbot = decrypt(content, prov_key)
-        result.close()
-        res_token = codecs.decode(keytbot, 'UTF-8')
+def token_key():
+    if key_lust[0]:
+        with open(os.path.join(folder, valid_bin), 'rb') as result:
+            content = result.read()
+            key_t_bot = decrypt(content, prov_key)
+            result.close()
+            res_token = codecs.decode(key_t_bot, 'UTF-8')
+    return res_token
 
-bot = telebot.TeleBot(res_token)
+
+bot = telebot.TeleBot(token_key())
+
 
 # curl "http://worldtimeapi.org/api/timezone/Europe/Moscow"
 # цифры иконки https://vkclub.su/ru/emojis/sets/numbers/
-# объявлем метод принятия текстового сообщения
+# start метод принятия текстового сообщения
 
 
 @bot.message_handler(commands=['start'])
@@ -69,6 +72,3 @@ def get_text_messages(message):
 
 
 bot.polling(none_stop=True, interval=0)
-
-
-
