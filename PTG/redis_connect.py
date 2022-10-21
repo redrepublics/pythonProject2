@@ -7,3 +7,5 @@ red = redis.Redis(
 
 # PS C:\Users\Zver\PycharmProjects\pythonProject3> C:\Users\Zver\AppData\Local\Programs\Python\Python310\python.exe -i
 # C:/Users/Zver/PycharmProjects/pythonProject3/PTG/redis_connect.pyred
+
+# red.set('name1', 'Ivan') в консоль red.get()
