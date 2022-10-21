@@ -55,20 +55,20 @@ bot = telebot.TeleBot(token_key())
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_message(message.from_user.id, "🤖 Бот стартовал.")
-    bot.send_message(message.from_user.id, "🤖 Введите /help чтобы узнать, что я умею.")
+    bot.send_message(message.from_user.id, '🤖 Бот стартовал.')
 
 
-@bot.message_handler(content_types=['text', 'document', 'audio'])
+@bot.message_handler(content_types=['text'])
 def get_text_messages(message):
     if message.text in message_list_start:
-        bot.send_message(message.from_user.id, "🤖 Привет! Чем я могу тебе помочь? /help")
+        bot.send_message(message.from_user.id, '⚙ Привет! Чем я могу вам помочь? /help')
     elif message.text == "/help":
-        bot.send_message(message.from_user.id, '🤖\n1⃣ Напиши привет\n2⃣ Точное время /time')
+        bot.send_message(message.from_user.id, '⚙\n➡Напишите привет\n➡Точное время /time')
     elif message.text == "/time":
-        bot.reply_to(message, "🤖 Время: " + str(datetime.now()))
+        bot.reply_to(message, "⚙ Время: " + str(datetime.now()))
     else:
-        bot.send_message(message.from_user.id, "🤖 Для того чтобы узнать, что я умею напиши /help.")
+        bot.send_message(message.from_user.id, f"⚙ Доброго времени суток, {message.chat.username}! Введите /help чтобы "
+                                               f"узнать, что я умею.")
 
 
 bot.polling(none_stop=True, interval=0)
