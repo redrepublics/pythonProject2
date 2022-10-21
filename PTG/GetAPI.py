@@ -9,7 +9,7 @@ print(response.status)
 
 print(response.headers)
 
-print(response.content)
+print(type(response.content))
 # if response.content is "TWD":
 #     print(response.content)
 

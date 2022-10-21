@@ -1,38 +1,3 @@
-import telebot
-from datetime import datetime
-import requests
-
-token = '5622855714:AAHvQH-zWE_gF-doRt2MRTvC5ntn-ysRRrs'
-bot = telebot.TeleBot(token)
-message_list_start = ['Привет', 'привет']
-#время
-now = datetime.now()
-current_time = now.strftime("%H:%M:%S")
-
-#полная статистика
-BASE_URL = 'http://api.timezonedb.com/v2.1/list-time-zone'
-response = requests.get(f"{BASE_URL}")
-print(response.json())
-
-print(current_time)
-print(type(current_time))
-
-# curl "http://worldtimeapi.org/api/timezone/Europe/Moscow"
-# цифры иконки https://vkclub.su/ru/emojis/sets/numbers/
-# объявлем метод принятия текстового сообщения
-@bot.message_handler(content_types=['text', 'document', 'audio'])
-def get_text_messages(message):
-    if message.text in message_list_start:
-        bot.send_message(message.from_user.id, "🤖 Привет! Чем я могу тебе помочь? /help")
-    elif message.text == "/help":
-        bot.send_message(message.from_user.id, '🤖\n1⃣ Напиши привет\n2⃣ Точное время /time')
-    elif message.text == "/time":
-        bot.reply_to(message, "🤖 Время: " + str(datetime.now()))
-    else:
-        bot.send_message(message.from_user.id, "🤖 Для того чтобы узнать, что я умею напиши /help.")
-
-
-bot.polling(none_stop=True, interval=0)
 # имя бота bot_unit18_j
 # название бота Unit18_bot
 # QAP95_GEREBIOV
@@ -46,3 +11,64 @@ bot.polling(none_stop=True, interval=0)
 # Keep your token secure and store it safely, it can be used by anyone to control your bot.
 #
 # For a description of the Bot API, see this page: https://core.telegram.org/bots/api
+
+import telebot
+import os
+import codecs
+from datetime import datetime
+from rsa import PrivateKey, PublicKey, decrypt
+
+# token = b'5622855714:AAHvQH-zWE_gF-doRt2MRTvC5ntn-ysRRrs'
+
+message_list_start = ['Привет', 'привет']
+#время
+now = datetime.now()
+current_time = now.strftime("%H:%M:%S")
+folder = os.getcwd()
+
+key_lust = [PrivateKey(
+    8611358230186391020299884467627008805631867422184296025775040113155292187404091008391828212109012111160193892945618249623785973404528075573378180488699411,
+    65537,
+    1785289596312655367087515911037248709005907848470604850728679524809511495531410086323245025094710056967296658966006870838551894074625906357076875122535305,
+    4976621894468449988039155076339535136070221736664167314792320432105946835123890807,
+    1730362163892333445841066415765865910608387667078479960761628212597781573)]
+prov_key = key_lust[0]
+valid_bin = 'Unit18_bot.bin'
+
+
+if key_lust[1]:
+    with open(os.path.join(folder, valid_bin), 'rb') as result:
+        content = result.read()
+        keytbot = decrypt(content, prov_key)
+        result.close()
+        res_token = codecs.decode(keytbot, 'UTF-8')
+
+bot = telebot.TeleBot(res_token)
+
+# curl "http://worldtimeapi.org/api/timezone/Europe/Moscow"
+# цифры иконки https://vkclub.su/ru/emojis/sets/numbers/
+# объявлем метод принятия текстового сообщения
+
+
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.from_user.id, "🤖 Бот стартовал.")
+    bot.send_message(message.from_user.id, "🤖 Введите /help чтобы узнать, что я умею.")
+
+
+@bot.message_handler(content_types=['text', 'document', 'audio'])
+def get_text_messages(message):
+    if message.text in message_list_start:
+        bot.send_message(message.from_user.id, "🤖 Привет! Чем я могу тебе помочь? /help")
+    elif message.text == "/help":
+        bot.send_message(message.from_user.id, '🤖\n1⃣ Напиши привет\n2⃣ Точное время /time')
+    elif message.text == "/time":
+        bot.reply_to(message, "🤖 Время: " + str(datetime.now()))
+    else:
+        bot.send_message(message.from_user.id, "🤖 Для того чтобы узнать, что я умею напиши /help.")
+
+
+bot.polling(none_stop=True, interval=0)
+
+
+
