@@ -7,7 +7,7 @@ from telebot import types
 @bot.message_handler(commands=['start', 'help'])
 def help_get(message: telebot.types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    pad1 = types.KeyboardButton(text='/start')
+    pad1 = types.KeyboardButton(text='/start', )
     pad2 = types.KeyboardButton(text='/help')
     pad3 = types.KeyboardButton(text='/values')
     keyboard.add(pad1, pad2, pad3)
