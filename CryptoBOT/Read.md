@@ -4,6 +4,8 @@ Unit 18.6
 
 Telegram-бота конвертации валют
 
+Бот: [Unit18_bot](https://t.me/Unit18_bot)
+
 Запуск бота по ключу - /start
 
 --------
