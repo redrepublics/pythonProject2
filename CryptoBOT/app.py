@@ -1,5 +1,5 @@
 import telebot
-from Exept_pars import ConvertionException, CryptoConverter
+from extensions import ConvertionException, CryptoConverter
 from app_params import bot, keys, max_values, robot_sm, message_list_start
 from telebot import types
 
