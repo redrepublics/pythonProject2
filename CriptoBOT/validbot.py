@@ -3,6 +3,7 @@ import codecs
 import telebot
 from rsa import PrivateKey, decrypt
 
+# RSA
 key_lust = [PrivateKey(
     8611358230186391020299884467627008805631867422184296025775040113155292187404091008391828212109012111160193892945618249623785973404528075573378180488699411,
     65537,
@@ -14,6 +15,7 @@ valid_bin = 'Unit18_bot.bin'
 folder = os.getcwd()
 
 
+# Чтение токена из бинарного файла, предоставление переменной с ним
 def token_key():
     if key_lust[0]:
         with open(os.path.join(folder, valid_bin), 'rb') as result:
