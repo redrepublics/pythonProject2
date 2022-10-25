@@ -1,7 +1,7 @@
-# import pyodbc
-import pypyodbc
+import pyodbc
 import datetime
-import os
+import time
+from pathlib import Path
 
 driver = 'SQL Server Native Client 11.0'
 server = "localhost"  # Название сервера SQL, к которому будет выполнено подключение.
@@ -9,8 +9,10 @@ bddata = "SRW_688"  # Имя базы данных SQL
 user = "sa"  # Имя пользователя SQL
 password = "daorliar"  # Пароль пользователя SQL
 TODAY = datetime.date.today()
-location = os.getcwd()
-print(location)
+# location = os.getcwd()
+path = Path("E:", "TEST")
+location = 'E:;\TEST'
+
 
 Request1 = "SELECT @@version;"
 Request2 = 'select * from tLocalParams'
@@ -21,19 +23,23 @@ query = ("""BACKUP DATABASE SRW_688
 
 
 def connect_sql():
-    conn = pypyodbc.connect(
-        'DRIVER={' + driver + '};SERVER=' + server + ';DATABASE=' + bddata + ';UID=' + user + ';PWD=' + password + ';',autocommit=True)
-
+    conn = pyodbc.connect(
+        'DRIVER={' + driver + '};SERVER=' + server + ';DATABASE=' + bddata + ';UID=' + user + ';PWD=' + password + ';', autocommit=True)
     cursor = conn.cursor()
-    # cursor.execute(backup)
     cursor.execute(Request3)
+    time.sleep(1)
+    print(type(cursor.nextset()))
+    if cursor.nextset() is True:
+        print("Бэкап готов")
+    else:
+        print("Неудача")
+    conn.close()
 
-    for row in cursor:
-        print('Переменная:', row[0], 'параметр:', row[1])
-    cursor.close()
 
-
-
+    # row = cursor.fetchone()
+    # while row:
+    #     print(row[0])
+    #     row = cursor.fetchone()
 
 
 connect_sql()
