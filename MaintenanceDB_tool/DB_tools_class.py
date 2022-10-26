@@ -1,14 +1,18 @@
+import configparser
 
+ini_files = "db_tools.ini"
+config = configparser.ConfigParser()
+config.read(ini_files)
 
-
-class Request:
-    def __init__(self, requestString):
-        self.requestString = requestString
-
-    def Get_RequestString(self):
-        return self.requestString
-
-
+def getfolder():
+    ini_list = list()
+    ini_list.append(config["folders"]["fold"])
+    ini_list.append(config["connectdb"]['driver'])
+    ini_list.append(config["connectdb"]['server'])
+    ini_list.append(config["connectdb"]['bddata'])
+    ini_list.append(config["connectdb"]['user'])
+    ini_list.append(config["connectdb"]['password'])
+    return ini_list
 
 
 
