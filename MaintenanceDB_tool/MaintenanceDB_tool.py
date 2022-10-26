@@ -1,7 +1,8 @@
 import pyodbc
 import datetime
 import time
-from pathlib import Path
+import os
+import os.path
 
 driver = 'SQL Server Native Client 11.0'
 server = "localhost"  # Название сервера SQL, к которому будет выполнено подключение.
@@ -10,13 +11,14 @@ user = "sa"  # Имя пользователя SQL
 password = "daorliar"  # Пароль пользователя SQL
 TODAY = datetime.date.today()
 # location = os.getcwd()
-path = Path("E:", "TEST")
-location = 'E:;\TEST'
+folder = os.path.join('E:\\', 'TEST')
+# print(folder)
+# location = 'E:\TEST'
 
 
 Request1 = "SELECT @@version;"
 Request2 = 'select * from tLocalParams'
-Request3 = 'BACKUP DATABASE [' + bddata + "] TO DISK = N'" + location + "/" + bddata + '-' + str(
+Request3 = 'BACKUP DATABASE [' + bddata + "] TO DISK = N'" + folder + "/" + bddata + '-' + str(
                 TODAY) + ".bak'"
 query = ("""BACKUP DATABASE SRW_688
             TO DISK = 'E:/test_db.BAK';""")
@@ -28,7 +30,7 @@ def connect_sql():
     cursor = conn.cursor()
     cursor.execute(Request3)
     time.sleep(1)
-    print(type(cursor.nextset()))
+    # print(type(cursor.nextset()))
     if cursor.nextset() is True:
         print("Бэкап готов")
     else:
