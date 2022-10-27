@@ -1,30 +1,15 @@
-import pypyodbc
-import datetime
-
-server = 'ip/name'
-username = 'username'
-password = 'password'
-location = '/media/d/backup'
-
-TODAY = datetime.date.today()
-SKIP = ['master', 'tempdb', 'model', 'msdb']
-
-cnxn = pypyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE=master;UID='+username+';PWD='+ password)
-cnxn.autocommit = True
-cursor = cnxn.cursor()
-
-cursor.execute("select name from sys.databases")
-databases = cursor.fetchall()
-cursor.close()
-
-for database in databases:
-    database_name = database[0]
-    if database_name not in SKIP:
-        cursor = cnxn.cursor()
-        backup = "BACKUP DATABASE [" + database_name + "] TO DISK = N'" + location + "/" + database_name + '-' + str(TODAY) + ".bak'"
-        cursor.execute(backup)
-        while cursor.nextset():
-            pass
-        cursor.close()
-
-cnxn.close()
+import os
+# from DB_tools_params import bak_res, get_folder
+#
+#
+# print(get_folder())
+# print(bak_res)
+path = os.path.join('E:', 'TEST', 'SRW_68813_15.bak')
+print(os.path.isfile(path))
+# def search_from_bal():
+#     path = get_folder()[0]
+#     files = bak_res
+#     print(os.path.exists(os.path.join(path, files)))
+#
+#
+# search_from_bal()
