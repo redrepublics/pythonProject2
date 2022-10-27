@@ -3,6 +3,7 @@ import pyodbc
 import time
 import os
 from datetime import datetime
+import os.path
 
 ini_files = "db_tools.ini"
 config = configparser.ConfigParser()
@@ -25,16 +26,16 @@ def get_folder():
     return ini_list
 
 now = datetime.now()
-# TODAY = now.strftime("%y_%m_%d_%H_%M_%S")
-TODAY = now.strftime("%M_%S")
+TODAY = now.strftime("%y_%m_%d_%H_%M_%S")
 file_name_bak = f'{get_folder()[3]}{TODAY}'
 bak_res = f'{file_name_bak}.bak'
-print(bak_res,'32 line')
+p = []
+p.append(bak_res)
 
 
 Request1 = "SELECT @@version;"
 Request2 = 'select * from tLocalParams'
-Request3 = 'BACKUP DATABASE [' + get_folder()[3] + "] TO DISK = N'" + get_folder()[0] + "/" + get_folder()[3] + '-' + TODAY + ".bak'" # рабочий бэкап
+Request3 = 'BACKUP DATABASE [' + get_folder()[3] + "] TO DISK = N'" + get_folder()[0] + "/" + get_folder()[3] + '-' + bak_res+ "'" # рабочий бэкап
 # Request3 = 'BACKUP DATABASE [' + get_folder()[3] + "] TO DISK = N'" + get_folder()[0] + "/" + get_folder()[3] + '-' + TODAY + ".bak'" # рабочий бэкап
 # Request3 = 'BACKUP DATABASE [' + get_folder()[3] + "] TO DISK = N'" + get_folder()[0] + "/" + get_folder()[3] + '-' + file_name_bak + '''' # рабочий бэкап
 # Request4 = 'exec SP_DBREINDEX'
@@ -45,10 +46,14 @@ req_1 = 'delete tRExamComplaints'
 req_2 = 'delete tRemoteExams'
 req_3 = 'delete tRemoteExamSignature'
 
+
 def testtest():
-    print(bak_res, '49 line')
-    path = os.path.join(get_folder()[0], bak_res)
-    print(os.path.isfile(path))
+    path = os.path.join(get_folder()[0], f'SRW_688-{p[-1]}')
+    if os.path.isfile(path) is True:
+        return True
+    else:
+        return False
+
 
 def bak_sql():
     cursor = sql_return().cursor()
@@ -57,6 +62,14 @@ def bak_sql():
     cursor.close()
     sql_return().close()
     testtest()
+    if testtest() is True:
+        print('Резервная копия создана.')
+    elif testtest() is False:
+        print('Не могу создать резервную копию.')
+    else:
+        print('Что-то пошло не так.')
+
+
 
 
 
