@@ -1,7 +1,7 @@
 import time
 import os
 from db_tools_request import *
-from db_tools_connect import sql_return, bak_search
+from db_tools_connect import sql_return, bak_search, del_tables, sh_sql
 
 
 def bak_sql():
@@ -20,6 +20,11 @@ def bak_sql():
         bak_search()
         if bak_search() is True:
             print('Резервная копия создана.')
+            print('Начинаем чистку таблиц.')
+            del_tables()
+            print('Сжимаем базу.')
+            sh_sql()
+            print('Обслуживание закончено.')
         elif bak_search() is False:
             print('Не могу создать резервную копию.')
         else:
