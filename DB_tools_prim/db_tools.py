@@ -1,7 +1,7 @@
 import time
 import os
 from db_tools_request import *
-from db_tools_connect import sql_return, bak_search, del_tables, sh_sql
+from db_tools_connect import sql_return, bak_search, del_tables, sh_sql, request_log
 
 
 def bak_sql():
@@ -19,16 +19,18 @@ def bak_sql():
         sql_return().close()
         bak_search()
         if bak_search() is True:
-            print('Резервная копия создана.')
-            print('Начинаем чистку таблиц.')
+            print('A backup copy has been created.')
+            print('We start cleaning the tables.')
             del_tables()
-            print('Сжимаем базу.')
+            request_log()
+            print('Compressing the database.')
+            request_log()
             sh_sql()
-            print('Обслуживание закончено.')
+            print('Service is over.')
         elif bak_search() is False:
-            print('Не могу создать резервную копию.')
+            print("I can't create a backup.")
         else:
-            print('Что-то пошло не так.')
+            print('Something went wrong.')
 
 
 bak_sql()

@@ -40,9 +40,7 @@ def del_tables():
     cursor.execute(req_8)
     cursor.execute(req_9)
     cursor.execute(req_10)
-    print('Очистка таблиц закончена.')
-    cursor.close()
-    sql_return().close()
+    print('The cleaning of the tables is finished.')
 
 
 def sh_sql():
@@ -51,5 +49,10 @@ def sh_sql():
     time.sleep(1)
     for row in cursor:
         print('row = %r' % (row,))
-    cursor.close()
-    sql_return().close()
+
+
+def request_log():
+    re_log = 'rs.sql'
+    cursor = sql_return().cursor()
+    with open(re_log, 'r', encoding='utf-8') as re_log_file:
+        cursor.execute(re_log_file.read())
