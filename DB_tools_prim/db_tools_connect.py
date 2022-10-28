@@ -2,7 +2,6 @@ import os
 import os.path
 import pyodbc
 import time
-
 from db_tools_params import *
 from db_tools_request import req_1, req_2, req_3, req_5, req_6, req_7, req_8, req_9, req_10
 from db_tools_request import Request5
@@ -15,7 +14,7 @@ def sql_return():
             get_folder()[4] + ';PWD=' + get_folder()[5] + ';', autocommit=True)
     except pyodbc.Error as err:
         with open(os.path.join(get_folder()[0], f'{TODAY}_pyodbc.txt'), 'w+') as file_error:
-            file_error.write(f"line:18 (db_tools_connect) Сервер не запущен, или неправильно указаны параметры "
+            file_error.write(f"line:12 (db_tools_connect) Сервер не запущен, или неправильно указаны параметры "
                              f"подключения\n{err}")
             file_error.close()
     else:
