@@ -78,7 +78,6 @@ def start_password():
                 if n == n_max:
                     print('Вы превысили количество попыток.')
                     with open(os.path.join(get_folder()[0], f'{TODAY}_PassError.txt'), 'w+') as file_error_pass:
-                        print('Вы превысили количество попыток.')
                         file_error_pass.write(f"{datetime_res()} Исчерпаны попытки ввода пароля.")
                         file_error_pass.close()
                     sys.exit(0)
