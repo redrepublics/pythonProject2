@@ -2,7 +2,7 @@ import time
 import os
 from db_tools_request import *
 from db_tools_connect import sql_return, bak_search, del_tables, sh_sql, request_log, start_password
-
+from mess_db_tools import *
 
 def bak_sql():
     try:
@@ -17,22 +17,32 @@ def bak_sql():
             start_password()
         else:
             pass
-        print('Start...')
-        print('Начинаем резервное копирование базы данных.')
+        with open(os.path.join(get_folder()[0], f'{TODAY}_db_tools_report.txt'), 'w+') as file_error:
+            ff_report = f'{TODAY}_db_tools_report.txt'
+            print(mess_db_tools_1)
+            file_error.write(f'{now}: {mess_db_tools_1}\n')
+            print(mess_db_tools_2)
+            file_error.write(f'{now}: {mess_db_tools_2}\n')
         cursor.execute(Request3)
         time.sleep(5)
         cursor.close()
         sql_return().close()
         bak_search()
         if bak_search() is True:
-            print('Резервная копия базы данных создана.')
-            print('Чистим таблицы.')
-            del_tables()
-            request_log()
-            print('Сжимаем базу данных.')
-            request_log()
-            sh_sql()
-            print('Обслуживание завершено.')
+            with open(os.path.join(get_folder()[0], ff_report), 'a') as file_error:
+                print(mess_db_tools_3)
+                file_error.write(f'{now}: {mess_db_tools_3}\n')
+                print(mess_db_tools_4)
+                file_error.write(f'{now}: {mess_db_tools_4}\n')
+                del_tables()
+                request_log()
+                print(mess_db_tools_5)
+                file_error.write(f'{now}: {mess_db_tools_5}\n')
+                request_log()
+                sh_sql()
+                print(mess_db_tools_6)
+                file_error.write(f'{now}: {mess_db_tools_6}\n')
+                file_error.close()
         elif bak_search() is False:
             print("Нельзя создать бэкап. Работа остановлена.")
         else:

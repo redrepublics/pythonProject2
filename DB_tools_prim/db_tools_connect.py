@@ -7,7 +7,7 @@ import time
 from db_tools_params import *
 from db_tools_request import req_1, req_2, req_3, req_5, req_6, req_7, req_8, req_9, req_10
 from db_tools_request import Request5
-
+from mess_db_tools import mess_db_tools_6
 
 def sql_return():
     try:
@@ -42,7 +42,7 @@ def del_tables():
     cursor.execute(req_8)
     cursor.execute(req_9)
     cursor.execute(req_10)
-    print('Очистка таблиц закончена.')
+    print(mess_db_tools_6)
 
 
 def sh_sql():
