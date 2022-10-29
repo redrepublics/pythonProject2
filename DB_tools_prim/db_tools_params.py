@@ -14,6 +14,7 @@ def get_folder():
     ini_list.append(config["connectdb"]['bddata'])
     ini_list.append(config["connectdb"]['user'])
     ini_list.append(config["connectdb"]['password'])
+    ini_list.append(config["login"]['autologin'])
     return ini_list
 
 
