@@ -18,6 +18,11 @@ def get_folder():
     return ini_list
 
 
+def datetime_res():
+    resul = datetime.now()
+    return resul
+
+
 now = datetime.now()
 TODAY = now.strftime("%y_%m_%d_%H_%M_%S")
 file_name_bak = f'{get_folder()[3]}{TODAY}'

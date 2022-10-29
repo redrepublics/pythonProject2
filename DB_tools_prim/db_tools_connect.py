@@ -9,6 +9,7 @@ from db_tools_request import req_1, req_2, req_3, req_5, req_6, req_7, req_8, re
 from db_tools_request import Request5
 from mess_db_tools import mess_db_tools_6
 
+
 def sql_return():
     try:
         conn = pyodbc.connect(
@@ -16,7 +17,8 @@ def sql_return():
             get_folder()[4] + ';PWD=' + get_folder()[5] + ';', autocommit=True)
     except pyodbc.Error as err:
         with open(os.path.join(get_folder()[0], f'{TODAY}_pyodbc.txt'), 'w+') as file_error:
-            file_error.write(f"line:12 (db_tools_connect) Сервер не запущен, или неправильно указаны параметры "
+            file_error.write(f"{datetime_res()} line:15 (db_tools_connect) Сервер не запущен, или неправильно указаны "
+                             f"параметры "
                              f"подключения\n{err}")
             file_error.close()
     else:
@@ -70,14 +72,14 @@ def start_password():
             pp = int(input('Введите цифровой пароль:'))
         except ValueError as err:
             with open(os.path.join(get_folder()[0], f'{TODAY}_ValueError.txt'), 'w+') as file_error:
-                file_error.write(f"line:70 (db.tools) Некорректный ввод пароля\n{err}")
+                file_error.write(f"{datetime_res()} line:70 (db.tools) Некорректный ввод пароля\n{err}")
                 file_error.close()
                 n = n + 1
                 if n == n_max:
                     print('Вы превысили количество попыток.')
                     with open(os.path.join(get_folder()[0], f'{TODAY}_PassError.txt'), 'w+') as file_error_pass:
                         print('Вы превысили количество попыток.')
-                        file_error_pass.write("Исчерпаны попытки ввода пароля.")
+                        file_error_pass.write(f"{datetime_res()} Исчерпаны попытки ввода пароля.")
                         file_error_pass.close()
                     sys.exit(0)
                 else:
