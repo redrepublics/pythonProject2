@@ -6,7 +6,8 @@ import time
 from db_tools_params import *
 from db_tools_request import req_1, req_2, req_3, req_5, req_6, req_7, req_8, req_9, req_10
 from db_tools_request import Request5
-from mess_db_tools import mess_db_tools_6
+from mess_db_tools import mess_db_tools_7
+from exam_del import *
 
 
 def sql_return():
@@ -32,6 +33,15 @@ def bak_search():
         return False
 
 
+def del_exams():
+    cursor = sql_return().cursor()
+    cursor.execute(del_exam)
+    time.sleep(1)
+    cursor.execute('select count(*) from tExaminations')
+    for row in cursor:
+        print('Измерений = %r' % (row,))
+
+
 def del_tables():
     cursor = sql_return().cursor()
     cursor.execute(req_1)
@@ -43,7 +53,8 @@ def del_tables():
     cursor.execute(req_8)
     cursor.execute(req_9)
     cursor.execute(req_10)
-    print(mess_db_tools_6)
+    del_exams()
+    request_log()
 
 
 def sh_sql():
@@ -55,10 +66,12 @@ def sh_sql():
 
 
 def request_log():
-    re_log = 'rs.sql'
     cursor = sql_return().cursor()
-    with open(re_log, 'r', encoding='utf-8') as re_log_file:
-        cursor.execute(re_log_file.read())
+    cursor.execute(rs_db_tools)
+    time.sleep(1)
+    cursor.execute('select count(*) from tRequestLog')
+    for row in cursor:
+        print('Логи запросов = %r' % (row,))
 
 
 def start_password():
@@ -71,7 +84,7 @@ def start_password():
             pp = int(input('Введите цифровой пароль:'))
         except ValueError as err:
             with open(os.path.join(get_folder()[0], f'{TODAY}_ValueError.txt'), 'w+') as file_error:
-                file_error.write(f"{datetime_res()} line:83 (db_tools_connect) Некорректный ввод пароля\n{err}")
+                file_error.write(f"{datetime_res()} line:84 (db_tools_connect) Некорректный ввод пароля\n{err}")
                 file_error.close()
                 n = n + 1
                 if n == n_max:
