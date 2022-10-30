@@ -1,7 +1,6 @@
 import os
 import os.path
 import sys
-
 import pyodbc
 import time
 from db_tools_params import *
@@ -17,7 +16,7 @@ def sql_return():
             get_folder()[4] + ';PWD=' + get_folder()[5] + ';', autocommit=True)
     except pyodbc.Error as err:
         with open(os.path.join(get_folder()[0], f'{TODAY}_pyodbc.txt'), 'w+') as file_error:
-            file_error.write(f"{datetime_res()} line:15 (db_tools_connect) Сервер не запущен, или неправильно указаны "
+            file_error.write(f"{datetime_res()} line:14 (db_tools_connect) Сервер не запущен, или неправильно указаны "
                              f"параметры "
                              f"подключения\n{err}")
             file_error.close()
@@ -72,7 +71,7 @@ def start_password():
             pp = int(input('Введите цифровой пароль:'))
         except ValueError as err:
             with open(os.path.join(get_folder()[0], f'{TODAY}_ValueError.txt'), 'w+') as file_error:
-                file_error.write(f"{datetime_res()} line:70 (db.tools) Некорректный ввод пароля\n{err}")
+                file_error.write(f"{datetime_res()} line:83 (db_tools_connect) Некорректный ввод пароля\n{err}")
                 file_error.close()
                 n = n + 1
                 if n == n_max:
