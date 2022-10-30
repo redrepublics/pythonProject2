@@ -47,7 +47,7 @@ def bak_sql():
                 file_error.close()
         elif bak_search() is False:
             with open(os.path.join(get_folder()[0], f'{TODAY}_db_tools_not_backup.txt'), 'w+') as file_error_bk:
-                file_error_bk.write(mess_db_tools_8)
+                file_error_bk.write(f'{datetime_res()}: {mess_db_tools_8}\n')
                 file_error_bk.close()
                 print(mess_db_tools_8)
                 sys.exit(1)
