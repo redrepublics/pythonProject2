@@ -31,7 +31,7 @@ def bak_sql():
         sql_return().close()
         bak_search()
         if bak_search() is True:
-            with open(os.path.join(get_folder()[0], ff_report), 'a') as file_error:
+            with open(os.path.join(get_folder()[0], ff_report), 'w+') as file_error:
                 print(mess_db_tools_3)
                 file_error.write(f'{datetime_res()}: {mess_db_tools_3}\n')
                 print(mess_db_tools_4)
