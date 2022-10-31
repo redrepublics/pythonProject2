@@ -4,9 +4,11 @@ import os
 from db_tools_request import *
 from db_tools_connect import sql_return, bak_search, del_tables, sh_sql, start_password
 from mess_db_tools import *
+from db_tools_no_rights import test_folder
 
 
 def bak_sql():
+    test_folder()
     try:
         cursor = sql_return().cursor()
     except AttributeError as err:
