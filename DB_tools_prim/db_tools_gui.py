@@ -4,7 +4,6 @@ import sys
 from tkinter import *
 import tkinter.ttk as ttk
 
-
 x = os.getcwd()
 y = 'FontAwesome_f085(0).ico'
 window = Tk()
@@ -19,7 +18,13 @@ txtarea.place(relx=0.5, rely=0.5, anchor="c", relwidth=0.7, relheight=0.7)
 
 
 def run():
-    os.system('python start_db.py')
+    result = os.system('python start_db.py')
+    return result
+    # text = open('file.txt', encoding='utf-8').readlines()
+    # text = ''.join(text)
+    # txtarea = Text(window)
+    # txtarea.insert(1.0, text)
+    # txtarea.pack()
 
 
 def run2():
