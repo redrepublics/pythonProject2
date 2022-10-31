@@ -25,6 +25,3 @@ def t_time():
         n = n - 1
         if n == 0:
             break
-
-
-
