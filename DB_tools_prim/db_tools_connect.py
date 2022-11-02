@@ -4,9 +4,9 @@ import sys
 import pyodbc
 import time
 from db_tools_params import *
-from db_tools_request import req_1, req_2, req_3, req_5, req_6, req_7, req_8, req_9, req_10
+from db_tools_request import req_1, req_2, req_3, req_5, req_6, req_7, req_8, req_9, req_10, req_11, req_12, req_13
+from db_tools_request import req_14, req_15, req_16, req_17, req_18, req_19, req_20, req_21, req_22, req_23, req_24
 from db_tools_request import Request5
-from mess_db_tools import mess_db_tools_7
 from exam_del import *
 
 
@@ -54,6 +54,20 @@ def del_tables():
     cursor.execute(req_9)
     cursor.execute(req_10)
     del_exams()
+    cursor.execute(req_11)
+    cursor.execute(req_12)
+    cursor.execute(req_13)
+    cursor.execute(req_14)
+    cursor.execute(req_15)
+    cursor.execute(req_16)
+    cursor.execute(req_17)
+    cursor.execute(req_18)
+    cursor.execute(req_19)
+    cursor.execute(req_20)
+    cursor.execute(req_21)
+    cursor.execute(req_22)
+    cursor.execute(req_23)
+    cursor.execute(req_24)
     request_log()
 
 
@@ -84,7 +98,7 @@ def start_password():
             pp = int(input('Введите цифровой пароль:'))
         except ValueError as err:
             with open(os.path.join(get_folder()[0], f'{TODAY}_ValueError.txt'), 'w+') as file_error:
-                file_error.write(f"{datetime_res()} line:84 (db_tools_connect) Некорректный ввод пароля\n{err}")
+                file_error.write(f"{datetime_res()} line:98 (db_tools_connect) Некорректный ввод пароля\n{err}")
                 file_error.close()
                 n = n + 1
                 if n == n_max:
