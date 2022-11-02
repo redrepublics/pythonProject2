@@ -15,7 +15,6 @@ req_7 = 'delete tASUTJY'
 req_8 = 'delete tASUTPersData'
 req_9 = 'delete tASUTRouteList'
 req_10 = 'delete tASUTFilters'
-
 req_11 = 'delete tExamComplaints'
 req_12 = 'delete tExamPhoto'
 req_13 = 'delete tExamsPyro'
@@ -30,6 +29,3 @@ req_21 = 'delete tExamCalculated'
 req_22 = 'delete tExamComplaints'
 req_23 = 'delete tExamsBadConditions'
 req_24 = 'delete tExamsHASH'
-
-
-
