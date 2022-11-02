@@ -50,7 +50,7 @@ def convert(message: telebot.types.Message):
         else:
             pass
         quote, base, amount = values_input
-        total_base = CryptoConverter.convert_s(quote, base, amount)
+        total_base = CryptoConverter.convert_s(quote.lower(), base.lower(), amount)
     except ConvertionException as per_f:
         bot.reply_to(message, f"{robot_sm} Ошибка ввода.\n{per_f}")
     except Exception as per_f:
