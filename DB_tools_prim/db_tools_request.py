@@ -25,8 +25,11 @@ req_16 = 'delete tRemoteExamSignature'
 req_17 = 'delete tSignatureJorn'
 req_18 = 'delete tCurrentExams'
 req_19 = 'delete tExamADParameters'
-req_20 = 'delete tExamADParameters'
+req_20 = 'delete tExamComplaints'
 req_21 = 'delete tExamCalculated'
 req_22 = 'delete tExamComplaints'
 req_23 = 'delete tExamsBadConditions'
 req_24 = 'delete tExamsHASH'
+
+
+
