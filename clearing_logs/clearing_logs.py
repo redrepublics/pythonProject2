@@ -1,15 +1,16 @@
 import os
 import sys
-import win32api
 import glob
+import win32api
 import datetime
+import webbrowser
+
 
 drives = win32api.GetLogicalDriveStrings()
 drives = drives.split('\000')[:-1]
 now = datetime.datetime.now()
-num = 0
-err5 = 0
-err2 = 0
+current_time = now.strftime("%y_%m_%d_%H_%M_%S")
+num, err5, err2 = (0,) * 3
 format_files = 'log'
 
 
@@ -29,11 +30,14 @@ def dr_list():
             else:
                 pass
     now2 = datetime.datetime.now()
-    print("Времени на поиск:", now2 - now)
-    print('Поиск происходил по дискам', *drives, sep=', ')
-    print('Всего файлов очищено:', num)
-    print(f'Не удалось очистить WinError5: {err5}\n'
-          f'Не удалось найти ранее обнаруженных файлов WinError2: {err2}')
+    with open(f'run_report.{format_files}', 'w+') as report:
+        report.write(f'Времени на поиск: {now2 - now}\n')
+        report.write(f'Поиск происходил по дискам: {drives}\n')
+        report.write(f'Всего файлов очищено: {num}\n')
+        report.write(f'Не удалось очистить WinError5: {err5}\n'
+                     f'Не удалось найти ранее обнаруженных файлов WinError2: {err2}')
+        report.close()
+        webbrowser.open(f'run_report.{format_files}')
     sys.exit(0)
 
 
