@@ -13,7 +13,7 @@ def bak_sql():
         cursor = sql_return().cursor()
     except AttributeError as err:
         with open(os.path.join(get_folder()[0], f'{TODAY}_AttributeError.txt'), 'w+') as file_error:
-            file_error.write(f"{datetime_res()} line:10 (db.tools) Нет параметра для подключения\n{err}")
+            file_error.write(f"{datetime_res()} line:13 (db.tools) Нет параметра для подключения\n{err}")
             file_error.close()
     else:
         if 1 == int(get_folder()[6]):
