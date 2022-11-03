@@ -31,14 +31,11 @@ def ping_point():
             else:
                 pass
             with open("ping_success.txt", 'w+') as file:
-                file.write(f'{current_time} Доступен: {i}')
+                file.write(f'{current_time} Доступен: {i}\n')
         else:
-            if int(get_folder()[5]) == output_t:
-                print('Провал')
-            else:
-                pass
+            print('Провал')
             with open('ping_failure.txt', 'w+') as file:
-                file.write(f'{current_time} Не доступен: {i}')
+                file.write(f'{current_time} Не доступен: {i}\n')
     cursor.close()
 
 
