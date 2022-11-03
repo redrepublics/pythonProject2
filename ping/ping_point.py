@@ -1,6 +1,5 @@
 import pyodbc
 from ping_params import *
-from subprocess import PIPE, Popen
 from ping3 import ping, verbose_ping
 
 
@@ -28,14 +27,14 @@ def ping_point():
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
                 print("Связь есть!")
-            with open("ping_success.txt", 'w+') as file:
+            with open("Достыпные_хосты.txt", 'w+') as file:
                 file.write(f'{current_time} Доступен: {i}\n')
 
         else:
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
                 print("Хост недоступен!")
-            with open('ping_failure.txt', 'w+') as file:
+            with open('Недоступные_хосты.txt', 'w+') as file:
                 file.write(f'{current_time} Не доступен: {i}\n')
     cursor.close()
 
