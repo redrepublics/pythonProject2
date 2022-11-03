@@ -3,7 +3,7 @@ from ping_params import *
 from subprocess import PIPE, Popen
 
 # Подключаемся к серверу
-hostname = []
+hostname = ['8.8.8.8']
 conn = pyodbc.connect(
     'DRIVER={' + get_folder()[0] + '};SERVER=' + get_folder()[1] + ';DATABASE=' + get_folder()[2] + ';UID=' +
     get_folder()[3] + ';PWD=' + get_folder()[4] + ';', autocommit=True)
@@ -23,11 +23,9 @@ def ping_point():
         i = str(i)
         res = Popen(f"ping -n 1 {i}", shell=True, stdout=PIPE)
         out = str(res.communicate()[0].decode("CP866"))
-        # if out.find("100% потерь") == -1:
-        # if -1 == out.find("100% потерь"):# or out.find("Превышен интервал ожидания для запроса"):
         r1 = out.find("100% потерь")
         r2 = out.find("Превышен интервал ожидания для запроса")
-        if -1 in (r1, r2):  # or out.find("Превышен интервал ожидания для запроса"):
+        if str(r2) in str(r1):
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
                 print("Связь есть!")
