@@ -1,9 +1,11 @@
 import os
 import pyodbc
+from ping_params import *
 
-hostname = ['8.8.8.8']
-conn = pyodbc.connect('DRIVER={SQL Server Native Client 11.0};SERVER=localhost;DATABASE=SRW_688;UID=sa;PWD=daorliar;',
-                      autocommit=True)
+
+hostname = []
+# hostname = ['8.8.8.8']
+conn = pyodbc.connect('DRIVER={'+get_folder()[0]+'};SERVER='+get_folder()[1]+';DATABASE='+get_folder()[2]+';UID=' +get_folder()[3]+';PWD='+get_folder()[4]+';',autocommit=True)
 cursor = conn.cursor()
 
 cursor.execute('select IPAddress from tNodesDetails')
