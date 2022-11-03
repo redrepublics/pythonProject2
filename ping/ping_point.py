@@ -3,7 +3,6 @@ from ping_params import *
 from ping3 import ping
 
 # Подключаемся к серверу
-hostname = ['8.8.8.8', '192.168.1.1\sql19', 'ya.ru', 'localhost', '127.0.0.1', 'habr.com']
 conn = pyodbc.connect(
     'DRIVER={' + get_folder()[0] + '};SERVER=' + get_folder()[1] + ';DATABASE=' + get_folder()[2] + ';UID=' +
     get_folder()[3] + ';PWD=' + get_folder()[4] + ';', autocommit=True)
@@ -16,7 +15,6 @@ for row in cursor:
     hostname.append(x)
 
 
-row = '\\'
 # выявляем в списке все что с экземплярами, и убираем, делаем по ним отчет
 for person in hostname:
     if row in person:

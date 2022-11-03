@@ -9,6 +9,8 @@ config.read(ini_files)
 now = datetime.datetime.now()
 current_time = now.strftime("%y.%m.%d %H:%M:%S")
 output_t = 1
+row = '\\'
+hostname = ['8.8.8.8', '192.168.1.1\sql19', 'ya.ru', 'localhost', '127.0.0.1', 'habr.com']
 
 
 def get_folder():
@@ -20,4 +22,3 @@ def get_folder():
     ini_list.append(config["connectdb"]['password'])
     ini_list.append(config["terminal"]['terminal_output'])
     return ini_list
-
