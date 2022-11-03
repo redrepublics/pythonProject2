@@ -23,7 +23,8 @@ def ping_point():
         i = str(i)
         res = Popen(f"ping -n 1 {i}", shell=True, stdout=PIPE)
         out = str(res.communicate()[0].decode("CP866"))
-        if out.find("100% потерь") == -1:
+        # if out.find("100% потерь") == -1:
+        if -1 in (out.find("100% потерь"), out.find("Превышен интервал ожидания для запроса")):
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
                 print("Связь есть!")
