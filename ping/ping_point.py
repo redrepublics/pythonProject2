@@ -25,7 +25,7 @@ def ping_point():
         out = str(res.communicate()[0].decode("CP866"))
         r1 = out.find("100% потерь")
         r2 = out.find("Превышен интервал ожидания для запроса")
-        if str(r2) in str(r1):
+        if str(r2) in str(r1) != 0:
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
                 print("Связь есть!")
