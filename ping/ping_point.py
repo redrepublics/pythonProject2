@@ -32,7 +32,7 @@ def ping_point():
                 pass
         else:
             with open('Недоступные_хосты.txt', 'w+') as file:
-                file.write(f'{current_time} Не доступен: {i}\n')
+                file.write(f'{current_time} Недоступен: {i}\n')
             if int(get_folder()[5]) == 1:
                 print(f'{i} - Провал.')
             else:

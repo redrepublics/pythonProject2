@@ -7,7 +7,7 @@ config = configparser.ConfigParser()
 config.read(ini_files)
 # отлавливаем временную метку для записи в лог
 now = datetime.datetime.now()
-current_time = now.strftime("%y_%m_%d_%H_%M_%S")
+current_time = now.strftime("%y.%m.%d %H:%M:%S")
 output_t = 1
 
 
