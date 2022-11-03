@@ -24,18 +24,21 @@ def ping_point():
         i = str(i)
         ping(i)
         if ping(i):
+            with open("Доступные_хосты.txt", 'w+') as file:
+                file.write(f'{current_time} Доступен: {i}\n')
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
                 print("Связь есть!")
-            with open("Достыпные_хосты.txt", 'w+') as file:
-                file.write(f'{current_time} Доступен: {i}\n')
-
+            else:
+                pass
         else:
+            with open('Недоступные_хосты.txt', 'w+') as file:
+                file.write(f'{current_time} Не доступен: {i}\n')
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
                 print("Хост недоступен!")
-            with open('Недоступные_хосты.txt', 'w+') as file:
-                file.write(f'{current_time} Не доступен: {i}\n')
+            else:
+                pass
     cursor.close()
 
 
