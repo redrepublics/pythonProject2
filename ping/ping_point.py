@@ -1,6 +1,8 @@
 import pyodbc
 from ping_params import *
 from subprocess import PIPE, Popen
+from ping3 import ping, verbose_ping
+
 
 # Подключаемся к серверу
 hostname = ['8.8.8.8']
@@ -21,11 +23,8 @@ for row in cursor:
 def ping_point():
     for i in hostname:
         i = str(i)
-        res = Popen(f"ping -n 1 {i}", shell=True, stdout=PIPE)
-        out = str(res.communicate()[0].decode("CP866"))
-        r1 = out.find("100% потерь")
-        r2 = out.find("Превышен интервал ожидания для запроса")
-        if (str(r1) == -1) and (str(r2) == -1):
+        ping(i)
+        if ping(i):
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
                 print("Связь есть!")
