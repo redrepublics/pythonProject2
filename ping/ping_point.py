@@ -1,6 +1,6 @@
 import pyodbc
 from ping_params import *
-from ping3 import ping, verbose_ping
+from ping3 import ping
 
 
 # Подключаемся к серверу
@@ -18,7 +18,7 @@ for row in cursor:
 
 
 # смотрим ответ по выводу
-# надо проверить на английской версии винды
+# надо проверить на английской версии OC
 def ping_point():
     for i in hostname:
         i = str(i)
