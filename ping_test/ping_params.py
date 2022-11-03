@@ -20,3 +20,4 @@ def get_folder():
     ini_list.append(config["connectdb"]['password'])
     ini_list.append(config["terminal"]['terminal_output'])
     return ini_list
+

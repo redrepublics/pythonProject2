@@ -1,9 +1,9 @@
-import os
 import pyodbc
 from ping_params import *
+from subprocess import PIPE, Popen
 
 # Подключаемся к серверу
-hostname = ['192.1.1.0']
+hostname = []
 conn = pyodbc.connect(
     'DRIVER={' + get_folder()[0] + '};SERVER=' + get_folder()[1] + ';DATABASE=' + get_folder()[2] + ';UID=' +
     get_folder()[3] + ';PWD=' + get_folder()[4] + ';', autocommit=True)
@@ -15,23 +15,26 @@ for row in cursor:
     x = ",".join(row)
     hostname.append(x)
 
-# перебираем список, в случае успеха в один файл, в случае провала в другой, попутно выводим в консоль, что и как
+
+# смотрим ответ по выводу
+# надо проверить на английской версии винды
 def ping_point():
     for i in hostname:
-        i: str = i
-        response = os.system(f'ping {i} > nul')
-        if response == 0:
-            print(f'{i}')
-            print('Успех')
+        i = str(i)
+        res = Popen(f"ping -n 1 {i}", shell=True, stdout=PIPE)
+        out = str(res.communicate()[0].decode("CP866"))
+        if out.find("Заданный узел недоступен") == -1:
+            if int(get_folder()[5]) == 1:
+                print(f'{i}')
+                print("Связь есть!")
             with open("ping_success.txt", 'w+') as file:
                 file.write(f'{current_time} Доступен: {i}\n')
-        elif response != 0:
-            print(f'{i}')
-            print('Провал')
+        else:
+            if int(get_folder()[5]) == 1:
+                print(f'{i}')
+                print("Хост недоступен!")
             with open('ping_failure.txt', 'w+') as file:
                 file.write(f'{current_time} Не доступен: {i}\n')
-        else:
-            pass
     cursor.close()
 
 
