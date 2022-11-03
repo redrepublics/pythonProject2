@@ -25,12 +25,13 @@ def ping_point():
         out = str(res.communicate()[0].decode("CP866"))
         r1 = out.find("100% потерь")
         r2 = out.find("Превышен интервал ожидания для запроса")
-        if str(r2) in str(r1) != 0:
+        if (str(r1) == -1) and (str(r2) == -1):
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
                 print("Связь есть!")
             with open("ping_success.txt", 'w+') as file:
                 file.write(f'{current_time} Доступен: {i}\n')
+
         else:
             if int(get_folder()[5]) == 1:
                 print(f'{i}')
