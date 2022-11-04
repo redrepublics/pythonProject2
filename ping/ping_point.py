@@ -39,7 +39,7 @@ def host_name():
     return hostname
 
 
-# смотрим ответ по выводу
+# смотрим ответ по выводу1
 def ping_point():
     for i in host_name():
         i = str(i)
