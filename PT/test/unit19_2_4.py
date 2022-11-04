@@ -2,7 +2,7 @@ import pytest
 from app.calculator import Calculator
 
 
-# Ссылку на репозиторий опубликуйте в задании unit 19.7.3
+# Ссылку на репозиторий опубликуйте в задании unit 19.7.3!
 
 class TestCalc:
     def setup(self):
