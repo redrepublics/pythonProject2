@@ -24,7 +24,9 @@ def get_folder():
     ini_list.append(config["connectdb"]['user'])
     ini_list.append(config["connectdb"]['password'])
     ini_list.append(config["terminal"]['terminal_output'])
+    ini_list.append(config["terminal"]['del_old_f'])
     return ini_list
+
 
 # Создаем папку для хранения отчетов
 def folder_txt():

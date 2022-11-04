@@ -2,6 +2,7 @@ import pyodbc
 from ping_params import *
 from ping3 import ping
 import sys
+from ping_del_filese import file_old_del
 
 
 # Подключаемся к серверу
@@ -60,4 +61,5 @@ def ping_point():
                 pass
 
 
+file_old_del()
 ping_point()
