@@ -61,5 +61,7 @@ def ping_point():
                 pass
 
 
-file_old_del()
+# Запуск основной процедуры
 ping_point()
+# Запуск очистки старых файлов отчета
+file_old_del()
