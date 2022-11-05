@@ -3,9 +3,26 @@ import time
 
 from ping_params import *
 from ping3 import ping
-from ping_del_filese import file_old_del, csv_dir
+from ping_del_filese import file_old_del
 from ping_conn import db_cursor
 import csv
+import glob
+
+
+def csv_dir():
+    os.chdir(os.getcwd())
+    for file in glob.glob("ping.csv"):
+        if file is not None:
+            with open('ping.csv', newline='') as File:
+                reader = csv.reader(File)
+        elif file is None:
+            with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Error.txt"), 'a') as file_2:
+                file_2.write(f'{current_time} Нет SCV.')
+                print('Нет SCV или он поврежден.')
+                file_2.close()
+                time.sleep(5)
+            sys.exit(1)
+        return reader
 
 
 # делаем запрос на IP, создаем список, убираем все лишнее, в том числе и экземпляры
@@ -31,20 +48,27 @@ def host_name():
 
 def host_name_csv():
     folder_txt()
-    with open('ping.csv', newline='') as File:
-        reader = csv.reader(File)
-        for row in reader:
-            x = ",".join(row)
-            hostname.append(x)
-        for person in hostname:
-            if del_t in person:
-                hostname.remove(person)
-                with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Сомнительная запись.txt"),
-                          'w+') as file:
-                    file.write(f'{current_time} Проверить вручную: {person}\n')
-                    file.close()
-            else:
-                pass
+    csv_dir()
+    try:
+        with open('ping.csv', newline='') as File:
+            reader = csv.reader(File)
+            for row in reader:
+                x = ",".join(row)
+                hostname.append(x)
+            for person in hostname:
+                if del_t in person:
+                    hostname.remove(person)
+                    with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Сомнительная запись.txt"),
+                              'w+') as file:
+                        file.write(f'{current_time} Проверить вручную: {person}\n')
+                        file.close()
+                else:
+                    pass
+    except FileNotFoundError:
+        with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Error.txt"), 'a') as file_2:
+            file_2.write(f'{current_time} Нет SCV.')
+            print('Нет SCV или он поврежден.')
+            sys.exit(1)
     return hostname
 
 
@@ -58,7 +82,6 @@ def ip_list():
             with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Ошибка АСПО.txt"), 'a') as file:
                 file.write(f'{current_time} Нет адресов для работы в базе АСПО.')
                 print('Нет адресов для работы в базе АСПО.')
-                time.sleep(5)
             sys.exit(1)
     elif int(get_folder()[7]) == 0:
         host_ip = host_name_csv()
@@ -68,7 +91,6 @@ def ip_list():
             with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Ошибка CSV.txt"), 'a') as file:
                 file.write(f'{current_time} Пустой или некорректный csv.')
                 print('Пустой или некорректный csv. Файл должен находиться в той же паке, что и ПО.')
-                time.sleep(5)
             sys.exit(1)
     else:
         with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Ошибка.txt"), 'a') as file:
@@ -100,8 +122,6 @@ def ping_point():
                 pass
 
 
-# проверка ини
-csv_dir()
 # Запуск основной процедуры
 ping_point()
 # Запуск очистки старых файлов отчета

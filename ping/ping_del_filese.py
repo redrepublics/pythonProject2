@@ -3,6 +3,7 @@ import os
 import glob
 import time
 import sys
+import csv
 from pathlib import Path
 from ping_params import get_folder
 from ping_params import current_time, current_time_file
@@ -15,7 +16,6 @@ def file_old_del():
     old_time = arrow.now().shift(days=-(int(get_folder()[6])))
     for item in Path(filesPath).glob('*.txt'):
         if item.is_file():
-            # print(str(item.absolute()))
             item_time = arrow.get(item.stat().st_mtime)
             if item_time < old_time:
                 os.remove(str(item.absolute()))
@@ -25,11 +25,15 @@ def file_old_del():
 def csv_dir():
     os.chdir(os.getcwd())
     for file in glob.glob("ping.csv"):
-        if file:
-            pass
+        if isinstance(file, str):
+            with open('ping.csv', newline='') as File:
+                reader = csv.reader(File)
         else:
-            with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Error.txt"), 'a') as file:
-                file.write(f'{current_time} Нет SCV.')
+            with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Error.txt"), 'a') as file_2:
+                file_2.write(f'{current_time} Нет SCV.')
                 print('Нет SCV или он поврежден.')
+                file_2.close()
                 time.sleep(5)
-            sys.exit(1)
+                sys.exit(1)
+        return reader
+

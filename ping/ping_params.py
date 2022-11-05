@@ -36,4 +36,3 @@ def folder_txt():
         os.makedirs(os.path.join(os.getcwd(), 'отчеты'))
     else:
         pass
-
