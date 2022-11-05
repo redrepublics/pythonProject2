@@ -1,8 +1,9 @@
+import sys
 import time
 
 from ping_params import *
 from ping3 import ping
-from ping_del_filese import file_old_del
+from ping_del_filese import file_old_del, csv_dir
 from ping_conn import db_cursor
 import csv
 
@@ -47,13 +48,38 @@ def host_name_csv():
     return hostname
 
 
+# выбираем, откуда будем читать 1 - из базы, 0 из csv, иначе выход с сообжением об ошибке
+def ip_list():
+    if int(get_folder()[7]) == 1:
+        host_ip = host_name()
+        if host_ip:
+            return host_ip
+        else:
+            with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Ошибка АСПО.txt"), 'a') as file:
+                file.write(f'{current_time} Нет адресов для работы в базе АСПО.')
+                print('Нет адресов для работы в базе АСПО.')
+                time.sleep(5)
+            sys.exit(1)
+    elif int(get_folder()[7]) == 0:
+        host_ip = host_name_csv()
+        if host_ip:
+            return host_ip
+        else:
+            with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Ошибка CSV.txt"), 'a') as file:
+                file.write(f'{current_time} Пустой или некорректный csv.')
+                print('Пустой или некорректный csv. Файл должен находиться в той же паке, что и ПО.')
+                time.sleep(5)
+            sys.exit(1)
+    else:
+        with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Ошибка.txt"), 'a') as file:
+            file.write(f'{current_time} Нет адресов для работы.')
+            print('Нет данных для работы')
+        sys.exit(1)
+
+
 # смотрим ответ по выводу
 def ping_point():
-    if 1 != get_folder()[7]:
-        host_ip = host_name()
-    else:
-        host_ip = host_name_csv()
-    for i in host_ip:
+    for i in ip_list():
         i = str(i)
         ping(i)
         if ping(i):
@@ -74,6 +100,8 @@ def ping_point():
                 pass
 
 
+# проверка ини
+csv_dir()
 # Запуск основной процедуры
 ping_point()
 # Запуск очистки старых файлов отчета
