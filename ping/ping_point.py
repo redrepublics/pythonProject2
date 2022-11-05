@@ -9,6 +9,7 @@ import csv
 import glob
 
 
+# проверяем csv
 def csv_dir():
     os.chdir(os.getcwd())
     for file in glob.glob("ping.csv"):
@@ -46,6 +47,7 @@ def host_name():
     return hostname
 
 
+# делам запрос из csv + еще одна проверка на наличие файла, удаляем вск кривые записи
 def host_name_csv():
     folder_txt()
     csv_dir()
@@ -72,7 +74,7 @@ def host_name_csv():
     return hostname
 
 
-# выбираем, откуда будем читать 1 - из базы, 0 из csv, иначе выход с сообжением об ошибке
+# выбираем, откуда будем читать 1 - из базы, 0 из csv, иначе выход с сообщением об ошибке ini - modeon
 def ip_list():
     if int(get_folder()[7]) == 1:
         host_ip = host_name()
@@ -99,7 +101,7 @@ def ip_list():
         sys.exit(1)
 
 
-# смотрим ответ по выводу
+# смотрим ответ по выводу из ip_list
 def ping_point():
     for i in ip_list():
         i = str(i)
@@ -126,3 +128,5 @@ def ping_point():
 ping_point()
 # Запуск очистки старых файлов отчета
 file_old_del()
+# Только в таком порядке.
+# Начинаем искать отчеты после первого прогона, т.е. только после их создания
