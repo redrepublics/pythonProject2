@@ -23,7 +23,10 @@ def file_old_del():
                 n += 1
                 os.remove(str(item.absolute()))
                 pass
-    print(f'Всего удалено старых отчетов: {n}')
+        if n == 0:
+            pass
+        else:
+            print(f'Всего удалено старых отчетов: {n}')
 
 
 
