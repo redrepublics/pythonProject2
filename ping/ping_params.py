@@ -14,6 +14,7 @@ output_t = 1
 del_t = '\\'
 # hostname = ['8.8.8.8', '192.168.1.1\sql19', 'ya.ru', 'localhost', '127.0.0.1', 'habr.com']
 hostname = []
+req = 'select IPAddress from tNodesDetails'
 
 
 def get_folder():
@@ -25,6 +26,7 @@ def get_folder():
     ini_list.append(config["connectdb"]['password'])
     ini_list.append(config["terminal"]['terminal_output'])
     ini_list.append(config["terminal"]['del_old_f'])
+    ini_list.append(config["aspo"]['modeon'])
     return ini_list
 
 

@@ -10,7 +10,6 @@ filesPath = os.path.join(os.getcwd(), path_fold)
 
 def file_old_del():
     old_time = arrow.now().shift(days=-(int(get_folder()[6])))
-    print(old_time)
     for item in Path(filesPath).glob('*.txt'):
         if item.is_file():
             # print(str(item.absolute()))

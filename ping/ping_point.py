@@ -1,29 +1,17 @@
-import pyodbc
+import time
+
 from ping_params import *
 from ping3 import ping
-import sys
 from ping_del_filese import file_old_del
+from ping_conn import db_cursor
+import csv
 
 
-# Подключаемся к серверу
 # делаем запрос на IP, создаем список, убираем все лишнее, в том числе и экземпляры
 def host_name():
     folder_txt()
-    try:
-        conn = pyodbc.connect(
-            "DRIVER={" + get_folder()[0] + '};SERVER=' + get_folder()[1] + ';DATABASE=' + get_folder()[2] + ';UID=' +
-            get_folder()[3] + ';PWD=' + get_folder()[4] + ';', autocommit=True)
-    except pyodbc.OperationalError as err:
-        err_report_one = 'Error: Ошибка подключения к SQL Server.'
-        err_report_two = ('ms-sql Operation Error: {0}'.format(err))
-        with open(os.path.join(os.getcwd(), 'отчеты', f'{current_time_file} Ошибка подключения.txt'), 'w+') as result:
-            result.write(r'' + err_report_one + '\n' + err_report_two + '')
-            result.close()
-            print(f"Выполнение будет остановлено. {err_report_one},\n{err_report_two}")
-            sys.exit(1)
-    else:
-        cursor = conn.cursor()
-    cursor.execute('select IPAddress from tNodesDetails')
+    cursor = db_cursor().cursor()
+    cursor.execute(req)
     for row in cursor:
         x = ",".join(row)
         hostname.append(x)
@@ -40,9 +28,32 @@ def host_name():
     return hostname
 
 
-# смотрим ответ по выводу1
+def host_name_csv():
+    folder_txt()
+    with open('ping.csv', newline='') as File:
+        reader = csv.reader(File)
+        for row in reader:
+            x = ",".join(row)
+            hostname.append(x)
+        for person in hostname:
+            if del_t in person:
+                hostname.remove(person)
+                with open(os.path.join(os.getcwd(), 'отчеты', f"{current_time_file} Сомнительная запись.txt"),
+                          'w+') as file:
+                    file.write(f'{current_time} Проверить вручную: {person}\n')
+                    file.close()
+            else:
+                pass
+    return hostname
+
+
+# смотрим ответ по выводу
 def ping_point():
-    for i in host_name():
+    if 1 != get_folder()[7]:
+        host_ip = host_name()
+    else:
+        host_ip = host_name_csv()
+    for i in host_ip:
         i = str(i)
         ping(i)
         if ping(i):
@@ -50,6 +61,7 @@ def ping_point():
                 file.write(f'{current_time} Доступен: {i}\n')
             if int(get_folder()[5]) == 1:
                 print(f'{i} - Успех.')
+                time.sleep(1)
             else:
                 pass
         else:
@@ -57,6 +69,7 @@ def ping_point():
                 file.write(f'{current_time} Недоступен: {i}\n')
             if int(get_folder()[5]) == 1:
                 print(f'{i} - Провал.')
+                time.sleep(1)
             else:
                 pass
 
