@@ -14,19 +14,20 @@ filesPath = os.path.join(os.getcwd(), path_fold)
 
 # удаление файлов старше (смотрим в ini параметр del_old)
 def file_old_del():
-    n = 0
+    count = 0
     old_time = arrow.now().shift(days=-(int(get_folder()[6])))
     for item in Path(filesPath).glob('*.txt'):
         if item.is_file():
             item_time = arrow.get(item.stat().st_mtime)
             if item_time < old_time:
-                n += 1
+                count += 1
                 os.remove(str(item.absolute()))
                 pass
-        if n == 0:
+        if count == 0:
             pass
         else:
-            print(f'Всего удалено старых отчетов: {n}')
+            print(f'Всего удалено старых отчетов: {count}')
+            time.sleep(1)
 
 
 
