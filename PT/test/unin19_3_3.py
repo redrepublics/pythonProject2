@@ -3,14 +3,15 @@ import requests
 # all params
 status = 'available'
 base_url = 'https://petstore.swagger.io/v2/pet/'
-api_key_url = 'https://petfriends.skillfactory.ru/api/key'
 res_b = requests.get(f"{base_url}findByStatus?status={status}", headers={'accept': "application/json"})
 
 pet_dict = res_b.json()[0]
 pet_id = pet_dict['id']
 name = pet_dict['name']
 
+
 def api_res():
+    api_key_url = 'https://petfriends.skillfactory.ru/api/key'
     email = 'mailo4@mail.ru'
     password = 'daorliar'
     api_key_get = requests.get(f'{api_key_url}', headers={'email': f'{email}', 'password': f'{password}'})
