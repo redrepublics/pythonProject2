@@ -9,6 +9,11 @@ now_start = datetime.now()
 print('Выводим ответ:', res.text)
 print('Выводим статус код:', res.status_code)
 print('Выводим сам json:', res.json())
+for row in res.json():
+    x = row['id']
+    print(row)
+    print(x)
+
 print('Смотрим тип отданного json:', type(res.json()))
 now_stop = datetime.now()
 res.close()
