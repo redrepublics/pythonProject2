@@ -10,3 +10,8 @@ class PetFriends:
 
     def __init__(self):
         self.base_url = "https://petfriends1.herokuapp.com/"
+
+    def get_api_key(self, email: str,pawword: str) -> json:
+        """Метод делает запрос к API сервера и возвращает статус запроса и результат в формате
+                JSON с уникальным ключем пользователя, найденного по указанным email и паролем"""
+
