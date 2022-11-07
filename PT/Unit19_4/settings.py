@@ -1,2 +1,7 @@
-valid_email = 'mailo4@mail.ru'
-valid_password = 'daorliar'
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+valid_email = os.getenv('valid_email')
+valid_password = os.getenv('valid_password')
+
