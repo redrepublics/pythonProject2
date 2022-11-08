@@ -1,13 +1,8 @@
 from Unit19_4.api import PetFriends
-# from Unit19_4.settings import valid_email, valid_password
+from Unit19_4.settings import *
 import os
 
 pf = PetFriends()
-valid_email = 'mailo4@mail.ru'
-valid_password = 'daorliar'
-
-no_valid_email = 'mailo45@mail.ru'
-no_valid_password = '12345'
 
 
 def test_get_api_key_for_valid_user(email=valid_email, password=valid_password):
@@ -134,26 +129,3 @@ def test_add_new_pet_with_no_valid_data(name=1, animal_type='собакен',
     except AttributeError as f:
         status = ''
         assert status != 200
-
-def test_get_list_of_pets_with_wrong_auth_key(filter='my_pets'):
-    """ Проверяем что запрос списка питомцев с неверным auth_key выдаёт ошибку."""
-
-    # Получаем ключ auth_key, портим его и запрашиваем список питомцев
-    _, auth_key = pf.get_api_key(valid_email, valid_password)
-    auth_key['key'] += '0000000_000000'
-    try:
-        status, result = pf.get_list_of_pets(auth_key, filter)
-    except AssertionError:
-
-
-
-
-
-
-
-
-
-
-
-
-
