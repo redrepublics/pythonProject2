@@ -1,8 +1,13 @@
 from Unit19_4.api import PetFriends
-from Unit19_4.settings import valid_email, valid_password
+# from Unit19_4.settings import valid_email, valid_password
 import os
 
 pf = PetFriends()
+valid_email = 'mailo4@mail.ru'
+valid_password = 'daorliar'
+
+no_valid_email = 'mailo45@mail.ru'
+no_valid_password = '12345'
 
 
 def test_get_api_key_for_valid_user(email=valid_email, password=valid_password):
@@ -88,3 +93,67 @@ def test_successful_update_self_pet_info(name='Мурзик', animal_type='Ко�
     else:
         # если спиок питомцев пустой, то выкидываем исключение с текстом об отсутствии своих питомцев
         raise Exception("There is no my pets")
+
+
+# req 19.7.2
+# положительны тесты
+# req 1
+def test_get_api_key_for_no_valid_user(email=no_valid_email, password=valid_password):
+    """ Проверяем что запрос api не проходит при некорректных учетных данных"""
+    # Отправляем запрос и сохраняем полученный ответ с кодом статуса в status, а текст ответа в result
+    status, result = pf.get_api_key(email, password)
+    # Сверяем полученные данные с нашими ожиданиями
+    assert status != 200
+    assert 'found in database' in result
+
+
+# req 2
+def test_get_list_of_pets_with_wrong_no_auth_key(filter='my_pets'):
+    """ Проверяем что запрос списка питомцев с неверным auth_key выдаёт ошибку."""
+    # Получаем ключ auth_key, портим его и запрашиваем список питомцев
+    _, auth_key = pf.get_api_key(valid_email, valid_password)
+    auth_key['key'] += 'no_key_no_1'
+    status, result = pf.get_list_of_pets(auth_key, filter)
+    assert status == 403 or status != 200
+
+
+# req 3
+def test_add_new_pet_with_no_valid_data(name=1, animal_type='собакен',
+                                     age='5', pet_photo='images/cat1.jpg'):
+    """Проверяем что нельзя добавить питомца с int в имени"""
+
+    # Получаем полный путь изображения питомца и сохраняем в переменную pet_photo
+    pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
+
+    # Запрашиваем ключ api и сохраняем в переменую auth_key
+    _, auth_key = pf.get_api_key(valid_email, valid_password)
+
+    # Добавляем питомца
+    try:
+        status, result = pf.add_new_pet(auth_key, name, animal_type, age, pet_photo)
+    except AttributeError as f:
+        status = ''
+        assert status != 200
+
+def test_get_list_of_pets_with_wrong_auth_key(filter='my_pets'):
+    """ Проверяем что запрос списка питомцев с неверным auth_key выдаёт ошибку."""
+
+    # Получаем ключ auth_key, портим его и запрашиваем список питомцев
+    _, auth_key = pf.get_api_key(valid_email, valid_password)
+    auth_key['key'] += '0000000_000000'
+    try:
+        status, result = pf.get_list_of_pets(auth_key, filter)
+    except AssertionError:
+
+
+
+
+
+
+
+
+
+
+
+
+
