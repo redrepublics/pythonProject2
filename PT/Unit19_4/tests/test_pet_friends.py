@@ -1,13 +1,6 @@
 from Unit19_4.api import PetFriends
 from Unit19_4.settings import *
 import os
-import random
-import string
-
-
-def generate_random_string(length):
-    letters = string.ascii_lowercase
-    rand_string = ''.join(random.choice(letters) for i in range(length))
 
 
 pf = PetFriends()
@@ -120,7 +113,7 @@ def test_get_list_of_pets_with_wrong_no_auth_key(filter='my_pets'):
     """ Проверяем что запрос списка питомцев с неверным auth_key выдаёт ошибку.
     Изменяем полученный key"""
     _, auth_key = pf.get_api_key(valid_email, valid_password)
-    auth_key['key'] += 'no_key_no_1'
+    auth_key['key'] += str(generate_random_string(10))
     status, result = pf.get_list_of_pets(auth_key, filter)
     assert status == 403 or status != 200
 
