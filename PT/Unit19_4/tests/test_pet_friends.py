@@ -30,8 +30,7 @@ def test_get_all_pets_with_valid_key(filter=''):
     assert len(result['pets']) > 0
 
 
-def test_add_new_pet_with_valid_data(name='Барбоскин', animal_type='двортерьер',
-                                     age='4', pet_photo='images/cat1.jpg'):
+def test_add_new_pet_with_valid_data(name='Барбоскин', animal_type='двортерьер', age='4', pet_photo='images/cat1.jpg'):
     """Проверяем что можно добавить питомца с корректными данными"""
 
     # Получаем полный путь изображения питомца и сохраняем в переменную pet_photo
@@ -87,7 +86,7 @@ def test_successful_update_self_pet_info(name='Мурзик', animal_type='Ко�
         assert status == 200
         assert result['name'] == name
     else:
-        # если спиок питомцев пустой, то выкидываем исключение с текстом об отсутствии своих питомцев
+        # Если спиок питомцев пустой, то выкидываем исключение с текстом об отсутствии своих питомцев
         raise Exception("There is no my pets")
 
 
@@ -131,3 +130,25 @@ def test_successful_delete_self_no_pet():
     pet_id += str(generate_random_string(10))
     status, result = pf.delete_pet(auth_key, pet_id)
     assert result == ''
+
+
+# req 5
+def test_no_pet():
+    """ Проверяем что не может вывести информацию подставив фиктивный ID
+    Для этого ищем своего питомца в списке, по рандомному ID в 1000 знаков"""
+    _, auth_key = pf.get_api_key(valid_email, valid_password)
+    id_no = str(generate_random_string(1000))
+    status, _ = pf.get_list_of_pets(auth_key, id_no)
+    assert status == 500
+
+
+# req 6
+def test_add_new_pet_with_no_valid_photo(name='Плохое имя', animal_type='плохой тип', age='4', pet_photo='images/cat1.txt'):
+    """Проверяем что нельзя добавить неправильный формат в фото, скажем вместо jpg дать txt.
+    Запрос должен пройти с пустым параметром pet_photo.
+    Указываем неправильный формат, получаем ключ, добавляем, сверяем результат."""
+
+    pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
+    _, auth_key = pf.get_api_key(valid_email, valid_password)
+    status, result = pf.add_new_pet(auth_key, name, animal_type, age, pet_photo)
+    assert 'data:image/jpeg' not in result
