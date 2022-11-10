@@ -2,17 +2,20 @@ import pyodbc
 from datetime import date
 
 
+# тут процедура переменной времени, понадобиться почти сразу
 def time_return():
     current_date = date.today()
     d = f"'{current_date}'"
     return d
 
 
+# переменные запросов, и сами запросы
 select_count = 'select count(*) from'
 req_exams = f'{select_count} tExaminations where RecTime >= {time_return()}'
 req_exams_obd = f'{select_count} tDMOSCExams where RecTime >= {time_return()}'
 res_exams_server_from_obd = f'{select_count} tExaminations where  RecTime >= {time_return()} and ExamResultID != 5'
 
+# Все что сonn, то цепляем к базе данных. Всего три сущности
 conn_tpr = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                           "Server=11.10.10.51;"
                           "Database=MGOK_688;"
@@ -32,6 +35,7 @@ conn_Obd = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                           "PWD=daorliar;", autocommit=True)
 
 
+# Выводим канут для ТПР
 def tpr_return():
     cursor_tpr = conn_tpr.cursor()
     cursor_tpr.execute(req_exams)
@@ -41,22 +45,25 @@ def tpr_return():
         s = tpr_result.replace(')', '')
         s1 = s.replace(", ", "")
         result_tpr = s1.replace('(', '')
+        cursor_tpr.close()
         return int(result_tpr)
 
-print(tpr_return())
+
+# Выводим канут по серварку для ТПР
 def server_return():
-    cursor_tpr = conn_serv.cursor()
-    cursor_tpr.execute(req_exams)
-    for result in cursor_tpr:
+    cursor_serv = conn_serv.cursor()
+    cursor_serv.execute(req_exams)
+    for result in cursor_serv:
         result_list = [result]
         tpr_result = str(result_list[0])
         s = tpr_result.replace(')', '')
         s1 = s.replace(", ", "")
         result_tpr = s1.replace('(', '')
+        cursor_serv.close()
         return int(result_tpr)
 
-print(server_return())
 
+# Выводим каунт по ОБД
 def obd_return():
     cursor_obd = conn_Obd.cursor()
     cursor_obd.execute(req_exams_obd)
@@ -66,9 +73,11 @@ def obd_return():
         s = obd_result.replace(')', '')
         s1 = s.replace(", ", "")
         result_obd = s1.replace('(', '')
+        cursor_obd.close()
         return int(result_obd)
 
 
+# Выводим каунт по серваку (с условием), для ОБД
 def server_obd_return():
     cursor_serv = conn_serv.cursor()
     cursor_serv.execute(res_exams_server_from_obd)
@@ -78,8 +87,17 @@ def server_obd_return():
         s = serv_result.replace(')', '')
         s1 = s.replace(", ", "")
         result_serv = s1.replace('(', '')
+        cursor_serv.close()
         return int(result_serv)
 
 
-print(obd_return())
-print(server_obd_return())
+# так как передает утила, а не транспорт, даем в допуск что какунт ОБД может оставать от сервака на 5 измерений
+# если база большая, а сервеерное железно маломощное, цифру стоит увеличить
+def approximately_equal():
+    obd = obd_return()
+    server = server_obd_return()
+    test_res_ = server - obd
+    if test_res_ < 5:
+        return True
+    else:
+        return False
