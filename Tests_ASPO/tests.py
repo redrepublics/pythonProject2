@@ -13,7 +13,6 @@ def test_transfer_of_exams():
     Делаем допуск + 1 измерение, для возможных таймаутов в передаче
     Запрос делаеться на день момента запуска теста, т.е. тестовые данные должны уже быть"""
     server, tpr = server_return(), tpr_return()
-    print('\nИзмерений на сервере АСПО', server,'\nИзмерений на ТПР', tpr)
     assert tpr == server or tpr == (server + 1)
 
 
