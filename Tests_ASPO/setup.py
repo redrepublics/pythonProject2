@@ -2,10 +2,24 @@ import pyodbc
 from datetime import date
 
 current_date = date.today()
+print(current_date)
+date_date = []
+date_date.append(current_date)
+print(date_date)
+print(type(date_date))
 
-req_exams = f'select count(*) from tExaminations where RecTime >= {current_date}'
-req_exams_obd = f'select count(*) from tDMOSCExams where RecTime >= {current_date}'
-res_exams_server_from_obd = f'select count(*) from tExaminations where RecTime >= {current_date} and ExamResultID != 5'
+# def date_return():
+#     current_date = date.today()
+#     date_date = [current_date]
+#     s = date_date.replace(')', '')
+#         s1 = s.replace(", ", "")
+#         result_tpr = s1.replace('(', '')
+#         return int(result_tpr)
+
+
+req_exams = f'select count(*) from tExaminations where RecTime >= {date_date[0]}'
+req_exams_obd = f'select count(*) from tDMOSCExams where RecTime >= {date_date[0]}'
+res_exams_server_from_obd = f'select count(*) from tExaminations where RecTime >= {date_date[0]} and ExamResultID != 5'
 
 conn_tpr = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                           "Server=11.10.10.51;"
