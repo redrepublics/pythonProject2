@@ -1,11 +1,17 @@
 import pyodbc
 from datetime import date
 
-current_date = date.today()
 
-req_exams = f'select count(*) from tExaminations where RecTime >= {current_date}'
-req_exams_obd = f'select count(*) from tDMOSCExams where RecTime >= {current_date}'
-res_exams_server_from_obd = f'select count(*) from tExaminations where RecTime >= {current_date} and ExamResultID != 5'
+def time_return():
+    current_date = date.today()
+    d = f"'{current_date}'"
+    return d
+
+
+select_count = 'select count(*) from'
+req_exams = f'{select_count} tExaminations where RecTime >= {time_return()}'
+req_exams_obd = f'{select_count} tDMOSCExams where RecTime >= {time_return()}'
+res_exams_server_from_obd = f'{select_count} tExaminations where  RecTime >= {time_return()} and ExamResultID != 5'
 
 conn_tpr = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                           "Server=11.10.10.51;"
@@ -37,7 +43,7 @@ def tpr_return():
         result_tpr = s1.replace('(', '')
         return int(result_tpr)
 
-
+print(tpr_return())
 def server_return():
     cursor_tpr = conn_serv.cursor()
     cursor_tpr.execute(req_exams)
@@ -49,6 +55,7 @@ def server_return():
         result_tpr = s1.replace('(', '')
         return int(result_tpr)
 
+print(server_return())
 
 def obd_return():
     cursor_obd = conn_Obd.cursor()
