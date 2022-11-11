@@ -27,6 +27,9 @@ def test_serv_obd():
 
 
 def test_count():
+    """Даем каунт
+    сервер - тпр
+    сервер - обд где экзамреазалт не равен 5"""
     server, tpr, obd, serv_obd = server_return(), tpr_return(), obd_return(), server_obd_return()
     print('\nCount:')
     print(server, tpr)
