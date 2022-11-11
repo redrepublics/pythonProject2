@@ -3,7 +3,8 @@ from setup import *
 # set DATEFORMAT YMD
 """ Тут только положительные тесты.
 Любой обвал теста - причина для создания таски.
-Перед стартом лучше снести все старые тестовые данные, чтобы не было разночтений."""
+Перед стартом лучше снести все старые тестовые данные, чтобы не было разночтений.
+В тестах не учитываем незавершенные осмотры. Они на ОБД не идут."""
 
 
 def test_transfer_of_exams():
@@ -23,3 +24,10 @@ def test_serv_obd():
     Даем больший допус по отставанию каунта измерений. Максимально что можем допустить это 5"""
     result = approximately_equal()
     assert True is result
+
+
+def test_count():
+    server, tpr, obd, serv_obd = server_return(), tpr_return(), obd_return(), server_obd_return()
+    print('\nCount:')
+    print(server, tpr)
+    print(serv_obd, obd)
