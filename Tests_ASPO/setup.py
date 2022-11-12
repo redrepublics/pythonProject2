@@ -11,9 +11,13 @@ def time_return():
 
 # переменные запросов, и сами запросы
 select_count = 'select count(*) from'
-req_exams = f'{select_count} tExaminations where RecTime >= {time_return()}'
-req_exams_obd = f'{select_count} tDMOSCExams where RecTime >= {time_return()}'
-res_exams_server_from_obd = f'{select_count} tExaminations where  RecTime >= {time_return()} and ExamResultID != 5'
+# req_exams = f'{select_count} tExaminations where RecTime >= {time_return()}'
+# req_exams_obd = f'{select_count} tDMOSCExams where RecTime >= {time_return()}'
+# res_exams_server_from_obd = f'{select_count} tExaminations where  RecTime >= {time_return()} and ExamResultID != 5'
+
+req_exams = f'{select_count} tExaminations'
+req_exams_obd = f'{select_count} tDMOSCExams'
+res_exams_server_from_obd = f'{select_count} tExaminations where  ExamResultID != 5'
 
 # Все что сonn, то цепляем к базе данных. Всего три сущности
 conn_tpr = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
