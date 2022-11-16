@@ -1,11 +1,21 @@
 import subprocess
 import os
 import sys
+import configparser
 
 folder = os.getcwd()
 vid = 'video'
 src = os.path.join(folder, vid)
 del_files = []
+ini_files = "conv_avi_to_mp4.ini"
+config = configparser.ConfigParser()
+config.read(ini_files)
+
+
+def get_folder():
+    ini_list = list()
+    ini_list.append(config["result_cod"]["del_avi"])
+    return ini_list
 
 
 def convert_and_folder_search():
@@ -31,6 +41,7 @@ def basic_conversion():
                 subprocess.run(['ffmpeg', '-loglevel', 'quiet', '-y', '-i', input_file, output_file])
             else:
                 pass
+    if int(get_folder()[0]) == 1:
         for x in del_files:
             os.remove(x)
 
