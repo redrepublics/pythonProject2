@@ -2,21 +2,18 @@ import subprocess
 import os
 import sys
 
-"""Используем декодер ffmpeg
-Все делаем из корня АСПО, папка VIDEO должна присутствовать"""
 
 folder = os.getcwd()
 vid = 'video'
 src = os.path.join(folder, vid)
+del_files = []
 
 
-def converty_avi_to_mpg():
+def convert_and_folder_search():
     is_folder_video = os.path.exists(src)
     if is_folder_video:
-        print('folder video - ok')
         is_conv = os.path.exists(os.path.join(folder, 'ffmpeg.exe'))
         if is_conv:
-            print('converter - ok')
             pass
         else:
             sys.exit(0)
@@ -24,18 +21,19 @@ def converty_avi_to_mpg():
         sys.exit(0)
 
 
-converty_avi_to_mpg()
-for root, dirs, filenames in os.walk(src, topdown=False):
-    for filename in filenames:
-        if ".avi" in filename:
-            inputfile = os.path.join(root, filename)
-            print(inputfile)
-            outputfile = os.path.join(src, filename.replace(".avi", ".mp4"))
-            subprocess.run(['ffmpeg', '-loglevel', 'quiet', '-y' '-i', inputfile, outputfile])
-        else:
-            pass
+def basic_conversion():
+    convert_and_folder_search()
+    for root, dirs, filenames in os.walk(src, topdown=False):
+        for filename in filenames:
+            if ".avi" in filename:
+                input_file = os.path.join(root, filename)
+                del_files.append(input_file)
+                output_file = os.path.join(src, filename.replace(".avi", ".mp4"))
+                subprocess.run(['ffmpeg', '-loglevel', 'quiet', '-y', '-i', input_file, output_file])
+            else:
+                pass
+        for x in del_files:
+            os.remove(x)
 
-for rootdir, dirs, files in os.walk(src):
-    for file in files:
-        if ((file.split('.')[-1]) == 'avi'):
-            print(os.path.join(rootdir, file))
+
+basic_conversion()
