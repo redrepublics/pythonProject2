@@ -2,7 +2,6 @@ import subprocess
 import os
 import sys
 
-
 folder = os.getcwd()
 vid = 'video'
 src = os.path.join(folder, vid)
