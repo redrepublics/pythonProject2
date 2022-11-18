@@ -38,7 +38,7 @@ def basic_conversion():
                 input_file = os.path.join(root, filename)
                 del_files.append(input_file)
                 output_file = os.path.join(src, filename.replace(".avi", ".mp4"))
-                subprocess.run(['ffmpeg', '-loglevel', 'quiet', '-y', '-i', input_file, output_file])
+                subprocess.run(['ffmpeg', '-threads 1', '-loglevel', 'quiet', '-y', '-i', input_file, output_file])
             else:
                 pass
     if int(get_folder()[0]) == 1:

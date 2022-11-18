@@ -1,16 +1,16 @@
+def func(func2):
 
-def most_frequent(input_list):
-    counter = 0
-    num = input_list[0]
-
-    for i in input_list:
-        curr_frequency = input_list.count(i)
-        if curr_frequency > counter:
-            counter = curr_frequency
-            num = i
-
-    return num
+    def func3(*args, **kwargs):
+        print(f'Я вижу тебя внутри {func2.__name__}')
+        print(f'Вот твои args: {args}')
+        print(f'А вот твои kwargs:  {kwargs}')
+        func2(*args, **kwargs)
+    return func3
 
 
-result = input("Введити слова через пробел, по окончанию нажмите Enter: ").split()
-print(most_frequent(result))
+@func
+def t_func(a, b, c, d='Я kwarg тут живу определи меня'):
+    return a, b, c, d
+
+
+t_func(1, 2, 3, d='А я томат')
