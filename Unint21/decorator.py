@@ -1,4 +1,5 @@
 from datetime import datetime
+from decorators import do_twice
 
 
 def my_decorator(func):
@@ -22,4 +23,11 @@ def my_first_decorator():
     print("Это мой первый декоратор!")
 
 
+@do_twice
+def t_twice():
+    print("Это вызов функции t_twice!")
+
+
 my_first_decorator()
+t_twice()
+
