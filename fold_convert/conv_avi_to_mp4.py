@@ -48,7 +48,9 @@ def basic_conversion():
         for x in del_files:
             os.remove(x)
     num_two = size_fold()
-    print('Мы уменьшили размер папки на:', num_one - num_two)
+    if int(get_folder()[0]) == 1:
+        print('Мы уменьшили размер папки на:', round(((num_one - num_two)/1024/1024), 4), 'Мбайт.')
+    print(f'Было: {round((num_one/1024/1024), 4)} Мбайт.\nСтало: {round((num_two/1024/1024), 4)} Мбайт. ')
 
 
 basic_conversion()
