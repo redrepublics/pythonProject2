@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import platform
-from ip_data import *
+from img_data import *
 import ctypes
 import os
 
