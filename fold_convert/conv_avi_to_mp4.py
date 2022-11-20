@@ -4,7 +4,6 @@ import sys
 import configparser
 from conv_folder_size import size_fold
 
-
 folder = os.getcwd()
 vid = 'video'
 src = os.path.join(folder, vid)
@@ -49,8 +48,9 @@ def basic_conversion():
             os.remove(x)
     num_two = size_fold()
     if int(get_folder()[0]) == 1:
-        print('Мы уменьшили размер папки на:', round(((num_one - num_two)/1024/1024), 4), 'Мбайт.')
-    print(f'Было: {round((num_one/1024/1024), 4)} Мбайт.\nСтало: {round((num_two/1024/1024), 4)} Мбайт. ')
+        print('Мы уменьшили размер папки на:', round(((num_one - num_two) / 1024 / 1024), 4), 'Мбайт.')
+    print(f'Было: {round((num_one / 1024 / 1024), 4)} Мбайт.\nСтало: {round((num_two / 1024 / 1024), 4)} Мбайт. ')
 
 
+# Сделать логирование результата в файл с временной меткой, сделать перерасчет в мегабайты в процедуре расчета
 basic_conversion()
