@@ -2,7 +2,9 @@ import subprocess
 import os
 import sys
 import configparser
-from conv_folder_size import size_fold
+from conv_folder_size import size_fold, count_a, count_d
+
+# from origin import origin_def
 
 folder = os.getcwd()
 vid = 'video'
@@ -37,6 +39,7 @@ def basic_conversion():
     for root, dirs, filenames in os.walk(src, topdown=False):
         for filename in filenames:
             if ".avi" in filename:
+                count_a()
                 input_file = os.path.join(root, filename)
                 del_files.append(input_file)
                 output_file = os.path.join(src, filename.replace(".avi", ".mp4"))
@@ -45,12 +48,14 @@ def basic_conversion():
                 pass
     if int(get_folder()[0]) == 1:
         for x in del_files:
+            count_d()
             os.remove(x)
     num_two = size_fold()
     if int(get_folder()[0]) == 1:
         print('Мы уменьшили размер папки на:', num_one - num_two, 'Мбайт.')
-    print(f'Было: {num_one} Мбайт.\nСтало: {num_two } Мбайт. ')
+    print(f'Было: {num_one} Мбайт.\nСтало: {num_two} Мбайт. ')
+    print(f'Конвертировали: {count_a() - 1} шт.')
+    print(f'Удалили: {count_d() - 1} шт.')
 
 
-# Сделать логирование результата в файл с временной меткой, сделать перерасчет в мегабайты в процедуре расчета
 basic_conversion()

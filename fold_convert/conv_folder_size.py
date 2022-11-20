@@ -3,6 +3,8 @@ import os
 folder = os.getcwd()
 vid = 'video'
 src = os.path.join(folder, vid)
+count_avi = 0
+count_del = 0
 
 
 def size_fold():
@@ -15,3 +17,13 @@ def size_fold():
             return result
 
 
+def count_a():
+    global count_avi
+    count_avi += 1
+    return count_avi
+
+
+def count_d():
+    global count_del
+    count_del += 1
+    return count_del
