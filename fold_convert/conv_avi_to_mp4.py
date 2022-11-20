@@ -50,10 +50,17 @@ def basic_conversion():
         for x in del_files:
             count_d()
             os.remove(x)
+    else:
+        print('Неправильная настройка.')
     num_two = size_fold()
     if int(get_folder()[0]) == 1:
         print('Мы уменьшили размер папки на:', num_one - num_two, 'Мбайт.')
-    print(f'Было: {num_one} Мбайт.\nСтало: {num_two} Мбайт. ')
+    elif int(get_folder()[0]) == 1:
+        print('Мы увеличили размер папки на:', num_two - num_one, 'Мбайт.\n'
+                                                                  'Для удаления сконвертированных avi измените del_avi')
+    else:
+        print('Неправильная настройка.')
+    print(f"Было: {num_one} Мбайт.\nСтало: {num_two} Мбайт. ")
     print(f'Конвертировали: {count_a() - 1} шт.')
     print(f'Удалили: {count_d() - 1} шт.')
 
