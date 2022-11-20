@@ -2,6 +2,8 @@ import subprocess
 import os
 import sys
 import configparser
+from conv_folder_size import size_fold
+
 
 folder = os.getcwd()
 vid = 'video'
@@ -31,6 +33,7 @@ def convert_and_folder_search():
 
 
 def basic_conversion():
+    num_one = size_fold()
     convert_and_folder_search()
     for root, dirs, filenames in os.walk(src, topdown=False):
         for filename in filenames:
@@ -44,6 +47,8 @@ def basic_conversion():
     if int(get_folder()[0]) == 1:
         for x in del_files:
             os.remove(x)
+    num_two = size_fold()
+    print('Мы уменьшили размер папки на:', num_one - num_two)
 
 
 basic_conversion()
