@@ -11,15 +11,7 @@ def size_fold():
         for f in files:
             fp = os.path.join(path, f)
             size += os.path.getsize(fp)
-        return size
+            result = round((size / 1024 / 1024), 4)
+            return result
 
 
-
-
-
-print(size_fold())
-print(type(size_fold()))
-def res_res():
-    x = round((size_fold()/1024/1024), 4)
-    return x
-print(res_res())
