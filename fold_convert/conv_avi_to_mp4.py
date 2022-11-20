@@ -34,6 +34,7 @@ def convert_and_folder_search():
 
 def basic_conversion():
     num_one = size_fold()
+    print(num_one)
     convert_and_folder_search()
     for root, dirs, filenames in os.walk(src, topdown=False):
         for filename in filenames:
@@ -48,7 +49,9 @@ def basic_conversion():
         for x in del_files:
             os.remove(x)
     num_two = size_fold()
-    print('Мы уменьшили размер папки на:', num_one - num_two)
+    if int(get_folder()[0]) == 1:
+        print('Мы уменьшили размер папки на:', (num_one - num_two)/1024/1024, 'байт.')
+    print(f'Было {num_one/1024/1024} байт.\nСтало {num_two/1024/1024} байт. ')
 
 
 basic_conversion()
