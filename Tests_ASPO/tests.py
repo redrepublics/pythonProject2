@@ -44,4 +44,4 @@ def time_delta():
     start_time = datetime.now()
     yield
     end_time = datetime.now()
-    print(f'Время на тест: {end_time - start_time}')
+    print(f'\nВремя на тест: {end_time - start_time}')
