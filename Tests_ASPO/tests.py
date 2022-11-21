@@ -1,3 +1,6 @@
+import pytest
+from datetime import datetime
+
 from setup import *
 
 # set DATEFORMAT YMD
@@ -34,3 +37,11 @@ def test_count():
     print('\nCount:')
     print(server, tpr)
     print(serv_obd, obd)
+
+
+@pytest.fixture(autouse=True)
+def time_delta():
+    start_time = datetime.now()
+    yield
+    end_time = datetime.now()
+    print(f'Время на тест: {end_time - start_time}')
