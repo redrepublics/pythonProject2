@@ -1,4 +1,6 @@
 from datetime import datetime
+
+import pytest
 from ping3 import ping, verbose_ping
 
 
