@@ -21,7 +21,7 @@ address = hex(uuid.getnode())[2:]
 hostname = socket.gethostname()
 local_ip = socket.gethostbyname(hostname)
 my_address = socket.getaddrinfo(hostname, None)
-ip_v4 = [item[4][0] for item in my_address if ':' not in item[4][0]][-2]
+ip_v4 = [item[4][0] for item in my_address if ':' not in item[4][0]][-1]
 
 # Вывод информации, отсюда можно писать данные в файл
 count_avi: int = 100

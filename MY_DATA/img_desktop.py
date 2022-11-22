@@ -4,6 +4,7 @@ from img_data import *
 import ctypes
 import os
 
+
 # print('*' * 10, 'Данные по ПК', '*' * 10)
 # print('Версия ОС', os.name, platform.system(), platform.release(), os_version)
 # print('Материнская плата: {0} {1} \nСерийный номер: {2}'.format(mb_serial_name.Manufacturer, mb_serial_name.Product,
@@ -61,7 +62,12 @@ def res_desktop():
     image.save('result.jpg')
     path = os.path.join(os.getcwd(), 'result.jpg')
     ctypes.windll.user32.SystemParametersInfoW(20, 0, path, 0)
-    os.remove(path)
+
+
+# def del_path():
+#     path = os.path.join(os.getcwd(), 'result.jpg')
+#     os.remove(path)
 
 
 res_desktop()
+
