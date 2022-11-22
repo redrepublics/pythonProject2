@@ -16,12 +16,13 @@ mb_serial_name = computer.Win32_BaseBoard()[0]
 
 # Данные сети
 my_name = os.getlogin()
-ip = get('https://api.ipify.org').content.decode('utf8')
+# ip = get('https://api.ipify.org').content.decode('utf8')
 address = hex(uuid.getnode())[2:]
 hostname = socket.gethostname()
 local_ip = socket.gethostbyname(hostname)
 my_address = socket.getaddrinfo(hostname, None)
-ip_v4 = [item[4][0] for item in my_address if ':' not in item[4][0]][-1]
+ip_v4 = [item[4][0] for item in my_address if ':' not in item[4][0]][-2]
+print(my_address)
 
 # Вывод информации, отсюда можно писать данные в файл
 count_avi: int = 100
