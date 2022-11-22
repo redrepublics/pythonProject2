@@ -1,16 +1,38 @@
-def func(func2):
-
-    def func3(*args, **kwargs):
-        print(f'Я вижу тебя внутри {func2.__name__}')
-        print(f'Вот твои args: {args}')
-        print(f'А вот твои kwargs:  {kwargs}')
-        func2(*args, **kwargs)
-    return func3
+from datetime import datetime
+from ping3 import ping, verbose_ping
 
 
-@func
-def t_func(a, b, c, d='Я kwarg тут живу определи меня'):
-    return a, b, c, d
+def text_text(func):
+    print('Вывод функции декоратора - start')
+    start = datetime.now()
+    func()
+    stop = datetime.now()
+    print('Время выполнения', stop - start)
+    print('Вывод функции декоратора - stop', '\n')
 
 
-t_func(1, 2, 3, d='А я томат')
+@text_text
+def t_test():
+    if ping('ya.ru') is False:
+        print('Вывод функции t_test')
+        print(False)
+    else:
+        print('Вывод функции t_test')
+        print(True)
+
+
+def two_params():
+    return 2
+
+
+def one_params(x):
+    y = x - 2
+    if y == 0:
+        print('Вывод функции one_params')
+        return True
+    else:
+        print('Вывод функции one_params')
+        return False
+
+
+print(one_params(two_params()))
