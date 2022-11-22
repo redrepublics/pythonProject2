@@ -42,7 +42,7 @@ print_mac = str('-'.join(address[i:i + 2] for i in range(0, len(address), 2)))
 
 def res_desktop():
     drawer.text((count_a()[0], count_a()[1]),
-                f"Версия ОС {os.name}, {platform.system()}, {platform.release()}, {os_version}", align='center',
+                f"Версия ОС: {os.name} {platform.system()} {platform.release()} {os_version}", align='center',
                 font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"Материнская плата: {mbs.Manufacturer} {mbs.Product} {mbs.SerialNumber}",
                 align='left', font=font, fill='white')
