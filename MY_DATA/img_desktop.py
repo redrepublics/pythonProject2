@@ -4,6 +4,7 @@ from img_data import *
 import ctypes
 import os
 
+
 # print('*' * 10, 'Данные по ПК', '*' * 10)
 # print('Версия ОС', os.name, platform.system(), platform.release(), os_version)
 # print('Материнская плата: {0} {1} \nСерийный номер: {2}'.format(mb_serial_name.Manufacturer, mb_serial_name.Product,
@@ -41,7 +42,7 @@ print_mac = str('-'.join(address[i:i + 2] for i in range(0, len(address), 2)))
 
 def res_desktop():
     drawer.text((count_a()[0], count_a()[1]),
-                f"Версия ОС {os.name}, {platform.system()}, {platform.release()}, {os_version}", align='center',
+                f"Версия ОС: {os.name} {platform.system()} {platform.release()} {os_version}", align='center',
                 font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"Материнская плата: {mbs.Manufacturer} {mbs.Product} {mbs.SerialNumber}",
                 align='left', font=font, fill='white')
@@ -54,14 +55,19 @@ def res_desktop():
     drawer.text((count_a()[0], count_a()[1]), "", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"Имя учетной записи сеанса:{my_name}", align='left', font=font,
                 fill='white')
-    # drawer.text((count_a()[0], count_a()[1]), f"Внешний IP: {ip}", align='left', font=font, fill='white')
+    drawer.text((count_a()[0], count_a()[1]), f"Внешний IP: {ip}", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"IP адрес v4: {ip_v4}", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"MAC адрес: {print_mac}", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"Сетевое имя ПК: {hostname}", align='left', font=font, fill='white')
     image.save('result.jpg')
     path = os.path.join(os.getcwd(), 'result.jpg')
     ctypes.windll.user32.SystemParametersInfoW(20, 0, path, 0)
-    # os.remove(path)
+
+
+# def del_path():
+#     path = os.path.join(os.getcwd(), 'result.jpg')
+#     os.remove(path)
 
 
 res_desktop()
+
