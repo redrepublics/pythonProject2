@@ -58,8 +58,10 @@ def res_desktop():
     drawer.text((count_a()[0], count_a()[1]), f"IP адрес v4: {ip_v4}", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"MAC адрес: {print_mac}", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"Сетевое имя ПК: {hostname}", align='left', font=font, fill='white')
+    image.save('result.jpg')
     path = os.path.join(os.getcwd(), 'result.jpg')
     ctypes.windll.user32.SystemParametersInfoW(20, 0, path, 0)
+    os.remove(path)
 
 
 res_desktop()
