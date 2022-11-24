@@ -12,4 +12,4 @@ def qr_cr(format_date, name_user):
     return img.show(result_img)
 
 
-qr_cr('https://github.com/settings/repositories', 'Владислав Жеребьев ')
+qr_cr('https://github.com/redrepublics', 'Владислав Жеребьев ')
