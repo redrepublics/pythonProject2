@@ -5,23 +5,6 @@ import ctypes
 import os
 
 
-# print('*' * 10, 'Данные по ПК', '*' * 10)
-# print('Версия ОС', os.name, platform.system(), platform.release(), os_version)
-# print('Материнская плата: {0} {1} \nСерийный номер: {2}'.format(mb_serial_name.Manufacturer, mb_serial_name.Product,
-#                                                                 mb_serial_name.SerialNumber))
-# print('Процессор: {0} {1} \nСерийный номер: {2}'.format(proc_info.Name, proc_info.SocketDesignation,
-#                                                         proc_info.SerialNumber))
-# print('Оперативная память: {0} GB'.format(system_ram))
-# print('Видеокарта: {0} \nПоддерживаемое разрешение: {1}'.format(gpu_info.Name, gpu_info.VideoModeDescription))
-#
-# print('*' * 10, 'Данные для сети и подключения', '*' * 10)
-# print('Имя учетной записи сеанса: {}'.format(my_name))
-# print('Внешний IP: {}'.format(ip))
-# print('IP адрес v4:', ip_v4)
-# print('MAC адрес:', '-'.join(address[i:i + 2] for i in range(0, len(address), 2)))
-# print('Сетевое имя ПК:', hostname)
-
-
 def count_a():
     global count_avi
     result = []
@@ -55,7 +38,7 @@ def res_desktop():
     drawer.text((count_a()[0], count_a()[1]), "", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"Имя учетной записи сеанса:{my_name}", align='left', font=font,
                 fill='white')
-    drawer.text((count_a()[0], count_a()[1]), f"Внешний IP: {ip}", align='left', font=font, fill='white')
+    drawer.text((count_a()[0], count_a()[1]), f"Внешний IP: {ip_res()}", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"IP адрес v4: {ip_v4}", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"MAC адрес: {print_mac}", align='left', font=font, fill='white')
     drawer.text((count_a()[0], count_a()[1]), f"Сетевое имя ПК: {hostname}", align='left', font=font, fill='white')
@@ -70,4 +53,3 @@ def res_desktop():
 
 
 res_desktop()
-
