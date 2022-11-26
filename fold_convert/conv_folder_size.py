@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 folder = os.getcwd()
 vid = 'video'
@@ -7,14 +8,20 @@ count_avi = 0
 count_del = 0
 
 
+# def size_fold():
+#     size = 0
+#     fp = os.path.join(src)
+#     size += os.path.getsize(fp)
+#     result = size
+#     return result
+
 def size_fold():
-    size = 0
-    for path, dirs, files in os.walk(src):
-        for f in files:
-            fp = os.path.join(path, f)
-            size += os.path.getsize(fp)
-            result = round((size / 1024 / 1024), 4)
-            return result
+    file_size = 0
+    for file in Path(src).rglob('*'):
+        if os.path.isfile(file):
+            file_size += os.path.getsize(file)
+            result = round((file_size / 1024 / 1024), 2)
+    return result
 
 
 def count_a():
