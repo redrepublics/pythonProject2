@@ -19,12 +19,14 @@ current_time = now.strftime("%y.%m.%d %H:%M:%S")
 current_time_file = now.strftime("%y_%m_%d_%H_%M_%S")
 
 
+# Читаем из инишника, удалять или нет файлы
 def get_folder():
     ini_list = list()
     ini_list.append(config["result_cod"]["del_avi"])
     return ini_list
 
 
+# проверяем наличие конвертера
 def convert_and_folder_search():
     is_folder_video = os.path.exists(src)
     if is_folder_video:
@@ -37,6 +39,7 @@ def convert_and_folder_search():
         sys.exit(0)
 
 
+# Основная конверсия с записью логов события
 def basic_conversion():
     num_one = size_fold()
     convert_and_folder_search()
@@ -77,12 +80,14 @@ def basic_conversion():
     file.close()
 
 
+# Создаем лог
 def report_file():
     if not os.path.exists(os.path.join(src, f'{current_time_file}_report.txt')):
         with open(os.path.join(src, f'{current_time_file}_report.txt'), 'w'):
             pass
 
 
+# Проверяем логи за 10 дней, если есть старые то фиксим
 def del_report():
     old_time = arrow.now().shift(days=-10)
     for item in Path(src).glob('*.txt'):
