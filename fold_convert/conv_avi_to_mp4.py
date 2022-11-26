@@ -3,8 +3,9 @@ import os
 import sys
 import configparser
 from conv_folder_size import size_fold, count_a, count_d
-
-# from origin import origin_def
+import datetime
+import arrow
+from pathlib import Path
 
 folder = os.getcwd()
 vid = 'video'
@@ -13,6 +14,9 @@ del_files = []
 ini_files = "conv_avi_to_mp4.ini"
 config = configparser.ConfigParser()
 config.read(ini_files)
+now = datetime.datetime.now()
+current_time = now.strftime("%y.%m.%d %H:%M:%S")
+current_time_file = now.strftime("%y_%m_%d_%H_%M_%S")
 
 
 def get_folder():
@@ -36,6 +40,7 @@ def convert_and_folder_search():
 def basic_conversion():
     num_one = size_fold()
     convert_and_folder_search()
+    report_file()
     for root, dirs, filenames in os.walk(src, topdown=False):
         for filename in filenames:
             if ".avi" in filename:
@@ -54,15 +59,39 @@ def basic_conversion():
         print('Неправильная настройка.')
     num_two = size_fold()
     if int(get_folder()[0]) == 1:
-        print('Мы уменьшили размер папки на:', num_one - num_two, 'Мбайт.')
-    elif int(get_folder()[0]) == 1:
-        print('Мы увеличили размер папки на:', num_two - num_one, 'Мбайт.\n'
-                                                                  'Для удаления сконвертированных avi измените del_avi')
+        with open(os.path.join(src, f'{current_time_file}_report.txt'), 'a') as file:
+            result = num_one - num_two
+            file.write('\nМы уменьшили размер папки на: {0}, Мбайт.'.format(result))
+    elif int(get_folder()[0]) == 0:
+        with open(os.path.join(src, f'{current_time_file}_report.txt'), 'a') as file:
+            result = num_two - num_one
+            file.write('\nМы увеличили размер папки на: {0} Мбайт.'.format(result))
+            file.write('\nДля удаления сконвертированных avi измените del_avi')
     else:
-        print('Неправильная настройка.')
-    print(f"Было: {num_one} Мбайт.\nСтало: {num_two} Мбайт. ")
-    print(f'Конвертировали: {count_a() - 1} шт.')
-    print(f'Удалили: {count_d() - 1} шт.')
+        with open(os.path.join(src, f'{current_time_file}_report.txt'), 'a') as file:
+            file.write('\nНеправильная настройка.')
+    with open(os.path.join(src, f'{current_time_file}_report.txt'), 'a') as file:
+        file.write(f"\nБыло: {num_one} Мбайт.\nСтало: {num_two} Мбайт. ")
+        file.write(f'\nКонвертировали: {count_a() - 1} шт.')
+        file.write(f'\nУдалили: {count_d() - 1} шт.')
+    file.close()
+
+
+def report_file():
+    if not os.path.exists(os.path.join(src, f'{current_time_file}_report.txt')):
+        with open(os.path.join(src, f'{current_time_file}_report.txt'), 'w'):
+            pass
+
+
+def del_report():
+    old_time = arrow.now().shift(days=-10)
+    for item in Path(src).glob('*.txt'):
+        if item.is_file():
+            item_time = arrow.get(item.stat().st_mtime)
+            if item_time < old_time:
+                os.remove(str(item.absolute()))
+                pass
 
 
 basic_conversion()
+del_report()
