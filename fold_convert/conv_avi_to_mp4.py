@@ -58,8 +58,6 @@ def basic_conversion():
         for x in del_files:
             count_d()
             os.remove(x)
-    else:
-        print('Неправильная настройка.')
     num_two = size_fold()
     if int(get_folder()[0]) == 1:
         with open(os.path.join(src, f'{current_time_file}_report.txt'), 'a') as file:
