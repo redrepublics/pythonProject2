@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
-
+n = 0
 
 class Window(QMainWindow):
     def __init__(self):
@@ -23,7 +23,9 @@ class Window(QMainWindow):
         self.btn.clicked.connect(self.add_label)
 
     def add_label(self):
-        self.new_text.setText('Вторая надпись')
+        global n
+        n += 1
+        self.new_text.setText(f'Вторая надпись {n}')
         self.new_text.move(100, 50)
         self.new_text.adjustSize()
 
