@@ -1,19 +1,22 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
+
 n = 0
+num_ver = '1.0.0.1'
+
 
 class Window(QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
-        self.setWindowTitle("Программа")
+        self.setWindowTitle("Программа v. {0}".format(num_ver))
         self.setGeometry(300, 250, 350, 200)
 
         self.new_text = QtWidgets.QLabel(self)
 
         self.main_text = QtWidgets.QLabel(self)
         self.main_text.setText("Это базовая надпись")
-        self.main_text.move(100, 100)
+        self.main_text.move(10, 10)
         self.main_text.adjustSize()
 
         self.btn = QtWidgets.QPushButton(self)
@@ -25,7 +28,7 @@ class Window(QMainWindow):
     def add_label(self):
         global n
         n += 1
-        self.new_text.setText(f'Вторая надпись {n}')
+        self.new_text.setText('Нажатий {0}'.format(n))
         self.new_text.move(100, 50)
         self.new_text.adjustSize()
 
