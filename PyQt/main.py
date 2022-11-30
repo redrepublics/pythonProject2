@@ -15,7 +15,7 @@ class Window(QMainWindow):
         self.new_text = QtWidgets.QLabel(self)
 
         self.main_text = QtWidgets.QLabel(self)
-        self.main_text.setText("Это базовая надпись")
+        self.main_text.setText("Бесполезная история с ачивками")
         self.main_text.move(10, 10)
         self.main_text.adjustSize()
 
@@ -31,6 +31,17 @@ class Window(QMainWindow):
         self.new_text.setText('Нажатий {0}'.format(n))
         self.new_text.move(100, 50)
         self.new_text.adjustSize()
+        if n == 10:
+            self.main_text.setText('Ачивка #ДЖУН за {0} нажатий'.format(n))
+            self.main_text.adjustSize()
+        elif n == 50:
+            self.main_text.setText('Ачивка #УПЕРТЫЙСЫКИНСЫН за {0} нажатий'.format(n))
+            self.main_text.adjustSize()
+        elif n == 90:
+            self.main_text.setText('Ачивка #НАКРАЮБЕЗДНЫ за {0} нажатий'.format(n))
+            self.main_text.adjustSize()
+        if n == 100:
+            sys.exit(0)
 
 
 def applications():
