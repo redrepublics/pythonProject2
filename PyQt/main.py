@@ -35,7 +35,7 @@ class Window(QMainWindow):
             self.main_text.setText('Ачивка #ДЖУН за {0} нажатий'.format(n))
             self.main_text.adjustSize()
         elif n == 50:
-            self.main_text.setText('Ачивка #УПЕРТЫЙСЫКИНСЫН за {0} нажатий'.format(n))
+            self.main_text.setText('Ачивка #УПЕРТЫЙСУКИНСЫН за {0} нажатий'.format(n))
             self.main_text.adjustSize()
         elif n == 90:
             self.main_text.setText('Ачивка #НАКРАЮБЕЗДНЫ за {0} нажатий'.format(n))
