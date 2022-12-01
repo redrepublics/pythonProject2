@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtWidgets import QMessageBox
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -227,9 +227,26 @@ class Ui_MainWindow(object):
             self.label_result.setText(self.label_result.text() + number)
 
     def results(self):
-        res = eval(self.label_result.text())
-        self.label_result.setText(str(res))
-        self.is_equal = True
+        if not self.is_equal:
+            res = eval(self.label_result.text())
+            self.label_result.setText(str(res))
+            self.is_equal = True
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("Ошибка!")
+            error.setText("Сейчас это действие выполнить нельзя.")
+            error.setIcon(QMessageBox.Warning)
+            error.setStandardButtons(QMessageBox.Reset)
+            error.setDefaultButton(QMessageBox.Reset)
+            error.setInformativeText("Нельзя выполнить действие два раза.")
+            error.setDetailedText("Двойное нажатие")
+            error.buttonClicked.connect(self.popup_actions)
+            error.exec_()
+
+    def popup_actions(self, btn):
+        if btn.text() == "Reset":
+            self.label_result.setText("0")
+            self.is_equal = False
 
 
 if __name__ == "__main__":
