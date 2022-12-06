@@ -5,7 +5,7 @@ import pyodbc
 import time
 from db_tools_params import *
 from db_tools_request import req_1, req_2, req_3, req_5, req_6, req_7, req_8, req_9, req_10, req_11, req_12, req_13
-from db_tools_request import req_14, req_15, req_16, req_17, req_18, req_19, req_20, req_21, req_22, req_23, req_24
+from db_tools_request import req_14, req_15, req_16, req_17, req_18, req_19, req_20, req_21, req_22, req_23, req_24, req_25
 from db_tools_request import Request5
 from exam_del import *
 
@@ -68,6 +68,7 @@ def del_tables():
     cursor.execute(req_22)
     cursor.execute(req_23)
     cursor.execute(req_24)
+    cursor.execute(req_25)
     request_log()
 
 

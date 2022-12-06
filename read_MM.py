@@ -47,6 +47,26 @@
 #
 # x = 1_000_000
 # print(f'{x:,}')
-a = [1, 2, 3, 2]
-b = {1, 2, 3, 3}
-print(sorted(a) == sorted(b))
+# a = [1, 2, 3, 2]
+# b = {1, 2, 3, 3}
+# print(sorted(a) == sorted(b))
+x = 1 # int
+y = 2.8 # float
+z = 1j # complex
+
+#конвертация из int в float:
+a = float(x)
+
+#конвертация из float в int:
+b = int(y)
+
+#конвертация int в complex:
+c = complex(x)
+
+print(a)
+print(b)
+print(c)
+
+print(type(a))
+print(type(b))
+print(type(c))
