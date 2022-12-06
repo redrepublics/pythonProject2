@@ -68,7 +68,10 @@ def del_tables():
     cursor.execute(req_22)
     cursor.execute(req_23)
     cursor.execute(req_24)
-    cursor.execute(req_25)
+    try:
+        cursor.execute(req_25)
+    except pyodbc.ProgrammingError as file:
+        pass
     request_log()
 
 
