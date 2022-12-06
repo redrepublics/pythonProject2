@@ -29,4 +29,5 @@ req_21 = 'delete tExamCalculated'
 req_22 = 'delete tExamComplaints'
 req_23 = 'delete tExamsBadConditions'
 req_24 = 'delete tExamsHASH'
+# только для АСПО 3.1.1.10
 req_25 = 'delete dtEIDsForSend'
