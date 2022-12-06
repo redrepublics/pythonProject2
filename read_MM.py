@@ -29,18 +29,24 @@
 #     print(f'\nВремя на тест: {end_time - start_time}')
 
 
-def sum_test(x, y):
-    try:
-        result = int(x) + int(y)
-    except ValueError and UnboundLocalError as file:
-        print('Плохое число через Enter')
-    print('Сложение: {0} + {1} = {2}'.format(x, y, result))
-
-
-def self_tt():
-    print('Введите два целых числа')
-    sum_test(input(), input())
-
-
-
-self_tt()
+# def sum_test(x, y):
+#     try:
+#         result = int(x) + int(y)
+#     except ValueError and UnboundLocalError as file:
+#         print('Плохое число через Enter')
+#     print('Сложение: {0} + {1} = {2}'.format(x, y, result))
+#
+#
+# def self_tt():
+#     print('Введите два целых числа')
+#     sum_test(input(), input())
+#
+#
+#
+# self_tt()
+#
+# x = 1_000_000
+# print(f'{x:,}')
+a = [1, 2, 3, 2]
+b = {1, 2, 3, 3}
+print(sorted(a) == sorted(b))
