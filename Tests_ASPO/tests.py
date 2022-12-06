@@ -20,6 +20,7 @@ def test_transfer_of_exams():
     assert tpr == server or tpr == (server + 1)
 
 
+# @pytest.mark.skip
 def test_serv_obd():
     """Проверяем проход данных с сервера на ТПР.
     Условия и каунты те же, с небольшим изменение по типу. Смотреть setup
@@ -35,8 +36,8 @@ def test_count():
     сервер - обд где ExamResultID != 5"""
     server, tpr, obd, serv_obd = server_return(), tpr_return(), obd_return(), server_obd_return()
     print('\nCount:')
-    print(server, tpr)
-    print(serv_obd, obd)
+    print('Общее: Сервер {0} ТПР {1}'.format(server, tpr))
+    print('Валидное: Сервер {0} ОБД {1}'.format(serv_obd, obd))
 
 
 @pytest.fixture(autouse=True)
