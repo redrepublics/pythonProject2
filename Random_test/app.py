@@ -1,6 +1,7 @@
 import random
 
 
+# Вариант класса с циклом рандомно-го числа и передаче по классу параметра
 class SetNUM(object):
     def __init__(self):
         self.my_num = (random.randrange(1, 11))
