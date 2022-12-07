@@ -47,36 +47,161 @@ def del_tables():
     with open(os.path.join(get_folder()[0], f'{TODAY}_db_tools_no_table.txt'), 'w+') as file_error:
         try:
             cursor.execute(req_1)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_2)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_3)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_5)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_6)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_7)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_8)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_9)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_10)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             del_exams()
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_11)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_12)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_13)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_14)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_15)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_16)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_17)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_18)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_19)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_20)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_21)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_22)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_23)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_24)
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        try:
             cursor.execute(req_25)
         except pyodbc.ProgrammingError as file:
             file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
             file_error.write(str(file))
-            file_error.close()
             pass
-    request_log()
+        try:
+            request_log()
+        except pyodbc.ProgrammingError as file:
+            file_error.write('Старая версия АСПО. Таблица отсутствует. \n')
+            file_error.write(str(file))
+            pass
+        file_error.close()
 
 
 def sh_sql():
@@ -127,3 +252,4 @@ def start_password():
                 continue
             else:
                 print('Что-то пошло не так.')
+
