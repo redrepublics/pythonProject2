@@ -7,14 +7,14 @@ import requests
 class CallCLASS:
     def __init__(self):
         self.res_print = None
+        self.api_key = '1VBGxnPGmXuApLfYlFGta0L17JQnN63u50xVAuYA'
+        self.base_url = 'https://api.numlookupapi.com/v1/validate/'
         try:
-            self.tel_number = int(input('Введите номер телефона (только цифры: пример - 7921*******): '))
+            self.tel_number = int(input('Введите номер телефона, только цифры. Пример: 7921*******\nВВОД: '))
         except ValueError:
             print('Некорректный формат номера телефона.')
         else:
             pass
-        self.api_key = '1VBGxnPGmXuApLfYlFGta0L17JQnN63u50xVAuYA'
-        self.base_url = 'https://api.numlookupapi.com/v1/validate/'
         try:
             self.request = requests.get(f'{self.base_url}+{self.tel_number}?apikey={self.api_key}')
         except AttributeError:
