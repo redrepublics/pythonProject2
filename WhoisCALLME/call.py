@@ -25,8 +25,11 @@ class WhoisCALLME:
         except requests.exceptions.JSONDecodeError:
             print('Вы ввели неправильный формат телефона.')
             sys.exit(0)
+        if result_2 == result_2['error']:
+            print('Количество запросов исчерпано. Некоторые данные будут недоступны.')
         print(result_2)
         print(self.response.status_code)
+        print(self.res_old.status_code)
         print('Звонок совершен с номера телефона {0}, тип телефона {1}'
               .format((result['format']['local']), (result['type'])))
         try:
