@@ -1,6 +1,7 @@
 import sys
 import requests
 
+# Определяем кто и откуда звонил. Ввод из консоли.
 
 class CallCLASS:
     def __init__(self):
