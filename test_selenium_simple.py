@@ -18,7 +18,7 @@ def test_search_example(selenium):
 
     # Enter the text for search:
     search_input.clear()
-    search_input.send_keys('first test')
+    search_input.send_keys('Жеребьев')
 
     time.sleep(5)  # just for demo purposes, do NOT repeat it on real projects!
 
