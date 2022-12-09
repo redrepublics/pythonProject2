@@ -1,6 +1,7 @@
 import time
 from selenium.webdriver.common.by import By
 
+
 # python -m pytest -v --driver Chrome --driver-path chromedriver.exe  test_selenium_simple.py
 
 
@@ -15,7 +16,6 @@ def test_search_example(selenium):
     # Find the field for search text input:
     search_input = selenium.find_element(By.NAME, 'q')
 
-
     # Enter the text for search:
     search_input.clear()
     search_input.send_keys('Жеребьев')
@@ -23,7 +23,7 @@ def test_search_example(selenium):
     time.sleep(5)  # just for demo purposes, do NOT repeat it on real projects!
 
     # Click Search:
-    search_button = selenium.find_element(By.NAME,'btnK')
+    search_button = selenium.find_element(By.NAME, 'btnK')
     search_button.submit()
 
     time.sleep(10)  # just for demo purposes, do NOT repeat it on real projects!
