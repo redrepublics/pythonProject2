@@ -2,6 +2,7 @@ import socket
 import datetime
 import os
 import sys
+import time
 
 from scanport_params import report_file, ports
 
@@ -53,6 +54,7 @@ def run_poc():
                 scan_port(ip_add, i)
     else:
         print('Работа прервана пользователем.')
+        time.sleep(1)
         sys.exit(0)
     null_files()
 

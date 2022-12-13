@@ -3,3 +3,5 @@
 2022 Dec 13 Tuesday 14:16:01  IP: yandex.ru, Port: 80, Protocol: http
 2022 Dec 13 Tuesday 14:16:04  IP: yandex.ru, Port: 443, Protocol: HTTPS
 2022 Dec 13 Tuesday 14:17:26  IP: localhost, Port: 445, Protocol: MICROSOFT-DS
+2022 Dec 13 Tuesday 15:10:30  IP: 8.8.8.8, Port: 53, Protocol: DNS
+2022 Dec 13 Tuesday 15:10:33  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
