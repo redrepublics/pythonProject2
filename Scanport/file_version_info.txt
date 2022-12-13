@@ -35,7 +35,7 @@ StringFileInfo(
     StringStruct(u'InternalName', u'scanport'),
     StringStruct(u'LegalCopyright', u'Copyright (c) АО НПП Системные технологии'),
     StringStruct(u'OriginalFilename', u'scanport.exe'),
-    StringStruct(u'ProductName', u'Парсер xml АСПО'),
+    StringStruct(u'ProductName', u'Проверка портов'),
     StringStruct(u'ProductVersion', u'1.0.0.1 ')])
   ]), 
 VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
