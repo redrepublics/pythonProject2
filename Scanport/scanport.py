@@ -5,15 +5,18 @@ import datetime
 def scan_port(ip_add, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(0.5)
-    res_time = datetime.datetime.now()
+    now = datetime.datetime.now()
+    current_time = now.strftime("%Y %b %d %A %H:%M:%S ")
+
     try:
         with open('report.txt', 'a+') as file:
             connect = sock.connect((ip_add, port))
-            print(res_time, 'IP :', ip_add, 'Port :', port, ' its open', 'Protocol :', ports[port])
-            file.write('{0} IP: {1}, Port: {2}, Protocol: {3}\n'.format(res_time, ip_add, port, ports[port]))
+            print(current_time, ('-'*10), 'IP :', ip_add, 'Port :', port, ' its open', 'Protocol :',
+                  ports[port], ('-'*10))
+            file.write('{0} IP: {1}, Port: {2}, Protocol: {3}\n'.format(current_time, ip_add, port, ports[port]))
             sock.close()
     except:
-        print(res_time, 'its block', port, ports[port])
+        print(current_time, 'its block', port, ports[port])
         pass
 
 

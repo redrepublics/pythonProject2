@@ -4,3 +4,23 @@
 2022-12-13 11:46:22.086935 IP: 192.168.31.250, Port: 1433, Protocol: SQL Server
 2022-12-13 11:46:39.465701 IP: ya.ru, Port: 80, Protocol: http
 2022-12-13 11:46:42.010186 IP: ya.ru, Port: 443, Protocol: HTTPS
+22_12_13_12_01_21 IP: 8.8.8.8, Port: 53, Protocol: DNS
+22_12_13_12_01_24 IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+22 02 13 12:02:08 IP: 8.8.8.8, Port: 53, Protocol: DNS
+22 02 13 12:02:11 IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+22 03 13 Tue 12:03:06 IP: 8.8.8.8, Port: 53, Protocol: DNS
+22 03 13 Tue 12:03:09 IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022 03 13 Tue 12:03:32 IP: 8.8.8.8, Port: 53, Protocol: DNS
+2022 03 13 Tue 12:03:35 IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022.05.13 Tue 12:05:25  IP: 8.8.8.8, Port: 53, Protocol: DNS
+2022.05.13 Tue 12:05:28  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022.12.13 Tue 12:05:55  IP: 8.8.8.8, Port: 53, Protocol: DNS
+2022.12.13 Tue 12:05:58  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022 Dec 13 Tue 12:06:22  IP: 8.8.8.8, Port: 53, Protocol: DNS
+2022 Dec 13 Tue 12:06:25  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022 Dec 13 Tuesday 12:06:52  IP: 8.8.8.8, Port: 53, Protocol: DNS
+2022 Dec 13 Tuesday 12:06:55  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022 Dec 13 Tuesday 12:07:53  IP: 8.8.8.8, Port: 53, Protocol: DNS
+2022 Dec 13 Tuesday 12:07:56  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022 Dec 13 Tuesday 12:08:43  IP: 8.8.8.8, Port: 53, Protocol: DNS
+2022 Dec 13 Tuesday 12:08:46  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
