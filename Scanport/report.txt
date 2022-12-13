@@ -1,2 +1,4 @@
-2022 Dec 13 Tuesday 14:07:11  IP: 8.8.8.8, Port: 53, Protocol: DNS
-2022 Dec 13 Tuesday 14:07:14  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022 Dec 13 Tuesday 14:14:05  IP: 8.8.8.8, Port: 53, Protocol: DNS
+2022 Dec 13 Tuesday 14:14:08  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022 Dec 13 Tuesday 14:16:01  IP: yandex.ru, Port: 80, Protocol: http
+2022 Dec 13 Tuesday 14:16:04  IP: yandex.ru, Port: 443, Protocol: HTTPS

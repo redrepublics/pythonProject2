@@ -1,6 +1,8 @@
 import socket
 import datetime
 import os
+import sys
+
 from scanport_params import report_file, ports
 
 """Основная процедура, проверяет и пишет"""
@@ -38,14 +40,20 @@ def null_files():
 
 
 def run_poc():
-    ip_add = input('Введите IP хоста для сканирования: ')
-    if ip_add:
-        for i in ports:
-            scan_port(ip_add, i)
+    print('Внимание! Некоторые антивирусы могут посчитать это ПО вредоносным. ')
+    resp = input('Введи "Да" и нажмите Enter, если хотите продолжить.\nЛюбой другой символ чтобы завершить работу: ')
+    if resp.lower() == 'да':
+        ip_add = input('Введите IP хоста для сканирования: ')
+        if ip_add:
+            for i in ports:
+                scan_port(ip_add, i)
+        else:
+            ip_add = 'localhost'
+            for i in ports:
+                scan_port(ip_add, i)
     else:
-        ip_add = 'localhost'
-        for i in ports:
-            scan_port(ip_add, i)
+        print('Работа прервана пользователем.')
+        sys.exit(0)
     null_files()
 
 
