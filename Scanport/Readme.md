@@ -15,4 +15,5 @@
 
 v. python 3.9
 
-![bandicam-2022-12-13-16-15-49-435](https://user-images.githubusercontent.com/111141693/207330370-13e360e7-a606-469d-8b1a-5247213f0f08.gif)=100x20
+![bandicam-2022-12-13-16-15-49-435](https://user-images.githubusercontent.com/111141693/207330370-13e360e7-a606-469d-8b1a-5247213f0f08.gif)
+<img src="[http://....jpg](https://user-images.githubusercontent.com/111141693/207330370-13e360e7-a606-469d-8b1a-5247213f0f08.gif)" width="200" height="200" />
