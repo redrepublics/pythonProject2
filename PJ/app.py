@@ -1,6 +1,7 @@
 import socket
 import datetime
 
+
 def scan_port(ip_add, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(0.5)
