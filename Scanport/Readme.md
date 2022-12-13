@@ -1,4 +1,4 @@
-## Сканирование типовых портов.
+## Сканирование типовых портов
 
 ### Set
 
@@ -16,5 +16,5 @@
 
 v. python 3.9/10
 
-![bandicam-2022-12-13-16-15-49-435](https://user-images.githubusercontent.com/111141693/207330370-13e360e7-a606-469d-8b1a-5247213f0f08.gif){ width: 200px; }
+![bandicam-2022-12-13-16-15-49-435](https://user-images.githubusercontent.com/111141693/207330370-13e360e7-a606-469d-8b1a-5247213f0f08.gif)
 
