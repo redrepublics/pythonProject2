@@ -2,3 +2,5 @@
 2022 Dec 13 Tuesday 12:13:55  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
 2022 Dec 13 Tuesday 12:16:47  IP: 8.8.8.8, Port: 53, Protocol: DNS
 2022 Dec 13 Tuesday 12:16:50  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+2022 Dec 13 Tuesday 13:25:34  IP: 192.168.31.250, Port: 445, Protocol: MICROSOFT-DS
+2022 Dec 13 Tuesday 13:25:37  IP: 192.168.31.250, Port: 1433, Protocol: SQL Server

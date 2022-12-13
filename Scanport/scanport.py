@@ -7,7 +7,6 @@ def scan_port(ip_add, port):
     sock.settimeout(0.5)
     now = datetime.datetime.now()
     current_time = now.strftime("%Y %b %d %A %H:%M:%S ")
-
     try:
         with open('report.txt', 'a+') as file:
             connect = sock.connect((ip_add, port))
