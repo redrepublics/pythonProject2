@@ -4,3 +4,4 @@
 2022 Dec 14 Wednesday 13:31:06  IP: 192.168.31.1, Port: 443, Protocol: HTTPS
 2022 Dec 14 Wednesday 13:31:14  IP: 192.168.31.1, Port: 8080, Protocol: Tomcat
 2022 Dec 14 Wednesday 13:33:27  IP: 192.168.31.69, Port: 8080, Protocol: Tomcat
+2022 Dec 14 Wednesday 13:38:22  IP: 192.168.31.250, Port: 445, Protocol: MICROSOFT-DS

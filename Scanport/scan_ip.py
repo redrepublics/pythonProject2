@@ -58,8 +58,7 @@ def run_poc():
         else:
             print("{} - провал".format(result))
     else:
-        print('Что-то пошло не так.')
-        time.sleep(1)
+        pass
 
 
 run_poc()
