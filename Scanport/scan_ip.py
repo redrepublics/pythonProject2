@@ -5,7 +5,6 @@ from ping3 import ping
 from scanport_params import ports, report_file
 import socket
 import datetime
-import time
 
 """Находим наши данные"""
 
@@ -44,10 +43,12 @@ def scan_port(ip_add, port):
         pass
 
 
-"""Проверяем сеть по адресу, последовательно пингуя каждый узел. При успехе проверяем порты, пишем отчет"""
+"""Проверяем сеть по адресу, последовательно проверяя каждый узел. При успехе проверяем порты, пишем отчет.
+Узнаем время проверки всего пула."""
 
 
 def run_poc():
+    time_start = datetime.datetime.now()
     for result in ipaddress.IPv4Network(ip_eth):
         result = str(result)
         ping(result, timeout=1)
@@ -57,9 +58,11 @@ def run_poc():
                 scan_port(result, i)
         else:
             print("{} - провал".format(result))
-    else:
-        print('Финиш.')
-        time.sleep(1)
+    time_stop = datetime.datetime.now()
+    print('Потрачено времени на проверку: {}'.format(time_stop - time_start))
+    with open(report_file, 'a+') as file:
+        file.write('Потрачено времени на проверку: {}\n'.format(time_stop - time_start))
+        file.close()
 
 
 run_poc()
