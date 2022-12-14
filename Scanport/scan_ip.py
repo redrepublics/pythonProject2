@@ -1,4 +1,13 @@
 import psutil
+from netaddr import IPNetwork
+import ipaddress
+from ping3 import ping
+from scanport_params import ports, report_file
+import socket
+import datetime
+import time
+
+"""Находим наши данные"""
 
 
 def my_ip():
@@ -8,4 +17,49 @@ def my_ip():
             return my_dict[key][1][1], my_dict[key][1][2], my_dict[key][0][1]
 
 
-print('IP {}, mask {}, mac {}'.format(my_ip()[0], my_ip()[1], my_ip()[2]))
+"""Пишем данные, формируем адрес сети для последующей работы"""
+
+print('IP: {} Mask: {} MAC: {}'.format(my_ip()[0], my_ip()[1], my_ip()[2]))
+IP_m = str(my_ip()[0])
+Mask_m = str(my_ip()[1])
+ip_eth = (str(IPNetwork(f'{IP_m}/{Mask_m}').cidr))
+
+"""Наследуем процедуру проверки портов"""
+
+
+def scan_port(ip_add, port):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(0.5)
+    now = datetime.datetime.now()
+    current_time = now.strftime("%Y %b %d %A %H:%M:%S ")
+    try:
+        with open(report_file, 'a+') as file:
+            sock.connect((ip_add, port))
+            print(current_time, ('-' * 10), 'IP :', ip_add, 'Port :', port, ' its open', 'Protocol :',
+                  ports[port], ('-' * 10))
+            file.write('{0} IP: {1}, Port: {2}, Protocol: {3}\n'.format(current_time, ip_add, port, ports[port]))
+            sock.close()
+    except:
+        print(current_time, 'its block', port, ports[port])
+        pass
+
+
+"""Проверяем сеть по адресу, последовательно пингуя каждый узел. При успехе проверяем порты, пишем отчет"""
+
+
+def run_poc():
+    for result in ipaddress.IPv4Network(ip_eth):
+        result = str(result)
+        ping(result, timeout=1)
+        if ping(result):
+            print(('-' * 10), "{} - успех".format(result))
+            for i in ports:
+                scan_port(result, i)
+        else:
+            print("{} - провал".format(result))
+    else:
+        print('Что-то пошло не так.')
+        time.sleep(1)
+
+
+run_poc()

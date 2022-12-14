@@ -1,9 +1,6 @@
-2022 Dec 13 Tuesday 14:14:05  IP: 8.8.8.8, Port: 53, Protocol: DNS
-2022 Dec 13 Tuesday 14:14:08  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
-2022 Dec 13 Tuesday 14:16:01  IP: yandex.ru, Port: 80, Protocol: http
-2022 Dec 13 Tuesday 14:16:04  IP: yandex.ru, Port: 443, Protocol: HTTPS
-2022 Dec 13 Tuesday 14:17:26  IP: localhost, Port: 445, Protocol: MICROSOFT-DS
-2022 Dec 13 Tuesday 15:10:30  IP: 8.8.8.8, Port: 53, Protocol: DNS
-2022 Dec 13 Tuesday 15:10:33  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
-2022 Dec 13 Tuesday 16:16:09  IP: 8.8.8.8, Port: 53, Protocol: DNS
-2022 Dec 13 Tuesday 16:16:12  IP: 8.8.8.8, Port: 443, Protocol: HTTPS
+
+2022 Dec 14 Wednesday 13:31:04  IP: 192.168.31.1, Port: 53, Protocol: DNS
+2022 Dec 14 Wednesday 13:31:04  IP: 192.168.31.1, Port: 80, Protocol: http
+2022 Dec 14 Wednesday 13:31:06  IP: 192.168.31.1, Port: 443, Protocol: HTTPS
+2022 Dec 14 Wednesday 13:31:14  IP: 192.168.31.1, Port: 8080, Protocol: Tomcat
+2022 Dec 14 Wednesday 13:33:27  IP: 192.168.31.69, Port: 8080, Protocol: Tomcat
