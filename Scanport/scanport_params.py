@@ -1,5 +1,12 @@
+import datetime
+
+
 # Имя файла отчета
 report_file = 'report.txt'
+responding_nodes = 'responding_nodes.txt'
+now = datetime.datetime.now()
+current_time = now.strftime("%Y %b %d %A %H:%M:%S ")
+
 # Порты и их обозначения
 ports = {
     20: "FTP-DATA", 21: "FTP", 22: "SSH", 23: "Telnet",

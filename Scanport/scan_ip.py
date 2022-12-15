@@ -2,7 +2,7 @@ import psutil
 from netaddr import IPNetwork
 import ipaddress
 from ping3 import ping
-from scanport_params import ports, report_file
+from scanport_params import ports, report_file, responding_nodes, current_time
 import socket
 import datetime
 
@@ -29,8 +29,6 @@ ip_eth = (str(IPNetwork(f'{IP_m}/{Mask_m}').cidr))
 def scan_port(ip_add, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(0.5)
-    now = datetime.datetime.now()
-    current_time = now.strftime("%Y %b %d %A %H:%M:%S ")
     try:
         with open(report_file, 'a+') as file:
             sock.connect((ip_add, port))
@@ -53,6 +51,8 @@ def run_poc():
         result = str(result)
         ping(result, timeout=1)
         if ping(result):
+            with open(responding_nodes, 'a+') as file:
+                file.write('{0} Responding node {1}.\n'.format(current_time, result))
             print(('-' * 10), "{} - успех".format(result))
             for i in ports:
                 scan_port(result, i)
