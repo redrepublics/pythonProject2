@@ -19,7 +19,7 @@ class SpeedTESTClass:
 
 
 # юзать тут
-def result_speed():
+def result_speed() -> object:
     sp = SpeedTESTClass()
     return sp.print_result()
 
