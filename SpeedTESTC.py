@@ -18,10 +18,10 @@ class SpeedTESTClass:
         print(mb_p.format((round(self.up / mb_r / mb_r, mb_c)), (round(self.up / mb_r / mb_r, mb_c))))
 
 
-# юзать тут...
 def result_speed():
     sp = SpeedTESTClass()
     return sp.print_result()
 
 
+# Запускаем отсюда. Почему классы в процедуре? Может что еще привяжу.
 result_speed()
