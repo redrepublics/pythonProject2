@@ -9,10 +9,14 @@ class SpeedTESTClass:
         self.result = speedtest.Speedtest()
         self.dl = self.result.download()
         self.up = self.result.upload()
+        self.np = 2
+        self.res = 1024
 
     def print_result(self):
-        print('DownloadSpeed: {} Mb/s\nUploadSpeed: {} Mb/s'.format((round(self.up / 1024 / 1024)),
-                                                                    (round(self.up / 1024 / 1024))))
+        mb_r: int = self.res
+        mb_c: int = self.np
+        mb_p: str = 'DownloadSpeed: {} Mb/s\nUploadSpeed: {} Mb/s'
+        print(mb_p.format((round(self.up / mb_r / mb_r, mb_c)), (round(self.up / mb_r / mb_r, mb_c))))
 
 
 # юзать тут
