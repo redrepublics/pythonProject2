@@ -15,5 +15,10 @@ class SpeedTESTClass:
                                                                     (round(self.up / 1024 / 1024))))
 
 
-set_speed = SpeedTESTClass()
-set_speed.print_result()
+# юзать тут
+def result_speed():
+    sp = SpeedTESTClass()
+    return sp.print_result()
+
+
+result_speed()
