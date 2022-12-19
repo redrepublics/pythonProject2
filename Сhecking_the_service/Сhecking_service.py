@@ -4,8 +4,7 @@ import psutil
 from Сhecking_service_params import *
 
 
-""" Проверяем запущена ли служба, выводим по ней информацию.
- Имя службы хранится в self.service_name."""
+""" Проверяем запущена ли служба, выводим по ней информацию. """
 
 
 class ChSERVICE:
@@ -23,6 +22,9 @@ class ChSERVICE:
                 self.service = psutil.win_service_get(self.service_name)
                 self.service = self.service.as_dict()
             except Exception as err:
+                with open('report.txt', 'a+') as file:
+                    file.write(str(err))
+                    file.close()
                 print(str(err))
                 with open('report.txt', 'a+') as file:
                     file.write(f'{self.service_name} not found\n')
