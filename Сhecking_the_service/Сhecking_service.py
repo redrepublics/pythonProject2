@@ -36,7 +36,10 @@ class ChSERVICE:
                 if self.service and self.service['status'] == 'running':
                     print('Служба запущена.')
                 else:
+                    with open('report.txt', 'a+') as file:
+                        file.write(f'{self.service_name} not started\n')
                     print("Служба не запущена.")
+                    file.close()
             else:
                 print("Такой службы нет.")
 
