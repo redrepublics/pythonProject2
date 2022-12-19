@@ -38,8 +38,8 @@ class ChSERVICE:
                 if self.count == count_m:
                     sys.exit(0)
                 if self.service and self.service['status'] == 'running':
-                    print('Служба запущена!')
-                    time.sleep(s_time*60)
+                    print('Служба запущена!\n')
+                    time.sleep(s_time)
                 else:
                     with open('report.txt', 'a+') as file:
                         file.write(f'{self.service_name} not started\n')

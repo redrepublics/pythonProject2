@@ -1,8 +1,1 @@
-MSSQL$SQLEXPRESS not started
-MSSQL$SQLEXPRESS1 not found
-MSSQL$SQLEXPRESS not started
-MSSQL$SQLEXPRESS not started
-MSSQL$SQLEXPRESS not started
-MSSQL$SQLEXPRESS not started
-MSSQL$SQLEXPRESS not started
-MSSQL$SQLEXPRESS not started
+
