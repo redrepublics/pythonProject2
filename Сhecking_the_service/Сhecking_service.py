@@ -1,5 +1,5 @@
+import sys
 import time
-
 import psutil
 
 """ Проверяем запущена ли служба, выводим по ней информацию.
@@ -24,21 +24,21 @@ class ChSERVICE:
                 print(str(err))
                 return
             if self.service:
-            # print(self.service)
+                # print(self.service)
                 print("Служба {2} найдена.\nМестоположение службы: {0}.\nТип запуска: {1}".
-                      format(self.service[self.res_bin_path], self.service[self.res_start_type], self.service[self.d_name]))
+                      format(self.service[self.res_bin_path], self.service[self.res_start_type],
+                             self.service[self.d_name]))
                 count += 1
                 time.sleep(0)
-                print(('-'*10), 'Опрос №', count-1, '\n')
+                print(('-' * 10), 'Опрос №', count, '\n')
+                if count == 10:
+                    sys.exit(0)
                 if self.service and self.service['status'] == 'running':
                     print('Служба запущена.')
-                elif count == 11:
-                    break
                 else:
                     print("Служба не запущена.")
             else:
                 print("Такой службы нет.")
-
 
 
 ChSERVICE().checking_service()
