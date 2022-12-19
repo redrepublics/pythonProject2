@@ -40,6 +40,7 @@ class ChSERVICE:
                         file.write(f'{self.service_name} not started\n')
                     print("Служба не запущена.")
                     file.close()
+                    sys.exit(0)
             else:
                 print("Такой службы нет.")
 
