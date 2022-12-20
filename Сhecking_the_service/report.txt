@@ -1,4 +1,0 @@
-
-service 'MSSQL$SQLEXPRESS1' does not exist) (name='MSSQL$SQLEXPRESS1')MSSQL$SQLEXPRESS1 not found
-MSSQL$SQLEXPRESS not started
-MSSQL$SQLEXPRESS not started
