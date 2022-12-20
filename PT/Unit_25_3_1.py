@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 import datetime
 
+# Параметры. В строке webdriver.Chrome('chromedriver.exe'), если у вас нет ассоциации, надо указать точный путь.
+# В качестве корректности идентификатора используется юзернейм.
 e_mail = 'test_user_1@mail.ru'
 user_my = 'test_user_1'
 pass_test = 'daorliar'
@@ -19,7 +21,7 @@ def testing():
     start_time = datetime.datetime.now()
     yield
     stop_time = datetime.datetime.now()
-    print('\nВремя на тест: {}'.format((stop_time - start_time)))
+    print('Время на тест: {}'.format((stop_time - start_time)))
 
 
 """ Тест на каунт питомцев и канут таблицы."""
