@@ -203,7 +203,7 @@ def test_dub():
             n = False
             num_true.append(n)
     no_n = False
-    if no_n is num_true:
+    if no_n in num_true:
         result = False
     else:
         result = True
@@ -211,7 +211,6 @@ def test_dub():
         print('\nВсе записи уникальны.')
     else:
         print('\nЗаписи не уникальны.')
-
     assert result is True
 
 # pytest_driver.quit()
