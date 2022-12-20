@@ -2,6 +2,7 @@ import time
 import pytest
 from selenium.webdriver.common.by import By
 from selenium import webdriver
+import datetime
 
 e_mail = 'test_user_1@mail.ru'
 user_my = 'test_user_1'
@@ -15,6 +16,10 @@ url_my_pets = 'https://petfriends.skillfactory.ru/my_pets'
 def testing():
     # Переходим на страницу авторизации
     pytest_driver.get(url_test)
+    start_time = datetime.datetime.now()
+    yield
+    stop_time = datetime.datetime.now()
+    print('\nВремя на тест: {}'.format((stop_time - start_time)))
 
 
 """ Тест на каунт питомцев и канут таблицы."""
@@ -185,7 +190,6 @@ def test_dub():
             num_true.append(n)
     for pet2 in breed_pets:
         pet_breed.append(pet2.text)
-        print(pet_breed)
         unique2 = [x for i, x in enumerate(pet_breed) if i == pet_breed.index(x)]
         if len(pet_breed) == len(unique2):
             n = True
@@ -213,4 +217,4 @@ def test_dub():
         print('\nЗаписи не уникальны.')
     assert result is True
 
-# pytest_driver.quit()
+
