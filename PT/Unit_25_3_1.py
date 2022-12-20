@@ -10,7 +10,8 @@ pytest_driver = webdriver.Chrome('chromedriver.exe')
 url_test = 'http://petfriends.skillfactory.ru/login'
 url_my_pets = 'https://petfriends.skillfactory.ru/my_pets'
 
-#
+
+
 @pytest.fixture(autouse=True)
 def testing():
     # Переходим на страницу авторизации
@@ -33,7 +34,8 @@ def test_show_my_pets():
     pytest_driver.find_element(By.XPATH, '//*[@id="navbarNav"]/ul/li[1]/a').click()
     time.sleep(1)
     my_pets_table = pytest_driver.find_elements(By.CSS_SELECTOR, '#all_my_pets > table > tbody > tr')
-    my_pets_count = pytest_driver.find_element(By.XPATH, '//div[@class=".col-sm-4 left"]').text.split('\n')[1].split(":")[1]
+    my_pets_count = \
+        pytest_driver.find_element(By.XPATH, '//div[@class=".col-sm-4 left"]').text.split('\n')[1].split(":")[1]
     result_my_pets_table = (len(my_pets_table))
     result_my_pets_count = int(my_pets_count)
     if result_my_pets_count == result_my_pets_table:
@@ -67,3 +69,50 @@ def test_img():
             result_img_pr = (100 / (len(my_pets_img) / count))
             print('\nБез фото всего {} %'.format(result_img_pr))
             assert result_img_pr == 50
+
+
+def test_array():
+    pytest_driver.find_element(By.ID, 'email').send_keys(e_mail)
+    # Вводим пароль
+    pytest_driver.find_element(By.ID, 'pass').send_keys(pass_test)
+    # Нажимаем на кнопку входа в аккаунт
+    pytest_driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
+    # Проверяем, что мы оказались на главной странице пользователя
+    time.sleep(1)
+    pytest_driver.find_element(By.CLASS_NAME, 'navbar-toggler-icon').click()
+    time.sleep(1)
+    pytest_driver.find_element(By.XPATH, '//*[@id="navbarNav"]/ul/li[1]/a').click()
+    time.sleep(1)
+    name_pets = pytest_driver.find_elements(By.XPATH, '//*[@id="all_my_pets"]/table/tbody/tr/td[1]')
+    pet_name = []
+    arr_count = len(name_pets)
+    for pet in name_pets:
+        pet_name.append(pet.text)
+    arr_list = len(pet_name)
+    if arr_count == arr_list:
+        print('\nИмена есть у всех питомцев.')
+    else:
+        print('\nУ некоторых питомцев нет имен.')
+
+    breed_pets = pytest_driver.find_elements(By.XPATH, '//*[@id="all_my_pets"]/table/tbody/tr/td[2]')
+    pet_breed = []
+    arr2_count = len(breed_pets)
+    for pet in breed_pets:
+        pet_breed.append(pet.text)
+    arr2_list = len(pet_breed)
+    if arr2_count == arr2_list:
+        print('\nПорода есть у всех питомцев.')
+    else:
+        print('\nУ некоторых питомцев не указана порода.')
+
+    age_pets = pytest_driver.find_elements(By.XPATH, '//*[@id="all_my_pets"]/table/tbody/tr/td[3]')
+    pet_age = []
+    arr3_count = len(age_pets)
+    for pet in age_pets:
+        pet_age.append(pet.text)
+    arr3_list = len(pet_age)
+    if arr3_count == arr3_list:
+        print('\nВозраст есть у всех питомцев.')
+    else:
+        print('\nУ некоторых питомцев не указан возраст.')
+    assert arr3_count == arr3_list and arr2_list == arr2_count and arr_list == arr_count
