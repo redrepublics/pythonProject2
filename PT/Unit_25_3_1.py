@@ -14,6 +14,11 @@ url_test = 'http://petfriends.skillfactory.ru/login'
 url_my_pets = 'https://petfriends.skillfactory.ru/my_pets'
 
 
+""" Тут базовый адрес и расчет времени на тест.
+Помним, что на всех открытых страницах время просмотра по секунде. Если убрать, то время тестов
+сильно сократиться. """
+
+
 @pytest.fixture(autouse=True)
 def testing():
     # Переходим на страницу авторизации
