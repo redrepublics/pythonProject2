@@ -7,7 +7,6 @@ e_mail = 'test_user_1@mail.ru'
 passw = 'daorliar'
 pytest_driver = webdriver.Chrome('chromedriver.exe')
 
-
 @pytest.fixture(autouse=True)
 def testing():
     # Переходим на страницу авторизации
