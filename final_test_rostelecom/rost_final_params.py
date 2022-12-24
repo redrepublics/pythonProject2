@@ -1,0 +1,1 @@
+base_url = "https://b2c.passport.rt.ru/auth/realms/b2c/protocol/openid-connect/auth?client_id=account_b2c&redirect_uri=https://b2c.passport.rt.ru/account_b2c/login&response_type=code&scope=openid&state=f36f7c03-3f11-49a0-bd70-ad6ccca305fa&theme&auth_type"
