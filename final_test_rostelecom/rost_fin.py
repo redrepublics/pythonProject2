@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from rost_final_params import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from rost_del_report import del_old_report
 
 """ Позитивные тесты авторизации с временной меткой.
 В случае удачи создается скриншот. В случае провала создается запись в результирующий файл."""
@@ -12,6 +13,8 @@ from selenium.webdriver.support import expected_conditions as EC
 now = datetime.datetime.now()
 time_file = now.strftime("%y_%m_%d_%H_%M_%S")
 
+# Эта процедура удаляет все старые png. Старым считаем все что уже было в папке.
+del_old_report()
 """Тест авторизации по телефону"""
 
 
@@ -95,7 +98,7 @@ def test_form_auth_login(selenium):
     result_h1 = WebDriverWait(selenium, 10).until(
         EC.presence_of_element_located((By.XPATH, '// *[ @ id = "app"] / main[1] / div[1] / div[2] / div[3] / h3[1]')))
     if result_h1:
-        selenium.save_screenshot(f'{time_file}result_tel_auth_login_PASSED.png')
+        selenium.save_screenshot(f'{time_file}result_login_auth_PASSED.png')
     else:
         with open('report_FAILED.txt', 'a+') as result:
             result.write('Тест авторизации по логину провален.\nВремя {}'.format(now))
