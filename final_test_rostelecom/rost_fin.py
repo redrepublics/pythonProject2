@@ -33,7 +33,6 @@ def test_form_auth_tel(selenium):
     find_username_password.send_keys(pass_rt)
     button_auth = WebDriverWait(selenium, 10).until(EC.presence_of_element_located((By.ID, 'kc-login')))
     button_auth.click()
-    time.sleep(5)
     result_h1 = WebDriverWait(selenium, 10).until(
         EC.presence_of_element_located((By.XPATH, '// *[ @ id = "app"] / main[1] / div[1] / div[2] / div[3] / h3[1]')))
     if result_h1:
