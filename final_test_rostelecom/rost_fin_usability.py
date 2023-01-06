@@ -1,11 +1,9 @@
 import datetime
-import itertools
-
 from selenium.webdriver.common.by import By
 from rost_final_params import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from rost_del_report import del_old_report
+
 
 # python -m pytest -v --driver Chrome --driver-path chromedriver.exe rost_fin_usability.py
 
