@@ -13,7 +13,7 @@ from rost_del_report import del_old_report
 now = datetime.datetime.now()
 time_file = now.strftime("%y_%m_%d_%H_%M_%S")
 
-# Эта процедура удаляет все старые png. Старым считаем все что уже было в папке.
+# Эта процедура удаляет все старые png. Старым считаем все что уже было в папке..
 del_old_report()
 """Тест авторизации по телефону"""
 
@@ -63,7 +63,6 @@ def test_form_auth_email(selenium):
     find_username_password.send_keys(pass_rt)
     button_auth = WebDriverWait(selenium, 10).until(EC.presence_of_element_located((By.ID, 'kc-login')))
     button_auth.click()
-    time.sleep(5)
     result_h1 = WebDriverWait(selenium, 10).until(
         EC.presence_of_element_located((By.XPATH, '// *[ @ id = "app"] / main[1] / div[1] / div[2] / div[3] / h3[1]')))
     if result_h1:
@@ -107,3 +106,4 @@ def test_form_auth_login(selenium):
 
 
 """ Тест по лицевому счету отсутствует, из-за отсутствия каких либо услуг, предоставляемых мне провайдером. """
+
