@@ -1,0 +1,5 @@
+'//*[@id="oauth_wrap_content"]/div[3]/div[1]/div[1]/button[1]'
+
+div#oauth_wrap_content > div:nth-of-type(3) > div > div > button
+
+'//*[@id="cards-title"]/div[1]/h1[1]'

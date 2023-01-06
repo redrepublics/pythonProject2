@@ -30,7 +30,8 @@ def test_history_of_actions(selenium):
     button_auth.click()
     result_h1 = WebDriverWait(selenium, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR,
-                                        'div#app > main > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > span:nth-of-type(2) > span'))).text
+                                        'div#app > main > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > '
+                                        'div > span:nth-of-type(2) > span'))).text
 
     list_time = []
     list_history: list[str] = [str(result_h1)]
@@ -45,7 +46,9 @@ def test_history_of_actions(selenium):
     y = "'".join(i for i in list_time if not i.isalpha())
     if x_result_time in y:
         find_reg = WebDriverWait(selenium, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "div#app > main > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > span:nth-of-type(2) > span")))
-        selenium.save_screenshot('result_tel_auth_PASSED.png')
+            EC.presence_of_element_located((By.CSS_SELECTOR, "div#app > main > div > div:nth-of-type(2) > "
+                                                             "div:nth-of-type(2) > div > div > div > "
+                                                             "span:nth-of-type(2) > span")))
+        selenium.save_screenshot('result_history_of_actions_PASSED.png')
     else:
         raise Exception("login history error")

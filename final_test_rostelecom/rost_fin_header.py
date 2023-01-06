@@ -5,13 +5,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from rost_del_report import del_old_report
 
-
-# Эта процедура удаляет все старые png. Старым считаем все что уже было в папке..
+# Эта процедура удаляет все старые png. Старым считаем все что уже было в папке.
 del_old_report()
 
 # python -m pytest -v --driver Chrome --driver-path chromedriver.exe rost_fin_header.py
 now = datetime.datetime.now()
 time_file = now.strftime("%y_%m_%d_%H_%M_%S")
+
+"""Тест перехода по ссылка в шапке сайта, после авторизации."""
 
 
 def test_form_main_site(selenium):
