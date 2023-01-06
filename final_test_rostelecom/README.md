@@ -14,4 +14,4 @@
 * rost_final_params - вынесенные в переменные параметры для тестов
 
 * rost_del_report.py - удаление старых графических отчетов
-* rost_fin_cookis.py - выгружаем и записываем/принтуем cookis
+* rost_fin_cookis.py - выгружаем и записываем/принтуем cookis.py

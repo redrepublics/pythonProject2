@@ -2,7 +2,7 @@ import os
 from selenium import webdriver
 from rost_final_params import *
 
-""" Выгружаем кукисы для анализа. """
+""" Выгружаем cookie для анализа. """
 
 
 class CookiesLOAD:
