@@ -1,4 +1,6 @@
 import datetime
+import time
+
 from selenium.webdriver.common.by import By
 from rost_final_params import *
 from selenium.webdriver.support.ui import WebDriverWait
@@ -42,4 +44,36 @@ def test_form_main_site(selenium):
         with open('report_FAILED.txt', 'a+') as result:
             result.write('Тест перехода из личного кабинета на основной сайт провален.\nВремя {}'.format(now))
             result.close()
-        raise Exception("login tel error")
+        raise Exception("test error")
+
+
+"""Тест на корректный переход в личный кабинет, без подключенных услуг."""
+
+
+def test_form_personal_account(selenium):
+    selenium.get(base_url)
+    find_reg = WebDriverWait(selenium, 10).until(
+        EC.presence_of_element_located((By.XPATH, "// *[ @ id = 't-btn-tab-phone']")))
+    find_reg.click()
+    find_username_tel = WebDriverWait(selenium, 10).until(
+        EC.presence_of_element_located((By.XPATH, "// *[ @ id = 'username']")))
+    find_username_tel.clear()
+    find_username_tel.send_keys(log_tel)
+    find_username_password = WebDriverWait(selenium, 10).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="password"]')))
+    find_username_password.clear()
+    find_username_password.send_keys(pass_rt)
+    button_auth = WebDriverWait(selenium, 10).until(EC.presence_of_element_located((By.ID, 'kc-login')))
+    button_auth.click()
+    personal_account_link = WebDriverWait(selenium, 10).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="lk-btn"]')))
+    personal_account_link.click()
+    result_test = WebDriverWait(selenium, 10).until(EC.presence_of_element_located((By.ID, 'kc-login')))
+    if result_test:
+        selenium.save_screenshot(f'{time_file}result_personal_account_PASSED.png')
+    else:
+        with open('report_FAILED.txt', 'a+') as result:
+            result.write('Тест перехода из личного кабинета в полную версию личного кабинета провален.\nВремя {}'
+                         .format(now))
+            result.close()
+        raise Exception("test error")
