@@ -68,7 +68,8 @@ def test_form_personal_account(selenium):
     personal_account_link = WebDriverWait(selenium, 10).until(
         EC.presence_of_element_located((By.XPATH, '//*[@id="lk-btn"]')))
     personal_account_link.click()
-    result_test = WebDriverWait(selenium, 10).until(EC.presence_of_element_located((By.ID, 'kc-login')))
+    result_test = WebDriverWait(selenium, 15).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]')))
     if result_test:
         selenium.save_screenshot(f'{time_file}result_personal_account_PASSED.png')
     else:
