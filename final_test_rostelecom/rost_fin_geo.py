@@ -13,6 +13,8 @@ del_old_report()
 now = datetime.datetime.now()
 time_file = now.strftime("%y_%m_%d_%H_%M_%S")
 
+"""Тест правильных подсказок в меню изменения геопозиции"""
+
 
 def test_changing_the_geo_position(selenium):
     selenium.set_window_size(1900, 1000)
@@ -33,6 +35,18 @@ def test_changing_the_geo_position(selenium):
     personal_account_link = WebDriverWait(selenium, 10).until(
         EC.presence_of_element_located((By.XPATH, '//*[@id="rt-btn"]')))
     personal_account_link.click()
-    geo_res = WebDriverWait(selenium, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="block-b2cpanellichnykhkabinetoviligeo"]/div[1]/a[1]/i[1]/svg[1]/path[1]')))
+    geo_res = WebDriverWait(selenium, 15).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div/div[1]/header/div[1]/div[1]/div/div[2]/div[5]/div/div/div[2]/div[3]/button[1]')))
     geo_res.click()
-    time.sleep(10)
+    geo_changing = WebDriverWait(selenium, 15).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div/div[1]/header/div[1]/div[3]/div/div[2]/div/div/div/a/span')))
+    geo_changing.click()
+    input_geo = WebDriverWait(selenium, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="regionSearch"]')))
+    input_geo.clear()
+    input_geo.send_keys('Санкт')
+    result = WebDriverWait(selenium, 20).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div/div[1]/header/div[1]/div[2]/div[2]/div/div/div/div/form/div/div/ul/li[1]/div/span[1]'))).text
+    if result == res_geo:
+        selenium.save_screenshot(f'{time_file}result_changing_the_geo_position_PASSED.png')
+    else:
+        with open('report_FAILED.txt', 'a+') as result:
+            result.write('Тест правильных подсказок в изменении геопозиции провален.\nВремя {}'.format(now))
+            result.close()
+        raise Exception("test changing_the_geo error")
